@@ -10,4 +10,8 @@ public class Ticket{
     public double valor;
     public String chair;
 
+    public Ticket() {
+        
+    }
+
 }

@@ -1,1 +1,7 @@
-package main.java.projCin.projCin;
+package projCin;
+
+public class Room {
+
+    public MovieTime[] movietime;
+
+}

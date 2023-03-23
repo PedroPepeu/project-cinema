@@ -1,4 +1,4 @@
-package main.java.projCin;
+package projCin;
 
 public class User {
     
@@ -12,5 +12,8 @@ public class User {
     public int[] creditCardNum;
     public int creditCardVerify;
 
+    public User() {
+        
+    }
 
 }

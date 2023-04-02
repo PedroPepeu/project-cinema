@@ -1,20 +1,30 @@
 package projCin;
 
+//Para olhar sobre os filmes
+//Movies vai entrar qnd for especificar uma sala
 public class Movie {
 
     private String name;
-    private int seconds;
+    private int minutes;//
+    private String timeInString;
     private String summary; // sinopse
     private double price;
+    
 
     public Movie() {
 
     }
 
-    public Movie(String name, int seconds, String summary, double price) {  //fazendo uma sobrecarga de construtures para ter uma com os parametros e outra sem nenhum parametro
+    public Movie(String name, int minutes, String summary, double price) {  //fazendo uma sobrecarga de construtures para ter uma com os parametros e outra sem nenhum parametro
         this.name = name;
-        this.seconds = seconds;
+        this.minutes = minutes;
         this.summary = summary;
+        this.price = price;
+    }
+
+    public Movie(String timeInString, String name, double price) {  //fazendo outra sobrecarga para colocar na classe Room
+        this.timeInString = timeInString;
+        this.name = name;
         this.price = price;
     }
 
@@ -26,12 +36,20 @@ public class Movie {
         this.name = name;
     }
 
-    public int getSeconds() {
-        return seconds;
+    public int getMinutes() {
+        return minutes;
     }
 
-    public void setSeconds(int seconds) {
-        this.seconds = seconds;
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
+    }
+
+    public String getTimeInString() {
+        return timeInString;
+    }
+
+    public void setTimeInString(String timeInString) {
+        this.timeInString = timeInString;
     }
 
     public String getSummary() {
@@ -50,6 +68,15 @@ public class Movie {
         this.price = price;
     }
 
+    public String toString() {
+        return " "  + timeInString + ", " + name + ", " + price + " ";
+    }
+
+    /*public void catalogScreem(){
+        Movie[][] catalog = new Movie[7][1];
+        Movie[0][0] = new Movie("A Era do Gelo 5", 90, );
+        
+    }*/
     
 
 }

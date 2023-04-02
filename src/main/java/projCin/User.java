@@ -101,4 +101,8 @@ public class User {
         this.creditCardVerify = creditCardVerify;
     }
 
+    public void payment(){
+
+    }
+
 }

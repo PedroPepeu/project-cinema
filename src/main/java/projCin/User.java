@@ -12,6 +12,8 @@ public class User {
     private int[] creditCardNum;
     private int creditCardVerify;
 
+    //Buy spend = new Buy();
+
     public User() {
         
     }
@@ -99,6 +101,10 @@ public class User {
 
     public void setCreditCardVerify(int creditCardVerify) {
         this.creditCardVerify = creditCardVerify;
+    }
+
+    public void payment(){
+
     }
 
 }

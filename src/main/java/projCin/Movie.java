@@ -19,6 +19,11 @@ public class Movie {
         this.summary = summary;
         this.price = price;
     }
+    
+    public Movie(String name, double price) {  //fazendo outra sobrecarga para colocar na classe Room
+        this.name = name;
+        this.price = price;
+    }
 
     public String getName() {
         return name;
@@ -61,6 +66,6 @@ public class Movie {
         
 
     }*/
-    
+
 
 }

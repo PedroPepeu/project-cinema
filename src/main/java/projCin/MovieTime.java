@@ -9,7 +9,7 @@ public class MovieTime {
 
     Random random = new Random();
 
-    public MovieTime(int [][] chairs) {
+    public MovieTime(char[][] vet) {
         this.chairs = new char[10][15];
     }
 
@@ -29,17 +29,19 @@ public class MovieTime {
 
     public void screen(){
         
-        System.out.println("|Exit|-----------------------------|Exit|");
+        System.out.println("|Exit|---------------------------------------------------|Exit|");
         for (int i = 0; i < 10; i++) {
-            System.out.println("---------------------------------------");
+            System.out.println();
             for (int j = 0; j < 15; j++) {
                 double aleat = random.nextInt(2);
                 if(aleat == 1){
-                    chairs[i][j] = '#';                }
-                System.out.println(" [" + chairs[i][j] + "] ");
+                    chairs[i][j] = '#';                
+                }
+                System.out.print(" [" + chairs[i][j] + "] ");
             }
         }
-        System.out.println("||||||||||||||||||Screen||||||||||||||||||");
+        System.out.println();
+        System.out.println("||||||||||||||||||||||||||||||Screen||||||||||||||||||||||||||||||");
     }
     
     public boolean free(int status){

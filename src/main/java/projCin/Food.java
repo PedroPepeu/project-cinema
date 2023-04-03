@@ -4,10 +4,8 @@ import java.util.Scanner;
 
 public class Food {
 
-    
-
     private double total = 0;
-    Scanner s = new Scanner(System.in);
+
 
     public double getTotal() {
         return total;
@@ -18,10 +16,12 @@ public class Food {
     }
 
     public void menu() {
+        Scanner s = new Scanner(System.in);
         System.out.println("\n\n\n\nSelecione o que deseja adicionar ao carrinho: \n" 
         + " 1- Pipoca\n  2- Coca-cola\n  3- Fritas\n  4- Fini\n  5- Chocolate\n  0- Finalizar");
         int button = s.nextInt();
         compra(button); 
+        s.close();
         
     }
 

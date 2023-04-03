@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class MovieTime {
 
-    public char chairs[][];
+    private char chairs[][];
 
     Random random = new Random();
 
@@ -16,8 +16,8 @@ public class MovieTime {
         
     }
 
-    public void screen(){
-        
+    public void screen() {
+
         System.out.println("|Exit|---------------------------------------------------------------|Exit| ");
         for (int i = 0; i < 10; i++) {
             System.out.println();
@@ -35,12 +35,21 @@ public class MovieTime {
         System.out.println("\n||||||||||||||||||||||||||||||     SCREEN    ||||||||||||||||||||||||||||||");
     }
     
-    public boolean free(int status){
+    public boolean free(int status) {
         if(status == 0){
             return false;
         }
         return true;
     }
 
+    public char[][] getChairs() {
+        return chairs;
+    }
+
+    public void setChairs(char[][] chairs) {
+        this.chairs = chairs;
+    }
+
     //classe movietime praticamente feita, falta apenas detalhes
+    
 }

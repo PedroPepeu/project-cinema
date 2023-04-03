@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Food {
     
+    private String[] foodList;
+    private int head;
     private double total = 0;
     Scanner s = new Scanner(System.in);
 
@@ -12,7 +14,8 @@ public class Food {
     }
 
     public Food(){
-
+        this.foodList = new String[5];
+        this.head = -1;
     }
 
     public void menu() {
@@ -21,6 +24,32 @@ public class Food {
         int button = s.nextInt();
         compra(button); 
         
+    }
+
+    public String[] getFoodList() {
+        return foodList; // add switch case
+    }
+
+    public void setFoodList(String[] foodList) {
+        this.foodList = foodList;
+    }
+
+    public void addFoods(String s1) {
+        if(isFull()) expandArr();
+        this.head += 1;
+        this.foodList[this.head] = s1;
+    }
+
+    private void expandArr() {
+        String[] Arr = new String[this.foodList.length + 5];
+        for(int i = 0; i < this.foodList.length; i++) {
+            Arr[i] = this.foodList[i];
+        }
+        setFoodList(Arr);
+    }
+
+    private boolean isFull() {
+        return this.head == this.foodList.length - 1;
     }
 
     public void compra(int select){

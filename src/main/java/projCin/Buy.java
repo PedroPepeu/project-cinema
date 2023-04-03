@@ -17,8 +17,6 @@ public class Buy {
     
     Scanner s = new Scanner(System.in);
 
-    
-
     public Buy(String food, double price, double total, Ticket ticket) {
         this.food = food;
         this.price = price;
@@ -28,7 +26,6 @@ public class Buy {
 
     public Buy() {
 
-        
     }
 
     public double totalPrice() {
@@ -37,7 +34,7 @@ public class Buy {
     }
 
     public String[] itemsBought() {
-        return null;
+        return snack.getFoodList();
         //set variables for all foods and get how many times they were summoned(use counters at food to get it)
         //or just show how manny foods were bought
     }
@@ -49,7 +46,7 @@ public class Buy {
         
         int decision = s.nextInt();
         if(decision == 1){
-            //catalog.
+            //catalog.    mostrar os filmes e liberar o detalhamento de um deles a partir da escolha
         }else if(decision == 2){
             snack.menu();
         }else{

@@ -3,21 +3,21 @@ package projCin;
 public class User {
     
     private String user;
-    private int[] cpf;
-    private int password;
+    private int cpf;
+    private String password;
     private int age;
     private char gender;
     private String email;
     private String creditCardName;
-    private int[] creditCardNum;
+    private String creditCardNum;
     private int creditCardVerify;
 
     public User() {
         
     }
     
-    public User(String user, int[] cpf, int password, int age, char gender, String email, String creditCardName,
-        int[] creditCardNum, int creditCardVerify) {   //fazendo uma sobrecarga de construtures para ter uma com os parametros e outra sem nenhum parametro
+    public User(String user, int cpf, String password, int age, char gender, String email, String creditCardName,
+                String creditCardNum, int creditCardVerify) {   //fazendo uma sobrecarga de construtures para ter uma com os parametros e outra sem nenhum parametro
         this.user = user;
         this.cpf = cpf;
         this.password = password;
@@ -37,19 +37,19 @@ public class User {
         this.user = user;
     }
 
-    public int[] getCpf() {
+    public int getCpf() {
         return cpf;
     }
 
-    public void setCpf(int[] cpf) {
+    public void setCpf(int cpf) {
         this.cpf = cpf;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -85,11 +85,11 @@ public class User {
         this.creditCardName = creditCardName;
     }
 
-    public int[] getCreditCardNum() {
+    public String getCreditCardNum() {
         return creditCardNum;
     }
 
-    public void setCreditCardNum(int[] creditCardNum) {
+    public void setCreditCardNum(String creditCardNum) {
         this.creditCardNum = creditCardNum;
     }
 

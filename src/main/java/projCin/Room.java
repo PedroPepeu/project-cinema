@@ -10,6 +10,8 @@ public class Room {
         this.movie = new Movie[7]; 
     }
 
+    // adicionar sessao invalida
+
     public void sessions(){
 
             movie[0] = new Movie("08:00 - 10:00","Steven Universe", 20);

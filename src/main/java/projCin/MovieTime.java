@@ -34,6 +34,10 @@ public class MovieTime {
         }
         System.out.println("\n||||||||||||||||||||||||||||||     SCREEN    ||||||||||||||||||||||||||||||");
     }
+
+    public void choosenChair() {
+        // mostrar opcoes de cadeira para a escolha selecionada
+    }
     
     public boolean free(int status) {
         if(status == 0){

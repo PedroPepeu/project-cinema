@@ -9,6 +9,12 @@ public class Food {
     private double total;
     Scanner s = new Scanner(System.in);
 
+    public Food() {
+        this.foodList = new String[5];
+        this.head = -1;
+        this.total = 0;
+    }
+
     public double getTotal() {
         System.out.println(this.total);
         System.out.println(this.total == total);
@@ -19,10 +25,12 @@ public class Food {
         this.total = total;
     }
 
-    public Food() {
-        this.foodList = new String[5];
-        this.head = -1;
-        this.total = 0;
+    public String[] getFoodList() {
+        return foodList; // add switch case
+    }
+
+    public void setFoodList(String[] foodList) {
+        this.foodList = foodList;
     }
 
     public void menu() {
@@ -31,14 +39,6 @@ public class Food {
         int button = s.nextInt();
         compra(button);
 
-    }
-
-    public String[] getFoodList() {
-        return foodList; // add switch case
-    }
-
-    public void setFoodList(String[] foodList) {
-        this.foodList = foodList;
     }
 
     public void addFoods(String s1) {

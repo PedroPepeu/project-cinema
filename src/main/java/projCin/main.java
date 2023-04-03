@@ -7,10 +7,15 @@ public class main {
         Room room = new Room();
         char matriz[][] = new char[10][15];
         MovieTime filminho = new MovieTime(matriz);
+        Food comidinha = new Food();
 
         // room.sessions();
 
-        filminho.screen();
+        // filminho.screen();
+        comidinha.menu();
+        // comidinha.getFoodList();
+        comidinha.getTotal();
+
     }
     
 }

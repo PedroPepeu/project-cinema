@@ -29,8 +29,7 @@ public class Buy {
     }
 
     public double totalPrice() {
-        
-        return 0.0;
+        return snack.getTotal() + ticket.getValor();
     }
 
     public String[] itemsBought() {

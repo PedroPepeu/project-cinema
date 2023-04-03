@@ -9,6 +9,12 @@ public class Food {
     private double total;
     Scanner s = new Scanner(System.in);
 
+    public Food() {
+        this.foodList = new String[5];
+        this.head = -1;
+        this.total = 0;
+    }
+
     public double getTotal() {
         System.out.println(this.total);
         System.out.println(this.total == total);
@@ -17,12 +23,6 @@ public class Food {
 
     public void setTotal(double total) {
         this.total = total;
-    }
-
-    public Food() {
-        this.foodList = new String[5];
-        this.head = -1;
-        this.total = 0;
     }
 
     public void menu() {

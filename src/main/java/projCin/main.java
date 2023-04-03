@@ -12,9 +12,9 @@ public class main {
         // room.sessions();
 
         // filminho.screen();
-        comidinha.menu();
+        // comidinha.menu();
         // comidinha.getFoodList();
-        comidinha.getTotal();
+        // comidinha.getTotal();
 
     }
     

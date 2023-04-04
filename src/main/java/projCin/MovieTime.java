@@ -2,54 +2,54 @@ package projCin;
 
 import java.util.Random;
 
-//Sessão fisica do cinema
 public class MovieTime {
 
-    public char chairs[][];
+    private char chairs[][] = new char[10][15];
 
-    Random random = new Random();
+    
 
-    public MovieTime(char[][] vet) {
-        this.chairs = new char[10][15];
-    }
-
+    
     public MovieTime() {
         
     }
-    
 
-    /*public fillingOut(){
+    public void screen(String movieName) {
         
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 15; j++) {
-                random.nextInt(2);
-            }
-        }
-    }*/
+        Random random = new Random();
 
-    public void screen(){
-        
-        System.out.println("|Exit|---------------------------------------------------|Exit|");
+        System.out.println("\n\n" + movieName);
+        System.out.println("|Exit|---------------------------------------------------------------|Exit| ");
         for (int i = 0; i < 10; i++) {
             System.out.println();
             for (int j = 0; j < 15; j++) {
-                double aleat = random.nextInt(2);
+                int aleat = random.nextInt(2);
                 if(aleat == 1){
-                    chairs[i][j] = '#';                
+                    chairs[i][j] = 'X';                
+                } else if(aleat == 0) {
+                    chairs[i][j] = ' ';
                 }
                 System.out.print(" [" + chairs[i][j] + "] ");
             }
+            System.out.println("\t");
         }
-        System.out.println();
-        System.out.println("||||||||||||||||||||||||||||||Screen||||||||||||||||||||||||||||||");
+        System.out.println("\n||||||||||||||||||||||||||||||     SCREEN    ||||||||||||||||||||||||||||||");
     }
     
-    public boolean free(int status){
+    public boolean free(int status) {
         if(status == 0){
             return false;
         }
         return true;
     }
 
+    public char[][] getChairs() {
+        return chairs;
+    }
+
+    public void setChairs(char[][] chairs) {
+        this.chairs = chairs;
+    }
+
+    //classe movietime praticamente feita, falta apenas detalhes
     
 }

@@ -1,3 +1,4 @@
+//apos decidir filme e comida, mas ainda pode cancelar um dos dois
 package projCin;
 
 public class User {

@@ -12,12 +12,10 @@ public class Buy {
 
     MovieTime physicalRoom = new MovieTime();
     Movie catalog = new Movie();
-    Room buyingScreem = new Room();//go firsh to catalog and before to buyingScreem
+    Room buyingScreem = new Room(); //go firsh to catalog and before to buyingScreem
     Food snack = new Food();
     
     Scanner s = new Scanner(System.in);
-
-    
 
     public Buy(String food, double price, double total, Ticket ticket) {
         this.food = food;
@@ -28,34 +26,67 @@ public class Buy {
 
     public Buy() {
 
-        
     }
 
     public double totalPrice() {
-
+        
+        return 0.0;
     }
 
     public String[] itemsBought() {
+        return snack.getFoodList();
         //set variables for all foods and get how many times they were summoned(use counters at food to get it)
         //or just show how manny foods were bought
     }
 
 
-    public void menu() {
+    public void menuGeral() {
         System.out.println("Bem vindo! \nSelecione o que deseja:\n" + 
-        "1- Catalogo de filmes \n2- Lanche");
+        "1- Catalogo de filmes \n2- Lanche\n");
         
         int decision = s.nextInt();
         if(decision == 1){
-            //catalog.
+            buyingScreem.sessions(); //catalog.    mostrar os filmes e liberar o detalhamento de um deles a partir da escolha
         }else if(decision == 2){
             snack.menu();
         }else{
             System.out.println("Opcao invalida. Retornando para o menu.\n");
-            menu();
+            menuGeral();
         }
 
     }
+
+    /*public void choosingOpinton(String decision){
+        switch (decision){
+            case "Steven Universe":
+                physicalRoom.screen(decision);
+
+            case "Os 300 de Esparta":
+                physicalRoom.screen(decision);
+
+            case "Kimetsu no yaiba":
+                physicalRoom.screen(decision);
+                
+            case "Os Incriveis 3":
+                physicalRoom.screen(decision);
+
+            case "Ta Dando Onda 2":
+                physicalRoom.screen(decision);
+
+            case "A voz do silêncio":
+                physicalRoom.screen(decision);
+
+            case "A Era do Gelo 7":
+                physicalRoom.screen(decision);
+
+            case "menu":
+                
+
+
+                
+
+        }
+    }*/
     
     public void confirmation() {
 

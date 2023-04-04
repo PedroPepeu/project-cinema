@@ -69,7 +69,7 @@ public class Movie {
     }
 
     public String toString() {
-        return " "  + timeInString + ", " + name + ", " + price + " ";
+        return " "  + timeInString + ", " + name + ", " + price + " RS";
     }
 
     /*public void catalogScreem(){

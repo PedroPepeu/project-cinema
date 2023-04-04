@@ -9,12 +9,12 @@ public class main {
         MovieTime filminho = new MovieTime(matriz);
         Food comidinha = new Food();
 
-        // room.sessions();
-
+        room.sessions();
+        room.escolherFilme();
         // filminho.screen();
-        comidinha.menu();
+       
         // comidinha.getFoodList();
-        comidinha.getTotal();
+        //comidinha.getTotal();
 
     }
     

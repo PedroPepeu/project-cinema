@@ -29,8 +29,15 @@ public class Buy {
     }
 
     public double totalPrice() {
-        
-        return 0.0;
+        return getTotal();
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 
     public String[] itemsBought() {

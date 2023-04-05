@@ -82,6 +82,8 @@ public class Movie {
     }
 
     public void details(int movieNumber, double numOfPeople){
+
+        Buy buy = new Buy();
         
         Scanner s = new Scanner(System.in);
         String nomeDoFilme;
@@ -102,7 +104,8 @@ public class Movie {
                 
                 
                 System.out.println("Total: R$ " + (getPrice() * numOfPeople));
-                mt.screen(nomeDoFilme);
+                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople));
+                mt.screen(nomeDoFilme, numOfPeople);
                 break;
                 
                 
@@ -121,8 +124,8 @@ public class Movie {
                 
             
                 System.out.println("Total: R$ " + (getPrice() * numOfPeople));
-                
-                mt.screen(nomeDoFilme);
+                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople));
+                mt.screen(nomeDoFilme, numOfPeople);
                 break;
 
                 
@@ -139,8 +142,8 @@ public class Movie {
                 
             
                 System.out.println("Total: R$ " + (getPrice() * numOfPeople));
-                
-                mt.screen(nomeDoFilme);
+                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople));
+                mt.screen(nomeDoFilme, numOfPeople);
                 break;
                 
                 
@@ -159,8 +162,8 @@ public class Movie {
                 
             
                 System.out.println("Total: R$ " + (getPrice() * numOfPeople));
-                
-                mt.screen(nomeDoFilme);
+                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople));
+                mt.screen(nomeDoFilme, numOfPeople);
                 break;
                 
                 
@@ -178,8 +181,8 @@ public class Movie {
                 
             
                 System.out.println("Total: R$ " + (getPrice() * numOfPeople));
-                
-                mt.screen(nomeDoFilme);
+                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople));
+                mt.screen(nomeDoFilme, numOfPeople);
                 break;
                 
 
@@ -197,8 +200,8 @@ public class Movie {
                 
             
                 System.out.println("Total: R$ " + (getPrice() * numOfPeople));
-            
-                mt.screen(nomeDoFilme);
+                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople));
+                mt.screen(nomeDoFilme, numOfPeople);
                 break;
                 
 
@@ -216,8 +219,8 @@ public class Movie {
                 
             
                 System.out.println("Total: R$ " + (getPrice() * numOfPeople));
-                
-                mt.screen(nomeDoFilme);
+                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople));
+                mt.screen(nomeDoFilme, numOfPeople);
                 break;
                 
 

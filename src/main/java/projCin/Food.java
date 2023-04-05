@@ -7,19 +7,6 @@ public class Food {
     private String[] foodList;
     private int head;
     private double total;
-    
-
-    
-
-    public double getTotal() {
-        System.out.println(this.total);
-        System.out.println(this.total == total);
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
 
     public Food() {
         this.foodList = new String[5];
@@ -43,6 +30,24 @@ public class Food {
 
     public void setFoodList(String[] foodList) {
         this.foodList = foodList;
+    }
+
+    public double getTotal() {
+        System.out.println(this.total);
+        System.out.println(this.total == total);
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public int getHead() {
+        return head;
+    }
+
+    public void setHead(int head) {
+        this.head = head;
     }
 
     public void addFoods(String s1) {
@@ -163,10 +168,8 @@ public class Food {
                     System.out.println("Valor invalido.");
                     keep = 0;
                     menu();
-
             }
         }
-
         s.close();
     }
 

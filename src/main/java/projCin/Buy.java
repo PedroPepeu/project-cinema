@@ -60,13 +60,21 @@ public class Buy {
         switch (decision){
             case "Steven Universe":
                 physicalRoom.screen(decision);
+<<<<<<< HEAD
             case "Os 300 de Esparta":
                 physicalRoom.screen(decision);
+=======
+
+            case "Os 300 de Esparta":
+                physicalRoom.screen(decision);
+
+>>>>>>> 4f788d66add7b66d775d11a0b65c6a3db0cfde50
             case "Kimetsu no yaiba":
                 physicalRoom.screen(decision);
                 
             case "Os Incriveis 3":
                 physicalRoom.screen(decision);
+<<<<<<< HEAD
             case "Ta Dando Onda 2":
                 physicalRoom.screen(decision);
             case "A voz do silêncio":
@@ -76,6 +84,24 @@ public class Buy {
             case "menu":
                 
                 
+=======
+
+            case "Ta Dando Onda 2":
+                physicalRoom.screen(decision);
+
+            case "A voz do silêncio":
+                physicalRoom.screen(decision);
+
+            case "A Era do Gelo 7":
+                physicalRoom.screen(decision);
+
+            case "menu":
+                
+
+
+                
+
+>>>>>>> 4f788d66add7b66d775d11a0b65c6a3db0cfde50
         }
     }*/
     

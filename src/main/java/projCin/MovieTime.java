@@ -19,6 +19,8 @@ public class MovieTime {
         
         Random random = new Random();
 
+        int avaliableChairs = 0;
+
         System.out.println("\n\n" + movieName);
         System.out.println("|Exit|---------------------------------------------------------------|Exit| ");
         for (int i = 0; i < 10; i++) {
@@ -31,6 +33,7 @@ public class MovieTime {
                 } else if(aleat == 0) {
                     chairs[i][j] = ' ';
                     isOcupied[i][j] = false;
+                    avaliableChairs++;
                 }
                 System.out.print(" [" + chairs[i][j] + "] ");
             }
@@ -38,21 +41,25 @@ public class MovieTime {
         }
         System.out.println("\n||||||||||||||||||||||||||||||     SCREEN    ||||||||||||||||||||||||||||||");
 
-        chairsOptions(tick);
+        if(avaliableChairs / tick > 1) {
+            chairsOptions(tick);
+        } else {
+            System.out.println("Lotado");
+        }
     }
     
     public void chairsOptions(double tickets) {
         System.out.println("Escolha os assentos disponiveis: ");
         int counter = 0;
-        for(int j = 0; j < 15; j++) {
-            for(int i = 9; i >= 0; i--) {
-                if(isOcupied[i][j]) {
+        for(int j = 0; j < 10; j++) {
+            for(int i = 0; i < 15; i++) {
+                if(isOcupied[j][i]) {
                     counter = 0;
                     continue;
                 } else {
                     counter++;
                     if(counter == tickets) {
-                        System.out.printf("linha: %d coluna : %d\n", i + 1, j + 1);
+                        System.out.printf("Coluna: %d Linha: %d\n", i + 2 - counter, j + 1);
                         counter = 0;
                     }
                 }
@@ -66,11 +73,11 @@ public class MovieTime {
 
     public void escolha() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("linha: ");
-        int line = sc.nextInt();
         System.out.println("Coluna: ");
+        int line = sc.nextInt();
+        System.out.println("Linha: ");
         int column = sc.nextInt();
-        if(isOcupied[line][column]) {
+        if(isOcupied[column - 1][line - 1]) {
             escolha();
         } else {
             // salvar lugares

@@ -12,29 +12,29 @@ public class Movie {
     private String summary; // sinopse
     private double price = 20.00;
 
-    Room room = new Room();
     MovieTime mt = new MovieTime();
-    
+    Room room = new Room();
 
     public Movie() {
 
     }
+    
     public Movie(String name){
         this.name = name;
 
     }
 
-    public Movie(String name, int minutes, String summary, double price) {  //fazendo uma sobrecarga de construtures para ter uma com os parametros e outra sem nenhum parametro
-        this.name = name;
-        this.minutes = minutes;
-        this.summary = summary;
-        this.price = price;
+    public Room getRoom() {
+        return room;
     }
-
-    public Movie(String timeInString, String name, double price) {  //fazendo outra sobrecarga para colocar na classe Room
-        this.timeInString = timeInString;
-        this.name = name;
-        this.price = price;
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+    public MovieTime getMt() {
+        return mt;
+    }
+    public void setMt(MovieTime mt) {
+        this.mt = mt;
     }
 
     public String getName() {
@@ -74,6 +74,19 @@ public class Movie {
     }
 
     public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public Movie(String name, int minutes, String summary, double price) {  //fazendo uma sobrecarga de construtures para ter uma com os parametros e outra sem nenhum parametro
+        this.name = name;
+        this.minutes = minutes;
+        this.summary = summary;
+        this.price = price;
+    }
+
+    public Movie(String timeInString, String name, double price) {  //fazendo outra sobrecarga para colocar na classe Room
+        this.timeInString = timeInString;
+        this.name = name;
         this.price = price;
     }
 
@@ -227,9 +240,7 @@ public class Movie {
                 
             case 0: 
                 room.sessions();
-                break;
-
-            
+                break;     
 
         }
         s.close();

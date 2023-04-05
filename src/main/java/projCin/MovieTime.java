@@ -8,11 +8,24 @@ public class MovieTime {
     private char chairs[][] = new char[10][15];
     private boolean isOcupied[][] = new boolean[10][15];
 
-    
-
-    
     public MovieTime() {
         
+    }
+
+    public char[][] getChairs() {
+        return chairs;
+    }
+
+    public void setChairs(char[][] chairs) {
+        this.chairs = chairs;
+    }
+
+    public boolean[][] getIsOcupied() {
+        return isOcupied;
+    }
+
+    public void setIsOcupied(boolean[][] isOcupied) {
+        this.isOcupied = isOcupied;
     }
 
     public void screen(String movieName, double tick) {
@@ -50,6 +63,7 @@ public class MovieTime {
     
     public void chairsOptions(double tickets) {
         System.out.println("Escolha os assentos disponiveis: ");
+        boolean avaliable = false;
         int counter = 0;
         for(int j = 0; j < 10; j++) {
             for(int i = 0; i < 15; i++) {
@@ -61,12 +75,17 @@ public class MovieTime {
                     if(counter == tickets) {
                         System.out.printf("Coluna: %d Linha: %d\n", i + 2 - counter, j + 1);
                         counter = 0;
+                        avaliable = true;
                     }
                 }
             }
             counter = 0;
         }
-        escolha();
+        if(avaliable) {
+            escolha();
+        } else {
+            System.out.println("Nao disponivel para este numero de tickets");
+        }
         // terminou de escolher a cadeira
 
     }
@@ -74,10 +93,10 @@ public class MovieTime {
     public void escolha() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Coluna: ");
-        int line = sc.nextInt();
-        System.out.println("Linha: ");
         int column = sc.nextInt();
-        if(isOcupied[column - 1][line - 1]) {
+        System.out.println("Linha: ");
+        int line = sc.nextInt();
+        if(isOcupied[line -1][column - 1]) {
             escolha();
         } else {
             // salvar lugares
@@ -90,14 +109,6 @@ public class MovieTime {
             return false;
         }
         return true;
-    }
-
-    public char[][] getChairs() {
-        return chairs;
-    }
-
-    public void setChairs(char[][] chairs) {
-        this.chairs = chairs;
     }
 
     //classe movietime praticamente feita, falta apenas detalhes

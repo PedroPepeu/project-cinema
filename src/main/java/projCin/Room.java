@@ -15,11 +15,33 @@ public class Room {
     private Movie [] movie;
 
     MovieTime horaDoFilme = new MovieTime();
-    
-    
 
     public Room() { 
         this.movie = new Movie[7]; 
+    }
+
+    public MovieTime[] getMovietime() {
+        return movietime;
+    }
+
+    public void setMovietime(MovieTime[] movietime) {
+        this.movietime = movietime;
+    }
+
+    public Movie[] getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie[] movie) {
+        this.movie = movie;
+    }
+
+    public MovieTime getHoraDoFilme() {
+        return horaDoFilme;
+    }
+
+    public void setHoraDoFilme(MovieTime horaDoFilme) {
+        this.horaDoFilme = horaDoFilme;
     }
 
     public void sessions(){
@@ -62,9 +84,5 @@ public class Room {
         }
 
     }
-
-
-
-
 
 }

@@ -52,15 +52,13 @@ public class Room {
             System.out.println("invalido");
             sessions();
         }else{
+            System.out.println("Filme: " + movie[chose - 1].getName());
 
-        
-        System.out.println("Filme: " + movie[chose - 1].getName());
+            System.out.println("Quantidade de ingressos: ");
+            int quant = s.nextInt();
+            selectMovie.details(chose, quant);
 
-        System.out.println("Quantidade de ingressos: ");
-        int quant = s.nextInt();
-        selectMovie.details(chose, quant);
-
-        s.close();
+            s.close();
         }
 
     }

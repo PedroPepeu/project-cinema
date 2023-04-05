@@ -7,13 +7,9 @@ public class Food {
     private String[] foodList;
     private int head;
     private double total;
-    Scanner s = new Scanner(System.in);
+    
 
-    public Food() {
-        this.foodList = new String[5];
-        this.head = -1;
-        this.total = 0;
-    }
+    
 
     public double getTotal() {
         System.out.println(this.total);
@@ -25,20 +21,28 @@ public class Food {
         this.total = total;
     }
 
+    public Food() {
+        this.foodList = new String[5];
+        this.head = -1;
+        this.total = 0;
+    }
+
+    public void menu() {
+        Scanner s = new Scanner(System.in);
+        System.out.println("\n\n\n\nSelecione o que deseja adicionar ao carrinho: \n"
+                + " 1- Pipoca\n  2- Coca-cola\n  3- Fritas\n  4- Fini\n  5- Chocolate\n  0- Finalizar");
+        int button = s.nextInt();
+        compra(button);
+        s.close();
+
+    }
+
     public String[] getFoodList() {
         return foodList; // add switch case
     }
 
     public void setFoodList(String[] foodList) {
         this.foodList = foodList;
-    }
-
-    public void menu() {
-        System.out.println("\n\n\n\nSelecione o que deseja adicionar ao carrinho: \n"
-                + " 1- Pipoca\n  2- Coca-cola\n  3- Fritas\n  4- Fini\n  5- Chocolate\n  0- Finalizar");
-        int button = s.nextInt();
-        compra(button);
-
     }
 
     public void addFoods(String s1) {
@@ -62,6 +66,7 @@ public class Food {
 
     public void compra(int select) {
         Scanner s = new Scanner(System.in);
+        Buy buying = new Buy();
 
         int keep = 1;
         while (keep == 1) {
@@ -151,12 +156,13 @@ public class Food {
 
                 case 0:
                     keep = 0;
-                    break;
+                    buying.menuGeral();
+                    
 
                 default:
                     System.out.println("Valor invalido.");
-                    keep = -1;
-                    break;
+                    keep = 0;
+                    menu();
 
             }
         }

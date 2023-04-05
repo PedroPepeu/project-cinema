@@ -4,25 +4,25 @@ import java.util.Random;
 
 public class MovieTime {
 
-    private char chairs[][];
+    private char chairs[][] = new char[10][15];
 
-    Random random = new Random();
+    
 
-    public MovieTime(char [][] chairs) {
-        this.chairs = new char[10][15];
-    }
-
+    
     public MovieTime() {
         
     }
 
-    public void screen() {
+    public void screen(String movieName) {
+        
+        Random random = new Random();
 
+        System.out.println("\n\n" + movieName);
         System.out.println("|Exit|---------------------------------------------------------------|Exit| ");
         for (int i = 0; i < 10; i++) {
             System.out.println();
             for (int j = 0; j < 15; j++) {
-                double aleat = random.nextInt(2);
+                int aleat = random.nextInt(2);
                 if(aleat == 1){
                     chairs[i][j] = 'X';                
                 } else if(aleat == 0) {

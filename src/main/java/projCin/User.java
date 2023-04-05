@@ -1,3 +1,4 @@
+//apos decidir filme e comida, mas ainda pode cancelar um dos dois
 package projCin;
 
 public class User {
@@ -11,6 +12,8 @@ public class User {
     private String creditCardName;
     private int[] creditCardNum;
     private int creditCardVerify;
+
+    //Buy spend = new Buy();
 
     public User() {
         

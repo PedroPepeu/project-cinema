@@ -16,12 +16,14 @@ public class Room {
 
     MovieTime horaDoFilme = new MovieTime();
     
+    
 
     public Room() { 
         this.movie = new Movie[7]; 
     }
 
     public void sessions(){
+        Buy buy = new Buy();
         Scanner s = new Scanner(System.in);
         Movie selectMovie = new Movie();
         
@@ -43,6 +45,15 @@ public class Room {
 
         System.out.println("\nQual o numero do filme deseja comprar o ingresso(de 1 a 7) \n(Para voltar ao menu digite: 0)");
         int chose = s.nextInt();
+        if(chose == 0){
+            buy.menuGeral();
+        }
+        if(chose < 0 || chose > 7){
+            System.out.println("invalido");
+            sessions();
+        }else{
+
+        
         System.out.println("Filme: " + movie[chose - 1].getName());
 
         System.out.println("Quantidade de ingressos: ");
@@ -50,6 +61,7 @@ public class Room {
         selectMovie.details(chose, quant);
 
         s.close();
+        }
 
     }
 

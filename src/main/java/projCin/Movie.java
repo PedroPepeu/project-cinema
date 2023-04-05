@@ -225,6 +225,9 @@ public class Movie {
             case 0: 
                 room.sessions();
                 break;
+
+            
+
         }
         s.close();
     }

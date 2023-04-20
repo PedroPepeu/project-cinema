@@ -28,9 +28,80 @@ public class Buy {
 
     }
 
+    public String getFood() {
+        return food;
+    }
+
+    public void setFood(String food) {
+        this.food = food;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
+
+    public MovieTime getPhysicalRoom() {
+        return physicalRoom;
+    }
+
+    public void setPhysicalRoom(MovieTime physicalRoom) {
+        this.physicalRoom = physicalRoom;
+    }
+
+    public Movie getCatalog() {
+        return catalog;
+    }
+
+    public void setCatalog(Movie catalog) {
+        this.catalog = catalog;
+    }
+
+    public Room getBuyingScreem() {
+        return buyingScreem;
+    }
+
+    public void setBuyingScreem(Room buyingScreem) {
+        this.buyingScreem = buyingScreem;
+    }
+
+    public Food getSnack() {
+        return snack;
+    }
+
+    public void setSnack(Food snack) {
+        this.snack = snack;
+    }
+
+    public Scanner getS() {
+        return s;
+    }
+
+    public void setS(Scanner s) {
+        this.s = s;
+    }
+
     public double totalPrice() {
-        
-        return 0.0;
+        return getTotal();
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 
     public String[] itemsBought() {
@@ -47,6 +118,7 @@ public class Buy {
         int decision = s.nextInt();
         if(decision == 1){
             buyingScreem.sessions(); //catalog.    mostrar os filmes e liberar o detalhamento de um deles a partir da escolha
+            System.out.println("Ingresso Comprado");
         }else if(decision == 2){
             snack.menu();
         }else{
@@ -56,29 +128,6 @@ public class Buy {
 
     }
 
-    /*public void choosingOpinton(String decision){
-        switch (decision){
-            case "Steven Universe":
-                physicalRoom.screen(decision);
-            case "Os 300 de Esparta":
-                physicalRoom.screen(decision);
-            case "Kimetsu no yaiba":
-                physicalRoom.screen(decision);
-                
-            case "Os Incriveis 3":
-                physicalRoom.screen(decision);
-            case "Ta Dando Onda 2":
-                physicalRoom.screen(decision);
-            case "A voz do silêncio":
-                physicalRoom.screen(decision);
-            case "A Era do Gelo 7":
-                physicalRoom.screen(decision);
-            case "menu":
-                
-                
-        }
-    }*/
-    
     public void confirmation() {
 
     }

@@ -11,6 +11,8 @@ public class Movie {
     private String timeInString;
     private String summary; // sinopse
     private double price = 20.00;
+    private double nota;
+    private int critical_quantity;
 
     MovieTime mt = new MovieTime();
     Room room = new Room();
@@ -21,7 +23,22 @@ public class Movie {
     
     public Movie(String name){
         this.name = name;
+    }
 
+    public double getNota() {
+        return nota;
+    }
+
+    public void setNota(double nota) {
+        this.nota = nota;
+    }
+
+    public int getCritical_quantity() {
+        return critical_quantity;
+    }
+
+    public void setCritical_quantity(int critical_quantity) {
+        this.critical_quantity = critical_quantity;
     }
 
     public Room getRoom() {

@@ -11,6 +11,11 @@ public class Movie {
     private String timeInString;
     private String summary; // sinopse
     private double price = 20.00;
+    private Review[] review = new Review[100]; // atributo que o prof pediu para criar
+    private int quantidadeDeCritidos;
+    private int posiçãoReview = 100;
+    private double media;
+
 
     MovieTime mt = new MovieTime();
     Room room = new Room();
@@ -76,6 +81,39 @@ public class Movie {
     public void setPrice(double price) {
         this.price = price;
     }
+    
+    public Review[] getReview() {
+        return review;
+    }
+
+    public void setReview(Review[] review) {
+        this.review = review;
+    }
+    
+      public int getQuantidadeDeCritidos() {
+        return quantidadeDeCritidos;
+    }
+
+    public void setQuantidadeDeCritidos(int quantidadeDeCritidos) {
+        this.quantidadeDeCritidos = quantidadeDeCritidos;
+    }
+    
+    public int getPosiçãoReview() {
+        return posiçãoReview;
+    }
+
+    public void setPosiçãoReview(int posiçãoReview) {
+        this.posiçãoReview = posiçãoReview;
+    }
+
+    public double getMedia() {
+        return media;
+    }
+
+    public void setMedia(double media) {
+        this.media = media;
+    }
+    
 
     public Movie(String name, int minutes, String summary, double price) {  //fazendo uma sobrecarga de construtures para ter uma com os parametros e outra sem nenhum parametro
         this.name = name;
@@ -246,5 +284,4 @@ public class Movie {
         s.close();
     }
     
-
 }

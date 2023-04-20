@@ -1,6 +1,5 @@
 package projCin;
 
-<<<<<<< HEAD
 public enum EnumProducts {
     PIPOCAP ("Pipoca Pequena", 7.00),
     PIPOCAM ("Pipoca Media", 8.00),
@@ -30,15 +29,3 @@ public enum EnumProducts {
     }
 
 }
-=======
-public class enum {
-    PIPOCAP ("Pipoca Pequena", ),
-    PIPOCAM ("Pipoca Media", ),
-    PIPOCAG ("Pipoca Grande", ),
-    CHOCOLATE ("Chocolate", ),
-    FINI ("Fini", ),
-    COCACOLA ("Coca-Cola", ),
-    FRITAS ("Fritas", );
-
-}
->>>>>>> 0f8865a55b9aa0e5e73064c955e161d64326c1af

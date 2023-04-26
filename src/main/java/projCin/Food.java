@@ -69,9 +69,16 @@ public class Food {
         return this.head == this.foodList.length - 1;
     }
 
+    public void compra(int select, EnumPromotionalCoupon ticket){
+        // somar todos os produtos na variavel soma
+        
+        double soma = soma * (1 - ticket.getDesconto());
+
+    }
+
     public void compra(int select) {
         Scanner s = new Scanner(System.in);
-        Buy buying = new Buy();
+        //Buy buying = new Buy();
 
         int keep = 1;
         while (keep == 1) {

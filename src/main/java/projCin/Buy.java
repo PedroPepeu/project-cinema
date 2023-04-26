@@ -24,6 +24,10 @@ public class Buy {
         this.ticket = ticket;
     }
 
+    public Buy(){
+        
+    }
+
     public Buy(String food, double price, double total) {
         this.food = food;
         this.price = price;
@@ -31,9 +35,14 @@ public class Buy {
     }
 
 
-    public Buy() {
+      public Buy(String food, double price, double total, Ticket ticket, EnumPromotionalCoupon cupomPromocional) {
+        this.food = food;
+        this.price = price;
+        this.total = total;
+        this.ticket = ticket;
+        
     }
-
+    
     public String getFood() {
         return food;
     }

@@ -101,7 +101,7 @@ public class Movie {
         return media;
     }
 
-    public void setedia(double media) {
+    public void setMedia(double media) {
         this.media = media;
     }
     

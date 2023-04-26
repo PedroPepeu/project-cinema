@@ -28,4 +28,8 @@ public enum EnumProducts {
         return this.price;
     }
 
+    public String toString() {
+        return "R$ " + String.valueOf(this.price); 
+    }
+
 }

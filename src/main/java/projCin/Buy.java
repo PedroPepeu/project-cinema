@@ -31,6 +31,10 @@ public class Buy {
         this.ticket = ticket;
         
     }
+
+     public Buy() {
+        
+     }
     
     public String getFood() {
         return food;

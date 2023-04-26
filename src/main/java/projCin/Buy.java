@@ -17,6 +17,10 @@ public class Buy {
     
     Scanner s = new Scanner(System.in);
 
+    public Buy() {
+
+    }
+
     public Buy(String food, double price, double total, Ticket ticket) {
         this.food = food;
         this.price = price;
@@ -114,6 +118,21 @@ public class Buy {
         //or just show how manny foods were bought
     }
 
+    public String menuOptions() {
+        return "Bem vindo! \nSelecione o que deseja:\n" + "1- Catalogo de filmes \n2- Lanche\n";
+    }
+
+    public void menuChoice(int decision) {
+        if(decision == 1){
+            buyingScreem.sessions(); //catalog.    mostrar os filmes e liberar o detalhamento de um deles a partir da escolha
+            System.out.println("Ingresso Comprado");
+        }else if(decision == 2){
+            snack.menu();
+        }else{
+            System.out.println("Opcao invalida. Retornando para o menu.\n");
+            menuGeral();
+        }
+    }
 
     public void menuGeral() {
         System.out.println("Bem vindo! \nSelecione o que deseja:\n" + 

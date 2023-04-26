@@ -17,15 +17,21 @@ public class Buy {
     
     Scanner s = new Scanner(System.in);
 
-    public Buy(String food, double price, double total, Ticket ticket) {
-        this.food = food;
+    public Buy( double price, double total, Ticket ticket) {
+        
         this.price = price;
         this.total = total;
         this.ticket = ticket;
     }
 
-    public Buy() {
+    public Buy(String food, double price, double total) {
+        this.food = food;
+        this.price = price;
+        this.total = total;
+    }
 
+
+    public Buy() {
     }
 
     public String getFood() {
@@ -110,7 +116,7 @@ public class Buy {
         //or just show how manny foods were bought
     }
 
-
+//sep compra de produtos e bilhetes
     public void menuGeral() {
         System.out.println("Bem vindo! \nSelecione o que deseja:\n" + 
         "1- Catalogo de filmes \n2- Lanche\n");

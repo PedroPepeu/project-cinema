@@ -4,7 +4,6 @@ public class Review {
     private String nome;
     private String origem;
     private String ComentarioCritico;
-    private double notas;
 
     public Review(String nome, String origem, String comentarioCritico) {
         this.nome = nome;
@@ -13,7 +12,7 @@ public class Review {
     }
 
     public Review() {
-    
+        
     }
 
     public String getNome() {
@@ -40,31 +39,24 @@ public class Review {
         ComentarioCritico = comentarioCritico;
     }
 
-    public double getNotas() {
-        return notas;
-    }
-
-    public void setNotas(double notas) {
-        this.notas = notas;
-    }
-    
     public void atribuirNota(double notaDada, Movie filme) {
-        
-        filme.setQuantidadeDeCritidos(filme.getQuantidadeDeCritidos() + 1);
 
-        setNotas(getNotas() + notaDada);
         
-        filme.setMedia(notas / filme.getQuantidadeDeCritidos());
 
-      
+        filme.setMedia(notaDada / filme.getQuantCrit());
+        
+        //while(filme.review)
+        for (int i = filme.getQuantCrit(); i <= 0; i--) {
+            filme.getReview();
+            filme.setReview(null);
+        }
+
+
+
     }
 
-    public void atribuirCritica(String critica, Movie filme) {
-        Critical novaCritica = new Critical();
+    public void atribuirCritica() {
 
-        filme.setPosiçãoReview(filme.getPosiçãoReview() - 1);
-        
-        //filme.getReview()[filme.getPosiçãoReview()] = novaCritica... falta terminar o critica
     }
-    
+
 }

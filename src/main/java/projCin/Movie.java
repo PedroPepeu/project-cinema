@@ -12,8 +12,7 @@ public class Movie {
     private String summary; // sinopse
     private double price = 20.00;
     private Review[] review = new Review[100]; // atributo que o prof pediu para criar
-    private int quantidadeDeCritidos;
-    private int posiçãoReview = 100;
+    private int quantCrit; 
     private double media;
 
 
@@ -81,7 +80,7 @@ public class Movie {
     public void setPrice(double price) {
         this.price = price;
     }
-    
+
     public Review[] getReview() {
         return review;
     }
@@ -89,28 +88,20 @@ public class Movie {
     public void setReview(Review[] review) {
         this.review = review;
     }
-    
-      public int getQuantidadeDeCritidos() {
-        return quantidadeDeCritidos;
+
+    public int getQuantCrit() {
+        return quantCrit;
     }
 
-    public void setQuantidadeDeCritidos(int quantidadeDeCritidos) {
-        this.quantidadeDeCritidos = quantidadeDeCritidos;
-    }
-    
-    public int getPosiçãoReview() {
-        return posiçãoReview;
-    }
-
-    public void setPosiçãoReview(int posiçãoReview) {
-        this.posiçãoReview = posiçãoReview;
+    public void setQuantCrit(int quantCrit) {
+        this.quantCrit = quantCrit;
     }
 
     public double getMedia() {
         return media;
     }
 
-    public void setMedia(double media) {
+    public void setedia(double media) {
         this.media = media;
     }
     
@@ -283,5 +274,7 @@ public class Movie {
         }
         s.close();
     }
+
     
+
 }

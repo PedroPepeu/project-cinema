@@ -7,11 +7,13 @@ public class Food {
     private String[] foodList;
     private int head;
     private double total;
+    private double soma;
 
     public Food() {
         this.foodList = new String[5];
         this.head = -1;
         this.total = 0;
+        this.soma = 0;
     }
 
     public void menu() {
@@ -69,11 +71,8 @@ public class Food {
         return this.head == this.foodList.length - 1;
     }
 
-    public void compra(int select, EnumPromotionalCoupon ticket){
-        // somar todos os produtos na variavel soma
-        
-        double soma = soma * (1 - ticket.getDesconto());
-
+    public void compra(int value, EnumPromotionalCoupon ticket){
+        this.soma += value * (1 - ticket.getDesconto());
     }
 
     public void compra(int select) {

@@ -1,6 +1,8 @@
 package projCin;
 
+
 public enum EnumRooms {
+    
     SALA_COMUM("Sala comum", 1.0),
     SALA_3D("Sala 3D",1.2),
     SALA_XD("Sala XD",1.3),
@@ -12,6 +14,9 @@ public enum EnumRooms {
     private EnumRooms(String salas, double multiplicadorDasSalas) {
         this.salas = salas;
         this.multiplicadorDasSalas = multiplicadorDasSalas;
+    }
+    private EnumRooms(){
+        
     }
 
     public String getSalas() {

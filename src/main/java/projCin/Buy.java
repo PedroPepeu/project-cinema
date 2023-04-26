@@ -118,8 +118,8 @@ public class Buy {
         //or just show how manny foods were bought
     }
 
-    public String menuOptions() {
-        return "Bem vindo! \nSelecione o que deseja:\n" + "1- Catalogo de filmes \n2- Lanche\n";
+    public void menuOptions() {
+        System.out.printf("Bem vindo! \nSelecione o que deseja:\n" + "1- Catalogo de filmes \n2- Lanche\n");
     }
 
     public void menuChoice(int decision) {

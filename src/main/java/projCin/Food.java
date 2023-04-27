@@ -71,7 +71,7 @@ public class Food {
         return this.head == this.foodList.length - 1;
     }
 
-    public void somaDosValoresNoTotal(int value, EnumPromotionalCoupon ticket){
+    public void compra(int value, EnumPromotionalCoupon ticket){
         this.somaTotalDosValores += value * (1 - ticket.getDesconto());
     }
 

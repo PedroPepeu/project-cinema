@@ -103,8 +103,16 @@ public class Room {
         }
     }
 
-    public void decisaoDoFilme() {
+    public void movieChoice() {
         System.out.println("\nQual o numero do filme deseja comprar o ingresso(de 1 a 7) \n(Para voltar ao menu digite: 0)");
+    }
+
+    public void movieSelection(int choice) {
+        System.out.println("Filme: " + movie[choice - 1].getName());
+    }
+
+    public void ticketsQuantity() {
+        System.out.println("Quantidade de ingressos: ");
     }
 
 }

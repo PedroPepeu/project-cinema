@@ -2,6 +2,8 @@ package projCin;
 
 import java.util.Scanner;
 
+import javax.tools.ForwardingFileObject;
+
 public class main {
 
     public static void main(String[] args) {
@@ -40,6 +42,8 @@ public class main {
         Scanner sc = new Scanner(System.in);
         Buy menuCompras = new Buy();
         Room menuSalas = new Room();
+        Movie movie = new Movie();
+        MovieTime mt = new MovieTime();
 
         options();
         
@@ -80,13 +84,16 @@ public class main {
             case 1:
             // usuario normal
                 User user = new User(username, cpf, password, age, gender, email, creditCardName, creditCardNum, creditCardVerify);
-            case 2:
+                break;
+                case 2:
             // usuario estudante
                 Student student = new Student(username, cpf, password, age, gender, email, creditCardName, creditCardNum, creditCardVerify, true);
-            case 3:
+                break;
+                case 3:
             // usuario critico
                 String origin = sc.nextLine();
                 Critical critical = new Critical(username, cpf, password, age, gender, email, creditCardName, creditCardNum, creditCardVerify, origin);
+                break;    
         }
 
         menuCompras.menuOptions();
@@ -96,8 +103,27 @@ public class main {
             case 1:
             // decidiu comprar ingressos
                 menuSalas.amostraDeFilmes();
-                
+                menuSalas.movieChoice();
+                decision = sc.nextInt();
+                if(decision == 0){
+                    main(args);
+                } else {
+                    menuSalas.movieSelection(decision);
+                    menuSalas.ticketsQuantity();
+                    int numOfPeople = sc.nextInt();
+                    movie.choosenMovie(decision);
+
+                    System.out.println("Total: R$ " + (movie.getPrice() * numOfPeople));
+                    
+                    menuCompras.setTotal(menuCompras.getTotal() + (movie.getPrice() * numOfPeople));
+                    mt.screen(movie.movieName(decision), numOfPeople);
+                    //screen
+                }
+                break;
             case 2:
+            // decidiu comprar comida
+                
+                break;
         }
 
         menuCompras.menuChoice(decision);

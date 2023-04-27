@@ -6,30 +6,30 @@ import javax.tools.ForwardingFileObject;
 
 public class main {
 
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+    // public static void main(String[] args) {
+    //     Scanner input = new Scanner(System.in);
         
-        double nota;
+    //     double nota;
     
-        Buy compra = new Buy();
+    //     Buy compra = new Buy();
 
-        Movie movie = new Movie();
+    //     Movie movie = new Movie();
 
-        compra.menuGeral();
+    //     compra.menuGeral();
 
-        Review review = new Review();
+    //     Review review = new Review();
 
-        do {
+    //     do {
 
-            nota = input.nextDouble();
+    //         nota = input.nextDouble();
 
-            review.atribuirNota(nota, movie);
+    //         review.atribuirNota(nota, movie);
 
             
-        } while(true);
+    //     } while(true);
 
         
-    }
+    // }
 
     public static String options() {
         return "Digite: 1 se Normal\n" +

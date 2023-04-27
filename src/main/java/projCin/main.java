@@ -44,6 +44,7 @@ public class main {
         Room menuSalas = new Room();
         Movie movie = new Movie();
         MovieTime mt = new MovieTime();
+        Food menuComida = new Food();
 
         options();
         
@@ -142,7 +143,9 @@ public class main {
                 break;
             case 2:
             // decidiu comprar comida
-                
+                menuComida.menuPresentation();
+                int foodChoice = sc.nextInt();
+                menuComida.compra(foodChoice);
                 break;
         }
 

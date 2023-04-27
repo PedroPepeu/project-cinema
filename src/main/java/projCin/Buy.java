@@ -119,7 +119,7 @@ public class Buy {
     }
 
     public void menuOptions() {
-        System.out.printf("Bem vindo! \nSelecione o que deseja:\n" + "1- Catalogo de filmes \n2- Lanche\n");
+        System.out.printf("Bem vindo!\nSelecione o que deseja:\n" + "1- Catalogo de filmes \n2- Lanche\n");
     }
 
     public void menuChoice(int decision) {

@@ -116,8 +116,28 @@ public class main {
                     System.out.println("Total: R$ " + (movie.getPrice() * numOfPeople));
                     
                     menuCompras.setTotal(menuCompras.getTotal() + (movie.getPrice() * numOfPeople));
-                    mt.screen(movie.movieName(decision), numOfPeople);
-                    //screen
+                    //screen movie time
+                    int avaliableChairs = mt.showChairs(movie.movieName(decision));
+                    if(avaliableChairs / numOfPeople > 1){
+                        boolean avaliable = mt.showChairsOptions(numOfPeople);
+                        if(avaliable) {
+                            System.out.println("Coluna: ");
+                            int column = sc.nextInt();
+                            System.out.println("Linha: ");
+                            int line = sc.nextInt();
+                            boolean[][] isOcupied = mt.getIsOcupied();
+                            boolean done = false;
+                            while(done) {
+                                if(!isOcupied[line -1][column - 1]) {
+                                    isOcupied[line -1][column - 1] = true;
+                                    done = false;
+                                    mt.setIsOcupied(isOcupied);
+                                }
+                            }
+                        }
+                        else System.out.println("Nao disponivel para este numero de tickets");
+                    } else System.out.println("Lotado");
+                    // terminou de comprar a cadeira
                 }
                 break;
             case 2:

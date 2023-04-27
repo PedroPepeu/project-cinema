@@ -123,7 +123,7 @@ public class Buy {
 
     public void menuChoice(int decision) {
         if(decision == 1){
-            buyingScreem.sessions(); //catalog.    mostrar os filmes e liberar o detalhamento de um deles a partir da escolha
+            // '''tava duplicando o catalogo. por isso tirei''' buyingScreem.sessions(); //catalog.    mostrar os filmes e liberar o detalhamento de um deles a partir da escolha
             System.out.println("Ingresso Comprado");
         }else if(decision == 2){
             snack.menu();

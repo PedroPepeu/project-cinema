@@ -12,8 +12,7 @@ public class Movie {
     private String summary; // sinopse
     private double price = 20.00;
     private Review[] review = new Review[100]; // atributo que o prof pediu para criar
-    private int quantidadeDeCritidos;
-    private int posiçãoReview = 100;
+    private int quantCrit; 
     private double media;
 
 
@@ -81,7 +80,7 @@ public class Movie {
     public void setPrice(double price) {
         this.price = price;
     }
-    
+
     public Review[] getReview() {
         return review;
     }
@@ -89,21 +88,13 @@ public class Movie {
     public void setReview(Review[] review) {
         this.review = review;
     }
-    
-      public int getQuantidadeDeCritidos() {
-        return quantidadeDeCritidos;
+
+    public int getQuantCrit() {
+        return quantCrit;
     }
 
-    public void setQuantidadeDeCritidos(int quantidadeDeCritidos) {
-        this.quantidadeDeCritidos = quantidadeDeCritidos;
-    }
-    
-    public int getPosiçãoReview() {
-        return posiçãoReview;
-    }
-
-    public void setPosiçãoReview(int posiçãoReview) {
-        this.posiçãoReview = posiçãoReview;
+    public void setQuantCrit(int quantCrit) {
+        this.quantCrit = quantCrit;
     }
 
     public double getMedia() {
@@ -132,6 +123,23 @@ public class Movie {
         return " "  + timeInString + ", " + name + ", " + price + " ";
     }
 
+    public double decision(int option){
+        switch (option){
+            case 1:
+                return EnumRooms.SALA_COMUM.getmultiplicadorDasSalas();
+            case 2:
+                return EnumRooms.SALA_3D.getmultiplicadorDasSalas();
+            case 3:
+                return EnumRooms.SALA_XD.getmultiplicadorDasSalas();
+            case 4:
+                return EnumRooms.SALA_XD3D.getmultiplicadorDasSalas();
+            default:
+                return EnumRooms.SALA_COMUM.getmultiplicadorDasSalas();
+            
+        }
+        
+    }
+
     public void details(int movieNumber, double numOfPeople){
 
         Buy buy = new Buy();
@@ -139,6 +147,7 @@ public class Movie {
         Scanner s = new Scanner(System.in);
         String nomeDoFilme;
         String summary;
+        int sala;
         switch (movieNumber){
             case 1:
                 
@@ -152,10 +161,13 @@ public class Movie {
                 setSummary(summary);
                 System.out.println(getSummary());    
                 System.out.println("Duracao: " + getMinutes() + " minutos");
+
+                System.out.println("Escolha uma das salas disponíveis: \n 1- " + EnumRooms.SALA_COMUM + "\n 2- " + EnumRooms.SALA_3D + "\n 3- " + EnumRooms.SALA_XD + "\n 4- " + EnumRooms.SALA_XD3D + "\n");
+                sala = s.nextInt();
                 
-                
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople));
-                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople));
+
+                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
+                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(nomeDoFilme, numOfPeople);
                 break;
                 
@@ -173,9 +185,12 @@ public class Movie {
                 System.out.println(getSummary());    
                 System.out.println("Duracao: " + getMinutes() + " minutos");
                 
-            
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople));
-                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople));
+                System.out.println("Escolha uma das salas disponíveis: \n 1- " + EnumRooms.SALA_COMUM + "\n 2- " + EnumRooms.SALA_3D + "\n 3- " + EnumRooms.SALA_XD + "\n 4- " + EnumRooms.SALA_XD3D + "\n");
+                sala = s.nextInt();
+                
+
+                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
+                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(nomeDoFilme, numOfPeople);
                 break;
 
@@ -190,10 +205,12 @@ public class Movie {
                 setSummary(summary);
                 System.out.println(getSummary());    
                 System.out.println("Duracao: " + getMinutes() + " minutos");
-                
-            
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople));
-                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople));
+
+                System.out.println("Escolha uma das salas disponíveis: \n 1- " + EnumRooms.SALA_COMUM + "\n 2- " + EnumRooms.SALA_3D + "\n 3- " + EnumRooms.SALA_XD + "\n 4- " + EnumRooms.SALA_XD3D + "\n");
+                sala = s.nextInt();
+
+                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
+                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(nomeDoFilme, numOfPeople);
                 break;
                 
@@ -211,9 +228,12 @@ public class Movie {
                 System.out.println(getSummary());    
                 System.out.println("Duracao: " + getMinutes() + " minutos");
                 
-            
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople));
-                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople));
+                System.out.println("Escolha uma das salas disponíveis: \n 1- " + EnumRooms.SALA_COMUM + "\n 2- " + EnumRooms.SALA_3D + "\n 3- " + EnumRooms.SALA_XD + "\n 4- " + EnumRooms.SALA_XD3D + "\n");
+                sala = s.nextInt();
+
+
+                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
+                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(nomeDoFilme, numOfPeople);
                 break;
                 
@@ -230,9 +250,11 @@ public class Movie {
                 System.out.println(getSummary());    
                 System.out.println("Duracao: " + getMinutes() + " minutos");
                 
-            
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople));
-                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople));
+                System.out.println("Escolha uma das salas disponíveis: \n 1- " + EnumRooms.SALA_COMUM + "\n 2- " + EnumRooms.SALA_3D + "\n 3- " + EnumRooms.SALA_XD + "\n 4- " + EnumRooms.SALA_XD3D + "\n");
+                sala = s.nextInt();
+
+                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
+                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(nomeDoFilme, numOfPeople);
                 break;
                 
@@ -249,9 +271,11 @@ public class Movie {
                 System.out.println(getSummary());    
                 System.out.println("Duracao: " + getMinutes() + " minutos");
                 
-            
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople));
-                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople));
+                System.out.println("Escolha uma das salas disponíveis: \n 1- " + EnumRooms.SALA_COMUM + "\n 2- " + EnumRooms.SALA_3D + "\n 3- " + EnumRooms.SALA_XD + "\n 4- " + EnumRooms.SALA_XD3D + "\n");
+                sala = s.nextInt();
+
+                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
+                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(nomeDoFilme, numOfPeople);
                 break;
                 
@@ -268,9 +292,11 @@ public class Movie {
                 System.out.println(getSummary());    
                 System.out.println("Duracao: "+getMinutes() + " minutos");
                 
-            
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople));
-                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople));
+                System.out.println("Escolha uma das salas disponíveis: \n 1- " + EnumRooms.SALA_COMUM + "\n 2- " + EnumRooms.SALA_3D + "\n 3- " + EnumRooms.SALA_XD + "\n 4- " + EnumRooms.SALA_XD3D + "\n");
+                sala = s.nextInt();
+
+                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
+                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(nomeDoFilme, numOfPeople);
                 break;
                 
@@ -281,7 +307,11 @@ public class Movie {
                 break;     
 
         }
+        
+        
         s.close();
     }
+
     
+
 }

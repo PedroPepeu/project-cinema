@@ -14,7 +14,7 @@ public class Review {
     }
 
     public Review() {
-    
+        
     }
 
     public Review(Movie filme, String critica) {
@@ -45,23 +45,20 @@ public class Review {
         ComentarioCritico = comentarioCritico;
     }
 
-    public double getNotas() {
-        return notas;
-    }
-
-    public void setNotas(double notas) {
-        this.notas = notas;
-    }
-    
     public void atribuirNota(double notaDada, Movie filme) {
-        
-        filme.setQuantidadeDeCritidos(filme.getQuantidadeDeCritidos() + 1);
 
-        setNotas(getNotas() + notaDada);
         
-        filme.setMedia(notas / filme.getQuantidadeDeCritidos());
 
-      
+        filme.setMedia(notaDada / filme.getQuantCrit());
+        
+        //while(filme.review)
+        for (int i = filme.getQuantCrit(); i <= 0; i--) {
+            filme.getReview();
+            filme.setReview(null);
+        }
+
+
+
     }
 
     public void atribuirCritica(String critica, Movie filme) {
@@ -71,5 +68,5 @@ public class Review {
         
         filme.getReview()[filme.getPosiçãoReview()] = review;
     }
-    
+
 }

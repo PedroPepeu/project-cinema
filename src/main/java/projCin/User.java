@@ -4,13 +4,13 @@ package projCin;
 public class User {
     
     private String user;
-    private int[] cpf;
+    private String cpf;
     private int password;
     private int age;
     private char gender;
     private String email;
     private String creditCardName;
-    private int[] creditCardNum;
+    private String creditCardNum;
     private int creditCardVerify;
 
     //Buy spend = new Buy();
@@ -19,8 +19,8 @@ public class User {
         
     }
     
-    public User(String user, int[] cpf, int password, int age, char gender, String email, String creditCardName,
-        int[] creditCardNum, int creditCardVerify) {   //fazendo uma sobrecarga de construtures para ter uma com os parametros e outra sem nenhum parametro
+    public User(String user, String cpf, int password, int age, char gender, String email, String creditCardName,
+        String creditCardNum, int creditCardVerify) {   //fazendo uma sobrecarga de construtures para ter uma com os parametros e outra sem nenhum parametro
         this.user = user;
         this.cpf = cpf;
         this.password = password;
@@ -40,11 +40,11 @@ public class User {
         this.user = user;
     }
 
-    public int[] getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int[] cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -88,11 +88,11 @@ public class User {
         this.creditCardName = creditCardName;
     }
 
-    public int[] getCreditCardNum() {
+    public String getCreditCardNum() {
         return creditCardNum;
     }
 
-    public void setCreditCardNum(int[] creditCardNum) {
+    public void setCreditCardNum(String creditCardNum) {
         this.creditCardNum = creditCardNum;
     }
 

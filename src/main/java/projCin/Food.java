@@ -7,13 +7,18 @@ public class Food {
     private String[] foodList;
     private int head;
     private double total;
-    private double soma;
+    private double somaTotalDosValores;
 
     public Food() {
         this.foodList = new String[5];
         this.head = -1;
         this.total = 0;
-        this.soma = 0;
+        this.somaTotalDosValores = 0;
+    }
+
+    public void menuPresentation() {
+        System.out.println("\n\n\n\nSelecione o que deseja adicionar ao carrinho: \n"
+                + " 1- Pipoca\n  2- Coca-cola\n  3- Fritas\n  4- Fini\n  5- Chocolate\n  0- Finalizar");
     }
 
     public void menu() {
@@ -72,12 +77,12 @@ public class Food {
     }
 
     public void compra(int value, EnumPromotionalCoupon ticket){
-        this.soma += value * (1 - ticket.getDesconto());
+        this.somaTotalDosValores += value * (1 - ticket.getDesconto());
     }
 
     public void compra(int select) {
         Scanner s = new Scanner(System.in);
-        //Buy buying = new Buy();
+        Buy buying = new Buy();
 
         int keep = 1;
         while (keep == 1) {

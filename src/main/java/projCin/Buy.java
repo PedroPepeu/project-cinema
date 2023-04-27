@@ -17,25 +17,13 @@ public class Buy {
     
     Scanner s = new Scanner(System.in);
 
-    public Buy( double price, double total, Ticket ticket) {
-        
-        this.price = price;
-        this.total = total;
-        this.ticket = ticket;
-    }
-
-    public Buy(){
-        
-    }
-
     public Buy(String food, double price, double total) {
         this.food = food;
         this.price = price;
         this.total = total;
     }
 
-
-      public Buy(String food, double price, double total, Ticket ticket, EnumPromotionalCoupon cupomPromocional) {
+    public Buy(String food, double price, double total, Ticket ticket, EnumPromotionalCoupon cupomPromocional) {
         this.food = food;
         this.price = price;
         this.total = total;
@@ -123,6 +111,22 @@ public class Buy {
         return snack.getFoodList();
         //set variables for all foods and get how many times they were summoned(use counters at food to get it)
         //or just show how manny foods were bought
+    }
+
+    public void menuOptions() {
+        System.out.printf("Bem vindo!\nSelecione o que deseja:\n" + "1- Catalogo de filmes \n2- Lanche\n");
+    }
+
+    public void menuChoice(int decision) {
+        if(decision == 1){
+            buyingScreem.sessions(); //catalog.    mostrar os filmes e liberar o detalhamento de um deles a partir da escolha
+            System.out.println("Ingresso Comprado");
+        }else if(decision == 2){
+            snack.menu();
+        }else{
+            System.out.println("Opcao invalida. Retornando para o menu.\n");
+            menuGeral();
+        }
     }
 
 //sep compra de produtos e bilhetes

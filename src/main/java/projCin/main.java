@@ -30,6 +30,7 @@ public class main {
 
         
     // }
+    
 
     public static String options() {
         return "Digite: 1 se Normal\n" +

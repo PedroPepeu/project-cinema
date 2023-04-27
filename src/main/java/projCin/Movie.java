@@ -166,7 +166,7 @@ public class Movie {
                 sala = s.nextInt();
                 
 
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
+                //System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
                 buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(nomeDoFilme, numOfPeople);
                 break;

@@ -79,47 +79,56 @@ public class main {
         System.out.println("CCV do cartao: ");
         int creditCardVerify = sc.nextInt();
         
+        System.out.println("Tipo de ingresso: \n1- Inteira\n2- Estudante\n3- Critico");
+        int decision1 = sc.nextInt();
         
-        int decision = sc.nextInt();
-        
-        switch(decision) {
+        switch(decision1) {
             case 1:
             // usuario normal
                 User user = new User(username, cpf, password, age, gender, email, creditCardName, creditCardNum, creditCardVerify);
                 break;
-                case 2:
+            case 2:
             // usuario estudante
                 Student student = new Student(username, cpf, password, age, gender, email, creditCardName, creditCardNum, creditCardVerify, true);
                 break;
-                case 3:
+            case 3:
             // usuario critico
                 String origin = sc.nextLine();
                 Critical critical = new Critical(username, cpf, password, age, gender, email, creditCardName, creditCardNum, creditCardVerify, origin);
                 break;    
         }
 
-        menuCompras.menuOptions();
-        decision = sc.nextInt();
+        double multiplicator = 1;
+        if(decision1 == 2){
+            multiplicator = 0.5;
+        }else if(decision1 == 3){
+            multiplicator = 0;
+        }else{
+            multiplicator = 1;
+        }
 
-        switch(decision) {
+        menuCompras.menuOptions();
+        int decision2 = sc.nextInt();
+
+        switch(decision2) {
             case 1:
             // decidiu comprar ingressos
                 menuSalas.amostraDeFilmes();
                 menuSalas.movieChoice();
-                decision = sc.nextInt();
-                if(decision == 0){
+                decision2 = sc.nextInt();
+                if(decision2 == 0){
                     main(args);
                 } else {
-                    menuSalas.movieSelection(decision);
+                    menuSalas.movieSelection(decision2);
                     menuSalas.ticketsQuantity();
                     int numOfPeople = sc.nextInt();
-                    movie.choosenMovie(decision);
+                    movie.choosenMovie(decision2);
 
-                    System.out.println("Total: R$ " + (movie.getPrice() * numOfPeople));
+                    System.out.println("Total: R$ " + (multiplicator * movie.getPrice() * numOfPeople));
                     
-                    menuCompras.setTotal(menuCompras.getTotal() + (movie.getPrice() * numOfPeople));
+                    menuCompras.setTotal(multiplicator * (menuCompras.getTotal() + (movie.getPrice() * numOfPeople)));
                     //screen movie time
-                    int avaliableChairs = mt.showChairs(movie.movieName(decision));
+                    int avaliableChairs = mt.showChairs(movie.movieName(decision2));
                     if(avaliableChairs / numOfPeople > 1){
                         boolean avaliable = mt.showChairsOptions(numOfPeople);
                         if(avaliable) {
@@ -150,7 +159,7 @@ public class main {
                 break;
         }
 
-        menuCompras.menuChoice(decision);
+        menuCompras.menuChoice(decision2);
 
         sc.close();
     }

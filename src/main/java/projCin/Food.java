@@ -7,13 +7,13 @@ public class Food {
     private String[] foodList;
     private int head;
     private double total;
-    private double somaTotalDosValores;
+    private double soma;
 
     public Food() {
         this.foodList = new String[5];
         this.head = -1;
         this.total = 0;
-        this.somaTotalDosValores = 0;
+        this.soma = 0;
     }
 
     public void menuPresentation() {
@@ -77,7 +77,7 @@ public class Food {
     }
 
     public void compra(int value, EnumPromotionalCoupon ticket){
-        this.somaTotalDosValores += value * (1 - ticket.getDesconto());
+        this.soma += value * (1 - ticket.getDesconto());
     }
 
     public void compra(int select) {
@@ -88,25 +88,28 @@ public class Food {
         while (keep == 1) {
             switch (select) {
                 case 1:
+                    System.out.println("Tamanho \n" + EnumProducts.PIPOCAP.getName() + " (" + EnumProducts.PIPOCAP.getPrice() + " R$) \n"
+                                       + EnumProducts.PIPOCAM.getName() + " (" + EnumProducts.PIPOCAM.getPrice() + " R$) \n" 
+                                       + EnumProducts.PIPOCAG.getName() + " (" + EnumProducts.PIPOCAG.getPrice() + " R$) ");
+                    System.out.println("\nGRANA PERDIDA ---> "+ this.total + " R$\n");     
+                    System.out.println(" 'p' para pequena, 'm' para média e 'g' para grande: ");             
+                    char size = s.next().charAt(0); 
 
-                    System.out.println("Tamanho: ");
-                    System.out.println("P (R$ 7,00)\n M (R$ 8,00)\n G (R$ 9,00)");
-                    char size = s.next().charAt(0);
                     switch (size) {
                         case 'p':
                             System.out.print("Quantidade: ");
                             int quantPP = s.nextInt();
-                            total += 7 * quantPP;
+                            total += EnumProducts.PIPOCAP.getPrice() * quantPP;
                             menu();
                         case 'm':
                             System.out.print("Quantidade: ");
                             int quantPM = s.nextInt();
-                            total += 8 * quantPM;
+                            total += EnumProducts.PIPOCAM.getPrice() * quantPM;
                             menu();
                         case 'g':
                             System.out.print("Quantidade: ");
                             int quantPG = s.nextInt();
-                            total += 9 * quantPG;
+                            total += EnumProducts.PIPOCAG.getPrice() * quantPG;
                             menu();
                         default:
                             System.out.println("Tamanho invalido. Pipoca cancelada.");
@@ -116,25 +119,29 @@ public class Food {
 
                 case 2:
 
-                    System.out.println("Litros: ");
-                    System.out.println("250 (R$ 6,00)\n 500 (R$ 7,00)\n 1000 (R$ 8,00)");
-                    System.out.println("Litro desejado: ");
+                    
+                    System.out.println("Litros \n" + EnumProducts.COCACOLA250.getName() +" (" + EnumProducts.COCACOLA250.getPrice() + " R$) \n"
+                                       + EnumProducts.COCACOLA500.getName() + " (" + EnumProducts.COCACOLA500.getPrice() + " R$) \n"
+                                       + EnumProducts.COCACOLA1000.getName() + " (" +EnumProducts.COCACOLA1000.getPrice() + " R$)" );
+                    System.out.println("\nGRANA PERDIDA ---> "+ this.total + " R$\n");     
+                    System.out.println("digite 250, 500 ou 1000: ");                                        
                     int litro = s.nextInt();
+
                     switch (litro) {
                         case 250:
                             System.out.print("Quantidade: ");
                             int quantRP = s.nextInt();
-                            total += 6 * quantRP;
+                            total += EnumProducts.COCACOLA250.getPrice() * quantRP;
                             menu();
                         case 500:
                             System.out.print("Quantidade: ");
                             int quantRM = s.nextInt();
-                            total += 7 * quantRM;
+                            total += EnumProducts.COCACOLA500.getPrice() * quantRM;
                             menu();
                         case 1000:
                             System.out.print("Quantidade: ");
                             int quantRG = s.nextInt();
-                            total += 8 * quantRG;
+                            total += EnumProducts.COCACOLA1000.getPrice() * quantRG;
                             menu();
                         default:
                             System.out.println("Tamanho invalido. Coca-cola cancelada.");
@@ -143,31 +150,45 @@ public class Food {
                     }
 
                 case 3:
-                    System.out.println("1- Porcao individual(R$ 5,00)\n2- Porcao dupla(R$ 8,00)");
+                    System.out.println("1- " + EnumProducts.FRITASINDV.getName() + " (" + EnumProducts.FRITASINDV.getPrice() + " R$) \n"
+                                       +"2- " + EnumProducts.FRITASDUPL.getName() + " (" + EnumProducts.FRITASDUPL.getPrice() + " R$)");
+                    System.out.println("\nGRANA PERDIDA ---> "+ this.total + " R$\n");     
+                    System.out.println("Digite 1 para individual ou 2 para dupla: ");
                     int portion = s.nextInt();
+
                     switch (portion) {
                         case 1:
                             System.out.println("Quantidade: ");
                             int quantFI = s.nextInt();
-                            total += 5 * quantFI;
+                            total += EnumProducts.FRITASINDV.getPrice() * quantFI;
                             menu();
                         case 2:
                             System.out.println("Quantidade: ");
                             int quantFD = s.nextInt();
-                            total += 8 * quantFD;
+                            total += EnumProducts.FRITASDUPL.getPrice() * quantFD;
                             menu();
+                        default:
+                            System.out.println("Número invalido");
+                            menu();
+
                     }
 
                 case 4:
-                    System.out.println("Unidade: R$3,00 \nQuantidade: ");
+                    System.out.println(EnumProducts.FINI.getName() + " (" + EnumProducts.FINI.getPrice() + " R$)");
+                    System.out.println("\nGRANA PERDIDA ---> "+ this.total + " R$\n");    
+                    System.out.println("Digite a quantidade de finis: ");
                     int quantFn = s.nextInt();
-                    total += 3 * quantFn;
+
+                    total += EnumProducts.FINI.getPrice() * quantFn;
                     menu();
 
                 case 5:
-                    System.out.println("Unidade: R$4,00 \nQuantidade: ");
+                    System.out.println(EnumProducts.CHOCOLATE.getName() + " (" +EnumProducts.CHOCOLATE.getPrice() + " R$)");
+                    System.out.println("\nGRANA PERDIDA ---> "+ this.total + " R$\n");     
+                    System.out.println("Digite a quantidade de chocolates: ");
                     int quantCh = s.nextInt();
-                    total += 4 * quantCh;
+
+                    total += EnumProducts.CHOCOLATE.getPrice() * quantCh;
                     menu();
 
                 case 0:

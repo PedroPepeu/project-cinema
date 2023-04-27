@@ -61,13 +61,18 @@ public class MovieTime {
         }
     }
 
+    private final String ANSI_RED = "\u001B[31m";
+    private final String ANSI_GREEN = "\u001B[32m";
+    private final String ANSI_YELLOW = "\u001B[33m";
+    private final String ANSI_RESET = "\u001B[0m";
+
     public int showChairs(String movieName) {
         Random random = new Random();
 
         int avaliableChairs = 0;
 
         System.out.println("\n\n" + movieName);
-        System.out.println("|Exit|---------------------------------------------------------------|Exit| ");
+        System.out.println(ANSI_YELLOW + "|Exit|---------------------------------------------------------------|Exit| " + ANSI_RESET);
         for (int i = 0; i < 10; i++) {
             System.out.println();
             for (int j = 0; j < 15; j++) {
@@ -75,16 +80,18 @@ public class MovieTime {
                 if(aleat == 1){
                     chairs[i][j] = 'X';                
                     isOcupied[i][j] = true;
+                    System.out.print(ANSI_RED + " [" + chairs[i][j] + "] " + ANSI_RESET);
                 } else if(aleat == 0) {
                     chairs[i][j] = ' ';
                     isOcupied[i][j] = false;
                     avaliableChairs++;
+                    System.out.print(ANSI_GREEN + " [" + chairs[i][j] + "] " + ANSI_RESET);
                 }
-                System.out.print(" [" + chairs[i][j] + "] ");
+                // System.out.print(" [" + chairs[i][j] + "] ");
             }
             System.out.println("\t");
         }
-        System.out.println("\n||||||||||||||||||||||||||||||     SCREEN    ||||||||||||||||||||||||||||||");
+        System.out.println(ANSI_YELLOW + "\n||||||||||||||||||||||||||||||     SCREEN    ||||||||||||||||||||||||||||||" + ANSI_RESET);
 
         return avaliableChairs;
     }

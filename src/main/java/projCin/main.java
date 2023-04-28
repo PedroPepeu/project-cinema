@@ -1,4 +1,4 @@
-package main.java.projCin;
+package projCin;
 
 import java.util.Scanner;
 
@@ -90,8 +90,7 @@ public class main {
                     menuSalas.ticketsQuantity();
                     int numOfPeople = sc.nextInt();
                     movie.choosenMovie(decision2);
-<<<<<<< HEAD
-                    
+
                     System.out.println("Possui cupom promocional?\nnao (0)\nsim (1)");
                     int cup = sc.nextInt();
 
@@ -102,40 +101,38 @@ public class main {
                     double cupEfect = 1;
                     int cupcup = 1;
 
-                    while(cup == 1 && cupcup != 0){
+                    while (cup == 1 && cupcup != 0) {
                         System.out.println("Digite o codigo do cupom ou 0(zero) para cancelar cupom ");
                         cupcup = sc.nextInt();
 
-
-                        if(cupcup == cupomRaro){
+                        if (cupcup == cupomRaro) {
                             cupEfect = EnumPromotionalCoupon.CUPOM_UM.getDesconto();
                             System.out.println("Cupom raro aprovado!");
                             break;
 
-                        }else if(cupcup == cupomEpico){
+                        } else if (cupcup == cupomEpico) {
                             cupEfect = EnumPromotionalCoupon.CUPOM_DOIS.getDesconto();
                             System.out.println("Cupom epico aprovado!");
                             break;
 
-                        }else if(cupcup == cupomLendario){
+                        } else if (cupcup == cupomLendario) {
                             cupEfect = EnumPromotionalCoupon.CUPOM_TRES.getDesconto();
                             System.out.println("Cupom lendario aprovado!");
                             break;
 
-                        }else if(cupcup == 0) {
+                        } else if (cupcup == 0) {
                             cupEfect = 1;
-                        } else{
+                        } else {
                             System.out.println("Cupom inexistente");
 
                         }
                     }
 
-                    
                     System.out.println("Tipo de ingresso: \n1- Inteira\n2- Estudante\n3- Critico");
                     int decision1;
                     double multiplicator;
                     double total;
-                    
+
                     do {
                         decision1 = sc.nextInt();
                         switch (decision1) {
@@ -145,7 +142,7 @@ public class main {
                                 User user = new User(username, cpf, password, age, gender, email, creditCardName,
                                         creditCardNum, creditCardVerify, multiplicator);
 
-                                total = cupEfect *  (menuCompras.getTotal() + (movie.getPrice() * numOfPeople)); //o desconto do estudante / critico vai ser aplicado no menu compras também?
+                                total = (1 - cupEfect) * (menuCompras.getTotal() + (movie.getPrice() * numOfPeople)); 
                                 menuCompras.setTotal(user.totalParaPagar(total));
 
                                 System.out.println("Total: R$ " + (menuCompras.getTotal()));
@@ -156,7 +153,7 @@ public class main {
                                 Student student = new Student(username, cpf, password, age, gender, email,
                                         creditCardName, creditCardNum, creditCardVerify, true, multiplicator);
 
-                                total = cupEfect *  (menuCompras.getTotal() + (movie.getPrice() * numOfPeople)); 
+                                total = (1 - cupEfect) * (menuCompras.getTotal() + (movie.getPrice() * numOfPeople));
                                 menuCompras.setTotal(student.totalParaPagar(total));
 
                                 System.out.println("Total: R$ " + (menuCompras.getTotal()));
@@ -169,7 +166,7 @@ public class main {
                                 Critical critical = new Critical(username, cpf, password, age, gender, email,
                                         creditCardName, creditCardNum, creditCardVerify, origin, multiplicator);
 
-                                total = cupEfect *  (menuCompras.getTotal() + (movie.getPrice() * numOfPeople)); 
+                                total = (1 - cupEfect) * (menuCompras.getTotal() + (movie.getPrice() * numOfPeople));
                                 menuCompras.setTotal(critical.totalParaPagar(total));
 
                                 System.out.println("Total: R$ " + (menuCompras.getTotal()));
@@ -177,56 +174,9 @@ public class main {
                             default:
                                 System.out.println("Opção invalida, tente novamente!");
                         }
-                    } while (decision1 < 1 || decision1 > 3);    
+                    } while (decision1 < 1 || decision1 > 3);
 
                     // screen movie time
-=======
-
-                    System.out.println("Total: R$ " + (multiplicator * movie.getPrice() * numOfPeople));
-
-                    System.out.println("Possui cupom promocional?\nnao (0)\nsim (1)");
-                    int cup = sc.nextInt();
-
-                    int cupomRaro = 12345;
-                    int cupomEpico = 1234567;
-                    int cupomLendario = 123456789;
-
-                    double cupEfect = 1;
-                    int cupcup = 1;
-
-                    while(cup == 1 && cupcup != 0){
-                        System.out.println("Digite o codigo do cupom ou 0(zero) para cancelar cupom ");
-                        cupcup = sc.nextInt();
-                        
-
-                        if(cupcup == cupomRaro){
-                            cupEfect = EnumPromotionalCoupon.CUPOM_UM.getDesconto();
-                            System.out.println("Cupom raro aprovado!");
-                            break;
-
-                        }else if(cupcup == cupomEpico){
-                            cupEfect = EnumPromotionalCoupon.CUPOM_DOIS.getDesconto();
-                            System.out.println("Cupom epico aprovado!");
-                            break;
-
-                        }else if(cupcup == cupomLendario){
-                            cupEfect = EnumPromotionalCoupon.CUPOM_TRES.getDesconto();
-                            System.out.println("Cupom lendario aprovado!");
-                            break;
-
-                        }else if(cupcup == 0) {
-                            cupEfect = 1;
-                        } else{
-                            System.out.println("Cupom inexistente");
-
-                        }
-                    }
-                    
-                    
-                    menuCompras.setTotal(multiplicator * (1 - cupEfect) *  (menuCompras.getTotal() + (movie.getPrice() * numOfPeople)));
-                    System.out.println("Total: R$ " + (menuCompras.getTotal()));
-                    //screen movie time
->>>>>>> e9e22351065ad50b3715ca89758600bf164439e3
                     int avaliableChairs = mt.showChairs(movie.movieName(decision2));
                     if (avaliableChairs / numOfPeople > 1) {
                         boolean avaliable = mt.showChairsOptions(numOfPeople);

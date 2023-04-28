@@ -1,5 +1,4 @@
-package main.java.projCin;
-
+package projCin;
 public class Critical extends User {
 
     private String origin;

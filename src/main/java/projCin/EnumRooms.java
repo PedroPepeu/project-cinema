@@ -1,4 +1,4 @@
-package main.java.projCin;
+package projCin;
 
 
 public enum EnumRooms {

@@ -1,4 +1,4 @@
-package main.java.projCin;
+package projCin;
 
 import java.util.Random;
 import java.util.Scanner;

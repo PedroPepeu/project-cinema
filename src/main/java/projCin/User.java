@@ -1,5 +1,5 @@
 //apos decidir filme e comida, mas ainda pode cancelar um dos dois
-package main.java.projCin;
+package projCin;
 
 public class User {
     

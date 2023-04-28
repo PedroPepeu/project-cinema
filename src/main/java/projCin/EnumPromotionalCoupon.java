@@ -1,4 +1,4 @@
-package main.java.projCin;
+package projCin;
 
 public enum EnumPromotionalCoupon {
     CUPOM_UM("cupom com 10% de desconto", 0.1 ),

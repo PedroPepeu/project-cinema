@@ -1,4 +1,4 @@
-package main.java.projCin;
+package projCin;
 
 public class Review {
     private String nome;

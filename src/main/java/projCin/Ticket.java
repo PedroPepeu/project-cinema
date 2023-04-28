@@ -1,5 +1,4 @@
-package projCin;
-
+package main.java.projCin;
 public class Ticket{
     
     private String user;

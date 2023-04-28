@@ -1,4 +1,4 @@
-package projCin;
+package main.java.projCin;
 
 public enum EnumProducts {
     PIPOCAP ("p", 7.00),

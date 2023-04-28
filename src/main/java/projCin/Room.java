@@ -1,4 +1,4 @@
-package projCin;
+package main.java.projCin;
 
 import java.util.Scanner;
 

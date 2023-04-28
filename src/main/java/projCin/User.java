@@ -1,5 +1,5 @@
 //apos decidir filme e comida, mas ainda pode cancelar um dos dois
-package projCin;
+package main.java.projCin;
 
 public class User {
     
@@ -12,7 +12,7 @@ public class User {
     private String creditCardName;
     private String creditCardNum;
     private int creditCardVerify;
-
+    private double multiplicadorCompraDebilhetes;
     //Buy spend = new Buy();
 
     public User() {
@@ -20,7 +20,7 @@ public class User {
     }
     
     public User(String user, String cpf, int password, int age, char gender, String email, String creditCardName,
-        String creditCardNum, int creditCardVerify) {   //fazendo uma sobrecarga de construtures para ter uma com os parametros e outra sem nenhum parametro
+        String creditCardNum, int creditCardVerify, double multiplicadorCompraDebilhetes) {   //fazendo uma sobrecarga de construtures para ter uma com os parametros e outra sem nenhum parametro
         this.user = user;
         this.cpf = cpf;
         this.password = password;
@@ -30,6 +30,7 @@ public class User {
         this.creditCardName = creditCardName;
         this.creditCardNum = creditCardNum;
         this.creditCardVerify = creditCardVerify;
+        this.multiplicadorCompraDebilhetes = multiplicadorCompraDebilhetes;
     }
 
     public String getUser() {
@@ -104,8 +105,18 @@ public class User {
         this.creditCardVerify = creditCardVerify;
     }
 
-    public void payment(){
-
+    public double getMultiplicadorCompraDebilhetes() {
+        return multiplicadorCompraDebilhetes;
     }
+
+    public void setMultiplicadorCompraDebilhetes(double multiplicadorCompraDebilhetes) {
+        this.multiplicadorCompraDebilhetes = multiplicadorCompraDebilhetes;
+    }
+
+    public double totalParaPagar(double total) {
+        total = total * getMultiplicadorCompraDebilhetes();
+        return total;
+    }
+
 
 }

@@ -12,7 +12,7 @@ public class Movie {
     private String summary; // sinopse
     private double price = 20.00;
     private Review[] review = new Review[100]; // atributo que o prof pediu para criar
-    private int quantCrit; 
+    private int quantCrit = 0; 
     private double media;
 
 

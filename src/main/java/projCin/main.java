@@ -125,8 +125,33 @@ public class main {
                     movie.choosenMovie(decision2);
 
                     System.out.println("Total: R$ " + (multiplicator * movie.getPrice() * numOfPeople));
+
+                    System.out.println("Possui cupom promocional?\nnao (0)\nsim (1)");
+                    int cup = sc.nextInt();
+
+                    int cupomRaro = 12345;
+                    int cupomEpico = 1234567;
+                    int cupomLendario = 123456789;
+
+                    double cupEfect = 1;
+
+                    if(cup == 1){
+                        System.out.println("Digite o codigo do cupom: ");
+                        int cupcup = sc.nextInt();
+                        System.out.println("Cupom aprovado!");
+
+                        if(cupcup == cupomRaro){
+                            cupEfect = 0.9;
+                        }else if(cupcup == cupomEpico){
+                            cupEfect = 0.8;
+                        }else if(cupcup == cupomLendario){
+                            cupEfect = 0.5;
+                        }
+                    }
                     
-                    menuCompras.setTotal(multiplicator * (menuCompras.getTotal() + (movie.getPrice() * numOfPeople)));
+                    
+                    menuCompras.setTotal(multiplicator * cupEfect *  (menuCompras.getTotal() + (movie.getPrice() * numOfPeople)));
+                    System.out.println("Total: R$ " + (menuCompras.getTotal()));
                     //screen movie time
                     int avaliableChairs = mt.showChairs(movie.movieName(decision2));
                     if(avaliableChairs / numOfPeople > 1){

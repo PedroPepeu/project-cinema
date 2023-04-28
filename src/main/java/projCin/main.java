@@ -125,8 +125,48 @@ public class main {
                     movie.choosenMovie(decision2);
 
                     System.out.println("Total: R$ " + (multiplicator * movie.getPrice() * numOfPeople));
+
+                    System.out.println("Possui cupom promocional?\nnao (0)\nsim (1)");
+                    int cup = sc.nextInt();
+
+                    int cupomRaro = 12345;
+                    int cupomEpico = 1234567;
+                    int cupomLendario = 123456789;
+
+                    double cupEfect = 1;
+                    int cupcup = 1;
+
+                    while(cup == 1 && cupcup != 0){
+                        System.out.println("Digite o codigo do cupom ou 0(zero) para cancelar cupom ");
+                        cupcup = sc.nextInt();
+                        
+
+                        if(cupcup == cupomRaro){
+                            cupEfect = EnumPromotionalCoupon.CUPOM_UM.getDesconto();
+                            System.out.println("Cupom raro aprovado!");
+                            break;
+
+                        }else if(cupcup == cupomEpico){
+                            cupEfect = EnumPromotionalCoupon.CUPOM_DOIS.getDesconto();
+                            System.out.println("Cupom epico aprovado!");
+                            break;
+
+                        }else if(cupcup == cupomLendario){
+                            cupEfect = EnumPromotionalCoupon.CUPOM_TRES.getDesconto();
+                            System.out.println("Cupom lendario aprovado!");
+                            break;
+
+                        }else if(cupcup == 0) {
+                            cupEfect = 1;
+                        } else{
+                            System.out.println("Cupom inexistente");
+
+                        }
+                    }
                     
-                    menuCompras.setTotal(multiplicator * (menuCompras.getTotal() + (movie.getPrice() * numOfPeople)));
+                    
+                    menuCompras.setTotal(multiplicator * (1 - cupEfect) *  (menuCompras.getTotal() + (movie.getPrice() * numOfPeople)));
+                    System.out.println("Total: R$ " + (menuCompras.getTotal()));
                     //screen movie time
                     int avaliableChairs = mt.showChairs(movie.movieName(decision2));
                     if(avaliableChairs / numOfPeople > 1){

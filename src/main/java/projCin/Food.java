@@ -76,6 +76,7 @@ public class Food {
         return this.head == this.foodList.length - 1;
     }
 
+    //sobrecarga
     public void compra(int value, EnumPromotionalCoupon ticket){
         this.soma += value * (1 - ticket.getDesconto());
     }

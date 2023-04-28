@@ -1,7 +1,6 @@
 package projCin;
 
 import java.util.Scanner;
-
 public class main {
 
     // public static void main(String[] args) {
@@ -130,7 +129,6 @@ public class main {
 
                     System.out.println("Tipo de ingresso: \n1- Inteira\n2- Estudante\n3- Critico");
                     int decision1;
-                    double multiplicator;
                     double total;
 
                     do {
@@ -138,9 +136,8 @@ public class main {
                         switch (decision1) {
                             case 1:
                                 // usuario normal
-                                multiplicator = 1;
                                 User user = new User(username, cpf, password, age, gender, email, creditCardName,
-                                        creditCardNum, creditCardVerify, multiplicator);
+                                        creditCardNum, creditCardVerify);
 
                                 total = (1 - cupEfect) * (menuCompras.getTotal() + (movie.getPrice() * numOfPeople)); 
                                 menuCompras.setTotal(user.totalParaPagar(total));
@@ -149,9 +146,8 @@ public class main {
                                 break;
                             case 2:
                                 // usuario estudante
-                                multiplicator = 0.5;
                                 Student student = new Student(username, cpf, password, age, gender, email,
-                                        creditCardName, creditCardNum, creditCardVerify, true, multiplicator);
+                                        creditCardName, creditCardNum, creditCardVerify, true);
 
                                 total = (1 - cupEfect) * (menuCompras.getTotal() + (movie.getPrice() * numOfPeople));
                                 menuCompras.setTotal(student.totalParaPagar(total));
@@ -160,11 +156,10 @@ public class main {
                                 break;
                             case 3:
                                 // usuario critico
-                                multiplicator = 0;
                                 String origin = sc.next();
                                 System.out.println("Digite em qual orgão você pertence: ");
                                 Critical critical = new Critical(username, cpf, password, age, gender, email,
-                                        creditCardName, creditCardNum, creditCardVerify, origin, multiplicator);
+                                        creditCardName, creditCardNum, creditCardVerify, origin);
 
                                 total = (1 - cupEfect) * (menuCompras.getTotal() + (movie.getPrice() * numOfPeople));
                                 menuCompras.setTotal(critical.totalParaPagar(total));
@@ -177,6 +172,7 @@ public class main {
                     } while (decision1 < 1 || decision1 > 3);
 
                     // screen movie time
+    
                     int avaliableChairs = mt.showChairs(movie.movieName(decision2));
                     if (avaliableChairs / numOfPeople > 1) {
                         boolean avaliable = mt.showChairsOptions(numOfPeople);

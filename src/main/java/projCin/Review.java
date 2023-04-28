@@ -44,27 +44,43 @@ public class Review {
         ComentarioCritico = comentarioCritico;
     }
 
-    public void atribuirNota(double notaDada, Movie filme) {
-
-        filme.setMedia(notaDada / filme.getQuantCrit());
-        
-        //while(filme.review)
-        for (int i = filme.getQuantCrit(); i <= 0; i--) {
-            filme.getReview();
-            filme.setReview(null);
-        }
-
+    public double getNotas() {
+        return notas;
     }
 
-    public void atribuirCritica(String critica, Movie filme) {
-        Review review = new Review(filme, critica);
+    public void setNotas(double notas) {
+        this.notas = notas;
+    }
+
+    public void atribuirNota(double notaDada, Movie filme) {
 
         filme.setQuantCrit(filme.getQuantCrit() + 1);
 
-        filme.setPosiçãoReview(filme.getPosiçãoReview() - 1);
+        setNotas(getNotas() + notaDada);
         
-        filme.getReview()[filme.getPosiçãoReview()] = review;
+        filme.setMedia(notas / filme.getQuantCrit());
+
+    }
+
+    private final String  outOfBounds = "Limite de criticas atingidos";
+    public void atribuirCritica(String critica, Movie filme) {
+        
+        try {
+            Review review = new Review(filme, critica);
+        
+            Review []vet = filme.getReview();
+            
+            vet[filme.getPosiçãoReview() - 1] = review;
+    
+            filme.setReview(vet);
+    
+            filme.setPosiçãoReview(filme.getPosiçãoReview() - 1);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(outOfBounds);
+        }
+        
         
     }
+
 
 }

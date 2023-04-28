@@ -43,12 +43,14 @@ public class MovieTime {
                 if(aleat == 1){
                     chairs[i][j] = 'X';                
                     isOcupied[i][j] = true;
+                    System.out.print(ANSI_RED + " [" + chairs[i][j] + "] " + ANSI_RESET);
                 } else if(aleat == 0) {
                     chairs[i][j] = ' ';
                     isOcupied[i][j] = false;
                     avaliableChairs++;
+                    System.out.print(ANSI_GREEN + " [" + chairs[i][j] + "] " + ANSI_RESET);
                 }
-                System.out.print(" [" + chairs[i][j] + "] ");
+                //System.out.print(" [" + chairs[i][j] + "] ");
             }
             System.out.println("\t");
         }

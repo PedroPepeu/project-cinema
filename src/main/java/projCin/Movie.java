@@ -13,7 +13,9 @@ public class Movie {
     private double price = 20.00;
     private Review[] review = new Review[100]; // atributo que o prof pediu para criar
     private int quantCrit = 0; 
+    private int posiçãoReview = 100;
     private double media;
+
 
 
     MovieTime mt = new MovieTime();
@@ -104,6 +106,14 @@ public class Movie {
     public void setMedia(double media) {
         this.media = media;
     }
+
+    public int getPosiçãoReview() {
+        return posiçãoReview;
+    }
+
+    public void setPosiçãoReview(int posiçãoReview) {
+        this.posiçãoReview = posiçãoReview;
+    }
     
 
     public Movie(String name, int minutes, String summary, double price) {  //fazendo uma sobrecarga de construtures para ter uma com os parametros e outra sem nenhum parametro
@@ -124,8 +134,9 @@ public class Movie {
     }
 
     public double decision(int option){
+
         switch (option){
-            case 1:
+            case 1:    
                 return EnumRooms.SALA_COMUM.getmultiplicadorDasSalas();
             case 2:
                 return EnumRooms.SALA_3D.getmultiplicadorDasSalas();
@@ -166,7 +177,7 @@ public class Movie {
                 sala = s.nextInt();
                 
 
-                //System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
+                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
                 buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(nomeDoFilme, numOfPeople);
                 break;

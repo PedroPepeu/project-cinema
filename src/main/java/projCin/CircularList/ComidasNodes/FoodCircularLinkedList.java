@@ -15,17 +15,17 @@ public class FoodCircularLinkedList {
         this.size = 0;
     }
 
-    public void addFirst(Integer value) {
+    public void addFirst(String name, char size, double price) {
         FoodNode currentHead = this.sentinel.getNext();
-        FoodNode newHead = new FoodNode(value, this.sentinel, currentHead);
+        FoodNode newHead = new FoodNode(name, size, price, this.sentinel, currentHead);
         currentHead.setPrevious(newHead);
         this.sentinel.setNext(newHead);
         setSize(size() + 1);
     }
 
-    public void addLast(Integer value) {
+    public void addLast(String name, char size, double price) {
         FoodNode currentTail = this.sentinel.getPrevious();
-        FoodNode newTail = new FoodNode(value, currentTail, this.sentinel);
+        FoodNode newTail = new FoodNode(name, size, price, currentTail, this.sentinel);
         currentTail.setNext(newTail);
         this.sentinel.setPrevious(newTail);
         setSize(size() + 1);
@@ -66,27 +66,27 @@ public class FoodCircularLinkedList {
         setSize(size() - 1);
     }
 
-    public int get(int index) throws Exception {
-        try {
-            index = index % size();
-            FoodNode current = this.sentinel.getNext();
-            for(int i = 0; i < index; i++) {
-                current = current.getNext();
-                if(current == this.sentinel) current = current.getNext();
-            }
-            return current.getValue();
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("List is empty");
-            throw e;
-        }
-    }
+    // public int get(int index) throws Exception {
+    //     try {
+    //         index = index % size();
+    //         FoodNode current = this.sentinel.getNext();
+    //         for(int i = 0; i < index; i++) {
+    //             current = current.getNext();
+    //             if(current == this.sentinel) current = current.getNext();
+    //         }
+    //         return current.getValue();
+    //     } catch (IndexOutOfBoundsException e) {
+    //         System.out.println("List is empty");
+    //         throw e;
+    //     }
+    // }
 
-    public int get(FoodNode currentNode, int index) {
-        for(int i = 0; i < index; i++) {
-            currentNode = getSuccessor(currentNode);
-        }
-        return currentNode.getValue();
-    }
+    // public int get(FoodNode currentNode, int index) {
+    //     for(int i = 0; i < index; i++) {
+    //         currentNode = getSuccessor(currentNode);
+    //     }
+    //     return currentNode.getValue();
+    // }
 
     public FoodNode getSuccessor(FoodNode currentNode) {
         try {
@@ -100,11 +100,11 @@ public class FoodCircularLinkedList {
         }
     }
 
-    public FoodNode search(int elem) {
+    public FoodNode search(String name, char size) {
         FoodNode current = this.sentinel.getNext();
 
         while(current != this.sentinel) {
-            if(current.getValue() == elem) return current;
+            if(current.getName() == name && current.getSize() == size) return current;
             current = current.getNext();
         }
         return null;

@@ -1,14 +1,14 @@
-package projCin.CircularList.UsersNodes;
+package projCin.CircularList.ComidasNodes;
 
-public class UsersCircularLinkedList {
+public class FoodCircularLinkedList {
 
-    private UserNode sentinel;
-    private UserNode next;
-    private UserNode previous;
+    private FoodNode sentinel;
+    private FoodNode next;
+    private FoodNode previous;
     private int size;
 
-    public UsersCircularLinkedList() {
-        sentinel = new UserNode(null, null, null);
+    public FoodCircularLinkedList() {
+        sentinel = new FoodNode(null, 'U', 0, null, null); // why can`t be null ????
         this.sentinel.setNext(this.sentinel);
         this.sentinel.setPrevious(this.sentinel);
         
@@ -16,16 +16,16 @@ public class UsersCircularLinkedList {
     }
 
     public void addFirst(Integer value) {
-        UserNode currentHead = this.sentinel.getNext();
-        UserNode newHead = new UserNode(null, this.sentinel, currentHead);
+        FoodNode currentHead = this.sentinel.getNext();
+        FoodNode newHead = new FoodNode(value, this.sentinel, currentHead);
         currentHead.setPrevious(newHead);
         this.sentinel.setNext(newHead);
         setSize(size() + 1);
     }
 
     public void addLast(Integer value) {
-        UserNode currentTail = this.sentinel.getPrevious();
-        UserNode newTail = new UserNode(value, currentTail, this.sentinel);
+        FoodNode currentTail = this.sentinel.getPrevious();
+        FoodNode newTail = new FoodNode(value, currentTail, this.sentinel);
         currentTail.setNext(newTail);
         this.sentinel.setPrevious(newTail);
         setSize(size() + 1);
@@ -34,11 +34,11 @@ public class UsersCircularLinkedList {
     public void reverse() {
         if(size() < 2) return;
 
-        UserNode previous = this.sentinel.getNext();
-        UserNode current = previous.getNext();
+        FoodNode previous = this.sentinel.getNext();
+        FoodNode current = previous.getNext();
 
         while(current != this.sentinel) {
-            UserNode next = current.getNext();
+            FoodNode next = current.getNext();
             current.setNext(previous);
             current.setPrevious(next);
             previous = current;
@@ -52,7 +52,7 @@ public class UsersCircularLinkedList {
         this.sentinel.setNext(previous);
     }
 
-    public void delete(UserNode nodeDelete) {
+    public void delete(FoodNode nodeDelete) {
         if(nodeDelete == this.sentinel) return;
 
         if(nodeDelete == this.sentinel.getNext()) this.sentinel.setNext(nodeDelete.getNext());
@@ -66,40 +66,10 @@ public class UsersCircularLinkedList {
         setSize(size() - 1);
     }
 
-    public boolean isOrdered(boolean ascending) {
-        UserNode currentNode = this.sentinel.getNext();
-
-        while(currentNode.getNext() != this.sentinel) {
-            if(ascending) {
-                if(currentNode.getValue() > currentNode.getNext().getValue()) return false;
-            } else {
-                if(currentNode.getValue() < currentNode.getNext().getValue()) return false;
-            }
-            currentNode = currentNode.getNext();
-        }
-        return true;
-    }
-
-    public boolean isEquals(UsersCircularLinkedList otherList) {
-
-        if(otherList.size() != size()) return false;
-
-        UserNode myListCurrent = this.sentinel.getNext();
-        UserNode otherListCurrent = otherList.sentinel.getNext();
-
-        while(myListCurrent != this.sentinel) {
-            if(myListCurrent.getValue() != otherListCurrent.getValue()) return false; 
-            myListCurrent = myListCurrent.getNext();
-            otherListCurrent = otherListCurrent.getNext();
-        }
-
-        return true;
-    }
-
     public int get(int index) throws Exception {
         try {
             index = index % size();
-            UserNode current = this.sentinel.getNext();
+            FoodNode current = this.sentinel.getNext();
             for(int i = 0; i < index; i++) {
                 current = current.getNext();
                 if(current == this.sentinel) current = current.getNext();
@@ -111,17 +81,17 @@ public class UsersCircularLinkedList {
         }
     }
 
-    public int get(UserNode currentNode, int index) {
+    public int get(FoodNode currentNode, int index) {
         for(int i = 0; i < index; i++) {
             currentNode = getSuccessor(currentNode);
         }
         return currentNode.getValue();
     }
 
-    public UserNode getSuccessor(UserNode currentNode) {
+    public FoodNode getSuccessor(FoodNode currentNode) {
         try {
             if(isEmpty()) throw new IndexOutOfBoundsException("Circular list is empty");
-            UserNode successor = currentNode.getNext();
+            FoodNode successor = currentNode.getNext();
             if(successor == this.sentinel) successor = successor.getNext();
             return successor;
         } catch (IndexOutOfBoundsException e) {
@@ -130,8 +100,8 @@ public class UsersCircularLinkedList {
         }
     }
 
-    public UserNode search(int elem) {
-        UserNode current = this.sentinel.getNext();
+    public FoodNode search(int elem) {
+        FoodNode current = this.sentinel.getNext();
 
         while(current != this.sentinel) {
             if(current.getValue() == elem) return current;
@@ -152,36 +122,36 @@ public class UsersCircularLinkedList {
         return this.sentinel.getNext() == this.sentinel;
     }
     
-    public UserNode getNext() {
+    public FoodNode getNext() {
         return this.next;
     }
 
-    public void setNext(UserNode next) {
+    public void setNext(FoodNode next) {
         this.next = next;
     }
 
-    public UserNode getPrevious() {
+    public FoodNode getPrevious() {
         return this.previous;
     }
 
-    public void setPrevious(UserNode previous) {
+    public void setPrevious(FoodNode previous) {
         this.previous = previous;
     }
 
-    public UserNode getTail() {
+    public FoodNode getTail() {
         return this.sentinel.getPrevious();
     }
 
-    public UserNode getSentinel() {
+    public FoodNode getSentinel() {
         return sentinel;
     }
 
-    public void setSentinel(UserNode sentinel) {
+    public void setSentinel(FoodNode sentinel) {
         this.sentinel = sentinel;
     }
 
-    public UserNode getHead() {
+    public FoodNode getHead() {
         return this.sentinel.getNext();
     }
-
+    
 }

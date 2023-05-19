@@ -6,7 +6,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.interactions.SourceType;
 
+<<<<<<< HEAD
+import ComidaCompras.Buy;
+=======
 import projCin.Market.Buy;
+>>>>>>> fa02de62c1e3e0b641e49b562f64a694cdf41b9b
 
 import java.sql.SQLOutput;
 

@@ -1,6 +1,16 @@
 package projCin;
 
 import java.util.Scanner;
+
+import projCin.Enums.EnumPromotionalCoupon;
+import projCin.Market.Buy;
+import projCin.Market.Food;
+import projCin.Movie.Movie;
+import projCin.Movie.MovieTime;
+import projCin.Movie.Room;
+import projCin.Users.Critical;
+import projCin.Users.Student;
+import projCin.Users.User;
 public class main {
 
     // public static void main(String[] args) {

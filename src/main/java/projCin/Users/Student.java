@@ -1,4 +1,4 @@
-package projCin;
+package projCin.Users;
 
 public class Student extends User{
     

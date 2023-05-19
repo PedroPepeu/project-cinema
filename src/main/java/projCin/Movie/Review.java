@@ -1,4 +1,4 @@
-package projCin;
+package projCin.Movie;
 
 public class Review {
     private String nome;

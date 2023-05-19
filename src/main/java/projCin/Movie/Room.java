@@ -1,6 +1,8 @@
-package projCin;
+package projCin.Movie;
 
 import java.util.Scanner;
+
+import projCin.Market.Buy;
 
 /*A classe de sala irá compor uma lista de sessões, a lista têm um tamanho fixo com
 uma grade de horário, caso não exista uma sessão em algum horário, aquela sessão

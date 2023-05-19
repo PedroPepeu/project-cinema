@@ -1,5 +1,5 @@
 //apos decidir filme e comida, mas ainda pode cancelar um dos dois
-package projCin;
+package projCin.Users;
 
 public class User {
     

@@ -1,4 +1,4 @@
-package projCin;
+package projCin.Enums;
 
 public enum EnumPromotionalCoupon {
     CUPOM_UM("cupom com 10% de desconto", 0.1 ),

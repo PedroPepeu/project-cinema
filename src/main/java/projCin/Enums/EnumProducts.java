@@ -1,4 +1,4 @@
-package projCin;
+package projCin.Enums;
 
 public enum EnumProducts {
     PIPOCAP ("p", 7.00),

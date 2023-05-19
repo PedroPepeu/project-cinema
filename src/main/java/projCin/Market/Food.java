@@ -1,4 +1,4 @@
-package projCin;
+package projCin.Market;
 
 import java.util.Scanner;
 

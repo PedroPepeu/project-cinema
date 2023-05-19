@@ -1,4 +1,4 @@
-package projCin;
+package projCin.Market;
 public class Ticket{
     
     private String user;

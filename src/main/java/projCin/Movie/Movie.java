@@ -1,6 +1,9 @@
-package projCin;
+package projCin.Movie;
 
 import java.util.Scanner;
+
+import projCin.Enums.EnumRooms;
+import projCin.Market.Buy;
 
 //Para olhar sobre os filmes
 //Movies vai entrar qnd for especificar uma sala

@@ -1,4 +1,4 @@
-package projCin;
+package projCin.Movie;
 
 import java.util.Random;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package projCin;
+package projCin.Users;
 public class Critical extends User {
 
     private String origin;

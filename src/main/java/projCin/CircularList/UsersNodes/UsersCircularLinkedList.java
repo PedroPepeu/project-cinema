@@ -80,19 +80,7 @@ public class UsersCircularLinkedList {
         return true;
     }
 
-    public CircularLinkedList copy() {
-        CircularLinkedList copyCircularLinkedList = new CircularLinkedList();
-
-        UserNode currentOriginalCircularLinkedList = this.sentinel.getNext();
-        while(currentOriginalCircularLinkedList != this.sentinel) {
-            copyCircularLinkedList.addLast(currentOriginalCircularLinkedList.getValue());
-            currentOriginalCircularLinkedList = currentOriginalCircularLinkedList.getNext();
-        }
-        
-        return copyCircularLinkedList;
-    }
-
-    public boolean isEquals(CircularLinkedList otherList) {
+    public boolean isEquals(UsersCircularLinkedList otherList) {
 
         if(otherList.size() != size()) return false;
 

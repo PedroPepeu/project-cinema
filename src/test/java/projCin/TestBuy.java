@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.interactions.SourceType;
 
+import ComidaCompras.Buy;
+
 import java.sql.SQLOutput;
 
 public class TestBuy {

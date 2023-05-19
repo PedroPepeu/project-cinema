@@ -1,5 +1,7 @@
 package projCin.ContasSudo;
 
-public class Interface {
-    
+public interface Interface {
+    public void incluirFilme();
+    public void excluirFilme();
+    public void alterarFilme();
 }

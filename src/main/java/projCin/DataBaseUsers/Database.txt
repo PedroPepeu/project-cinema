@@ -1,0 +1,15 @@
+{
+	pedro pepeu
+	pedroemail@email.com
+	1234senha
+}
+{
+	marone contra terrorista
+	maroneemail@email.com
+	12345senha1
+}
+{
+	rian escritor
+	rianemail@email.com
+	123456senha12
+}

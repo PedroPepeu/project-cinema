@@ -3,7 +3,8 @@ package projCin.ContasSudo;
 import projCin.CircularList.MoviesNodes.*;
 
 public interface Interface {
-    public MovieObj incluirFilme();
-    public MovieObj excluirFilme();
-    public MovieObj alterarFilme();
+    MovieObj incluirFilme();
+    MovieObj excluirFilme();
+    MovieObj alterarFilme();
+    //n precisa colocar nem o public nem o abstract, seria redundante
 }

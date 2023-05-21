@@ -4,7 +4,7 @@ public class MovieObj {
 
     private String name;
     private String summary;
-    private int duration;
+    private int duration; // minutes
 
     public MovieObj(String name, String summary, int duration) {
         this.name = name;

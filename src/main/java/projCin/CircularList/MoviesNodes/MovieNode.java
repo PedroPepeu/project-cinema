@@ -12,6 +12,10 @@ public class MovieNode {
         this.previous = previous;
     }
 
+    public MovieNode(MovieObj movie) {
+        this.movie = movie;
+    }
+
     public void setPrevious(MovieNode previous) {
         this.previous = previous;
     }

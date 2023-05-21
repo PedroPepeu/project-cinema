@@ -21,7 +21,7 @@ public class MovieCircularLinkedList {
         currentHead.setPrevious(newHead);
         this.sentinel.setNext(newHead);
         setSize(size() + 1);
-    }
+    } // add in first position
 
     public void addLast(Integer value) {
         MovieNode currentTail = this.sentinel.getPrevious();
@@ -29,7 +29,7 @@ public class MovieCircularLinkedList {
         currentTail.setNext(newTail);
         this.sentinel.setPrevious(newTail);
         setSize(size() + 1);
-    }
+    } // add in last position
 
     public void reverse() {
         if(size() < 2) return;
@@ -50,7 +50,7 @@ public class MovieCircularLinkedList {
         
         this.sentinel.setPrevious(this.sentinel.getNext());
         this.sentinel.setNext(previous);
-    }
+    } // reverse the LinkedList
 
     public void delete(MovieNode nodeDelete) {
         if(nodeDelete == this.sentinel) return;
@@ -64,7 +64,7 @@ public class MovieCircularLinkedList {
         if(nodeDelete.getNext() != this.sentinel) nodeDelete.getNext().setPrevious(nodeDelete.getPrevious());
 
         setSize(size() - 1);
-    }
+    } // delete a node
 
     public String get(int index) throws Exception {
         try {
@@ -79,7 +79,7 @@ public class MovieCircularLinkedList {
             System.out.println("List is empty");
             throw e;
         }
-    }
+    } // do not need to use
 
     public MovieNode getSuccessor(MovieNode currentNode) {
         try {
@@ -91,7 +91,7 @@ public class MovieCircularLinkedList {
             System.out.println("Circular list is empty");
             throw e;
         }
-    }
+    } // return the next node
 
     public MovieNode search(String elem) {
         MovieNode current = this.sentinel.getNext();
@@ -101,7 +101,7 @@ public class MovieCircularLinkedList {
             current = current.getNext();
         }
         return null;
-    }
+    } // search for an node from the movie name, I want to change for some code
 
     public int size() {
         return this.size;
@@ -113,7 +113,7 @@ public class MovieCircularLinkedList {
 
     public boolean isEmpty() {
         return this.sentinel.getNext() == this.sentinel;
-    }
+    } // boolean if the node is empty
     
     public MovieNode getNext() {
         return this.next;

@@ -2,16 +2,12 @@ package projCin.CircularList.ComidasNodes;
 
 public class FoodNode {
     
-    private String name;
-    private char size;
-    private double price;
-    private FoodNode previous;
-    private FoodNode next;
+    private FoodObj food; // food object
+    private FoodNode previous; // prev Node
+    private FoodNode next; // next Node
 
-    public FoodNode(String name, char size, double price, FoodNode previous, FoodNode next) {
-        this.name = name;
-        this.size = size;
-        this.price = price;
+    public FoodNode(FoodObj food, FoodNode previous, FoodNode next) {
+        this.food = food;
         this.next = next;
         this.previous = previous;
     }
@@ -32,14 +28,6 @@ public class FoodNode {
         return this.next;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public char getSize() {
         return size;
     }
@@ -48,12 +36,12 @@ public class FoodNode {
         this.size = size;
     }
 
-    public double getPrice() {
-        return price;
+    public FoodObj getFood() {
+        return this.food;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setFood(FoodObj food) {
+        this.food = food;
     }
 
 }

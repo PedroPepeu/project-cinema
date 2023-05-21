@@ -93,6 +93,8 @@ public class MovieCircularLinkedList {
         }
     } // return the next node
 
+    // MCLL.delete(MCLL.search(os 3 rian pepeu e marone))
+
     public MovieNode search(String elem) {
         MovieNode current = this.sentinel.getNext();
 
@@ -101,7 +103,7 @@ public class MovieCircularLinkedList {
             current = current.getNext();
         }
         return null;
-    } // search for an node from the movie name, I want to change for some code
+    } // search for an node from the movie name, I want to change for some code, qnt de letras
 
     public int size() {
         return this.size;

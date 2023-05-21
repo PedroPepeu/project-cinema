@@ -28,14 +28,6 @@ public class FoodNode {
         return this.next;
     }
 
-    public char getSize() {
-        return size;
-    }
-
-    public void setSize(char size) {
-        this.size = size;
-    }
-
     public FoodObj getFood() {
         return this.food;
     }

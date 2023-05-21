@@ -1,3 +1,5 @@
+package projCin.CircularList.ComidasNodes;
+
 public class FoodObj {
 
     private String name;
@@ -22,7 +24,7 @@ public class FoodObj {
         return this.size;
     }
 
-    public void setSize(char Size) {
+    public void setSize(char size) {
         this.size = size;
     }
 

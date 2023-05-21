@@ -8,7 +8,7 @@ public class FoodCircularLinkedList {
     private int size;
 
     public FoodCircularLinkedList() {
-        sentinel = new FoodNode(null, 'U', 0, null, null); // sentinel is a null node, the U letter is to add as unique size, so in node null, I added as U ass null
+        sentinel = new FoodNode(null, null, null); // sentinel is a null node, the U letter is to add as unique size, so in node null, I added as U ass null
         this.sentinel.setNext(this.sentinel);
         this.sentinel.setPrevious(this.sentinel);
         
@@ -17,7 +17,7 @@ public class FoodCircularLinkedList {
 
     public void addFirst(String name, char size, double price) {
         FoodNode currentHead = this.sentinel.getNext();
-        FoodNode newHead = new FoodNode(name, size, price, this.sentinel, currentHead);
+        FoodNode newHead = new FoodNode(null, this.sentinel, currentHead);
         currentHead.setPrevious(newHead);
         this.sentinel.setNext(newHead);
         setSize(size() + 1);
@@ -25,7 +25,7 @@ public class FoodCircularLinkedList {
 
     public void addLast(String name, char size, double price) {
         FoodNode currentTail = this.sentinel.getPrevious();
-        FoodNode newTail = new FoodNode(name, size, price, currentTail, this.sentinel);
+        FoodNode newTail = new FoodNode(null, currentTail, this.sentinel);
         currentTail.setNext(newTail);
         this.sentinel.setPrevious(newTail);
         setSize(size() + 1);
@@ -104,7 +104,7 @@ public class FoodCircularLinkedList {
         FoodNode current = this.sentinel.getNext();
 
         while(current != this.sentinel) {
-            if(current.getName() == name && current != null) return current;
+            if(current.getFood().getName() == name && current != null) return current;
             current = current.getNext();
         }
         return null;

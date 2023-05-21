@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 import projCin.CircularList.MoviesNodes.*;
 
-public class ADM extends Base implements Interface { //na minha visão, ele iria herdar a classe base, já que o prof pediu que a classe ADM tenha os metodos da classe base
+public class ADM extends Base implements Interface { //na minha visão, ele iria herdar a classe base, já que o prof pediu que a classe ADM tenha os metodos da classe base.
+                                                    //yes
     private String ID;
     private double salario;
 
@@ -67,6 +68,16 @@ public class ADM extends Base implements Interface { //na minha visão, ele iria
     @Override
     public MovieObj alterarFilme() {
         return null; //alterar o filme por completo, coisas do filme ou os dois?
+    }
+
+    @Override
+    public void adicionarUser() {
+        //metodo que vai ser aplicado depois, obrigatoriamnete
+    }
+
+    @Override
+    public void alterarUser() {
+        //metodo que vai ser aplicado depois, obrigatoriamnete
     }
 
     

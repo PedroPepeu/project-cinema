@@ -46,13 +46,22 @@ public class Funcionario extends Base implements Interface { //na minha visão, 
 
         return filme; //vai retornar o filme e ele vai ser removido da lista criada na Main.
 
-
-
     }
 
     @Override
     public MovieObj alterarFilme() {
+
         return null; // alterar o filme por completo, coisas do filme ou os dois?
+    }
+
+    @Override
+    public void adicionarUser() {
+        //metodo que vai ser aplicado depois, obrigatoriamnete
+    }
+
+    @Override
+    public void alterarUser() {
+        //metodo que vai ser aplicado depois, obrigatoriamnete
     }
 
 }

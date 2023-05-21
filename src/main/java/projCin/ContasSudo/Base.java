@@ -29,13 +29,8 @@ public abstract class Base {
         this.email = email;
     }
 
-    public void adicionarUser() {
+    public abstract void adicionarUser();
 
-    }
+    public abstract void alterarUser();
 
-    public void alterarUser() {
-
-    }
-
-    
 }

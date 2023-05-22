@@ -9,7 +9,7 @@ public class db {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.printf("ID..\n");
+        System.out.printf("CPF..\n");
         String ID = sc.nextLine();
         
         System.out.printf("name..\n");
@@ -39,8 +39,6 @@ public class db {
 
         System.out.printf("Write the ID that you whant to change..\n");
         int idToChange = sc.nextInt();
-
-        String jumpline = sc.nextLine();
 
         String changingArr[] = {"Name..", "email..", "password.."};
 

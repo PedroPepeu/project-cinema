@@ -5,11 +5,13 @@ public class MovieObj {
     private String name;
     private String summary;
     private int duration; // minutes
+    private int ID;
 
-    public MovieObj(String name, String summary, int duration) {
+    public MovieObj(String name, String summary, int duration, int ID) {
         this.name = name;
         this.summary = summary;
         this.duration = duration;
+        this.ID = ID;
     }
 
     public String getName() {
@@ -34,6 +36,14 @@ public class MovieObj {
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int iD) {
+        ID = iD;
     }
     
 }

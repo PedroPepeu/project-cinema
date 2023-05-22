@@ -1,15 +1,3 @@
-{
-	pedro pepeu
-	pedroemail@email.com
-	1234senha
-}
-{
-	marone contra terrorista
-	maroneemail@email.com
-	12345senha1
-}
-{
-	rian escritor
-	rianemail@email.com
-	123456senha12
-}
+00084,pedro,pedroemail@email.com,asdfhi,
+00095,marone,maroneemail@email.com,senha12345,
+00053,rian,rianemail@email.com,senha123456,

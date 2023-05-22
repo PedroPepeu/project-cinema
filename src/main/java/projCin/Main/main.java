@@ -188,6 +188,7 @@ public class main {
                         boolean avaliable = mt.showChairsOptions(numOfPeople);
                         if (avaliable) {
                             System.out.println("Coluna: ");
+
                             int column = sc.nextInt();
                             System.out.println("Linha: ");
                             int line = sc.nextInt();

@@ -9,7 +9,7 @@ public class db {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.printf("CPF..\n");
+        System.out.printf("ID..\n");
         String ID = sc.nextLine();
         
         System.out.printf("name..\n");

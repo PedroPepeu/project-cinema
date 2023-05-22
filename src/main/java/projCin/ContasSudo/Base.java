@@ -1,5 +1,7 @@
 package projCin.ContasSudo;
 
+import projCin.Contas.User;
+
 public abstract class Base {
     private String nome;
     private int idade;
@@ -31,6 +33,6 @@ public abstract class Base {
 
     public abstract void adicionarUser();
 
-    public abstract void alterarUser();
+    public abstract void alterarUser(User userAserAlterado);
 
 }

@@ -1,8 +1,12 @@
 package projCin.ContasSudo;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import projCin.CircularList.MoviesNodes.*;
+import projCin.Contas.User;
 
 public class ADM extends Base implements Interface { //na minha visão, ele iria herdar a classe base, já que o prof pediu que a classe ADM tenha os metodos da classe base.
                                                     //yes
@@ -72,12 +76,62 @@ public class ADM extends Base implements Interface { //na minha visão, ele iria
 
     @Override
     public void adicionarUser() {
-        //metodo que vai ser aplicado depois, obrigatoriamnete
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("name..");
+        String name = sc.nextLine();
+
+        System.out.println("cpf..");
+        String cpf = sc.nextLine();
+
+        System.out.println("Password..");
+        int pssw = sc.nextInt();
+        
+        System.out.println("age..");
+        int age = sc.nextInt();
+
+        System.out.println("gender..");
+        char gender = sc.next().charAt(0);
+
+        System.out.println("email..");
+        String email = sc.nextLine();
+
+        System.out.println("Credit card name..");
+        String crdtCrdName = sc.nextLine();
+
+        System.out.println("Credit card num..");
+        String crdtCrdNum = sc.nextLine();
+
+        System.out.println("Credit card Verify..");
+        int crdtCrdVerify = sc.nextInt();
+
+        sc.close();
+
+        User person = new User(name, cpf, pssw, age, gender, email, crdtCrdName, crdtCrdNum, crdtCrdVerify);
+
+        try {
+            File file = new File("Database.txt");
+            PrintWriter pw = new PrintWriter(new FileOutputStream(file, true));
+            pw.append("{\n");
+            pw.append("\t" + person.getUser() + "\n" + "\t" + person.getCpf() + "\n"
+            +"\t"+person.getPassword()+"\n" + "\t" + person.getAge() + "\n" +"\t" + person.getGender()
+            + "\n" +"\t" + person.getEmail() + "\n" +"\t" + person.getCreditCardName() 
+            + "\n" +"\t" + person.getCreditCardNum() + "\n" +"\t" + person.getCreditCardVerify());
+            pw.append("}\n");
+            pw.close();
+        } catch (Exception e) {}
     }
 
     @Override
-    public void alterarUser() {
-        //metodo que vai ser aplicado depois, obrigatoriamnete
+    public void alterarUser(User userAserAlterado) {
+        deletarUser(userAserAlterado);
+        adicionarUser();
+    }
+
+    public void deletarUser(User userAserDeletado) {
+        
+        //metodo p deletar algo no txt(NAO TEM EM LUGAR NNHM FALANDO SOBRE)
     }
 
     

@@ -1,3 +1,5 @@
+package projCin.DataBaseUsers;
+
 import java.io.*; // the class that create the file java.io.file
 import java.util.*;
 
@@ -15,6 +17,8 @@ public class db {
 
         System.out.println("email..");
         String email = sc.nextLine();
+
+        sc.close();
 
         try {
             File file = new File("Database.txt");

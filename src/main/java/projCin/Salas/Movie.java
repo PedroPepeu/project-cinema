@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import projCin.ComidaCompras.Buy;
 import projCin.Enum.EnumRooms;
+import java.time.LocalTime;
 
 //Para olhar sobre os filmes
 //Movies vai entrar qnd for especificar uma sala
@@ -11,7 +12,8 @@ public class Movie {
 
     private String name;
     private int minutes = 120;//
-    private String timeInString;
+    private int tempMin;
+    private int tempMax;
     private String summary; // sinopse
     private double price = 20.00;
     private Review[] review = new Review[100]; // atributo que o prof pediu para criar
@@ -62,14 +64,6 @@ public class Movie {
         this.minutes = minutes;
     }
 
-    public String getTimeInString() {
-        return timeInString;
-    }
-
-    public void setTimeInString(String timeInString) {
-        this.timeInString = timeInString;
-    }
-
     public String getSummary() {
         return summary;
     }
@@ -117,7 +111,22 @@ public class Movie {
     public void setPosiçãoReview(int posiçãoReview) {
         this.posiçãoReview = posiçãoReview;
     }
-    
+
+    public int getTempMin() {
+        return tempMin;
+    }
+
+    public void setTempMin(int tempMin) {
+        this.tempMin = tempMin;
+    }
+
+    public int getTempMax() {
+        return tempMax;
+    }
+
+    public void setTempMax(int tempMax) {
+        this.tempMax = tempMax;
+    }
 
     public Movie(String name, int minutes, String summary, double price) {  //fazendo uma sobrecarga de construtures para ter uma com os parametros e outra sem nenhum parametro
         this.name = name;
@@ -126,15 +135,20 @@ public class Movie {
         this.price = price;
     }
 
-    public Movie(String timeInString, String name, double price) {  //fazendo outra sobrecarga para colocar na classe Room
-        this.timeInString = timeInString;
+    public Movie(int tempMin, int tempMax, String name, double price) {  //fazendo outra sobrecarga para colocar na classe Room
+        this.tempMin = tempMin;
+        this.tempMax = tempMax;
         this.name = name;
         this.price = price;
     }
 
     public String toString() {
-        return " "  + timeInString + ", " + name + ", " + price + " ";
+        LocalTime horarioDoFilmeMin = LocalTime.of(tempMin, 00);
+        LocalTime horarioDoFilmeMax = LocalTime.of(tempMax, 00);
+        return " "+horarioDoFilmeMin+" - "+horarioDoFilmeMax+", " + name + ", " + price + " ";
     }
+
+    
 
     public double decision(int option){
 

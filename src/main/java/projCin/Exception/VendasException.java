@@ -12,7 +12,8 @@ public class VendasException extends Exception {
     private String erroTres;
     private Movie movie;
 
-    public VendasException(String erroUm) {
+    public VendasException() {
+        String erroUm = "";
         //como vai ser feito o erro de um bilhete que já passou o horário do filme??
     }
 

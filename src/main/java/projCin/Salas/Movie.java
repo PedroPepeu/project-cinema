@@ -162,6 +162,7 @@ public class Movie {
         String nomeDoFilme;
         String summary;
         int sala;
+
         switch (movieNumber){
             case 1:
                 
@@ -318,11 +319,10 @@ public class Movie {
                 
             case 0: 
                 room.sessions();
-                break;     
+                break;   
+          
 
         }
-        
-        
         s.close();
     }
 

@@ -2,6 +2,7 @@ package projCin.Salas;
 
 import java.util.Scanner;
 import projCin.ComidaCompras.Buy;
+import projCin.Exception.VendasException;
 
 /*A classe de sala irá compor uma lista de sessões, a lista têm um tamanho fixo com
 uma grade de horário, caso não exista uma sessão em algum horário, aquela sessão
@@ -14,6 +15,7 @@ public class Room {
     private MovieTime[] movietime;//Chairs at room
     //private Room [][] catalog;
     private Movie [] movie;
+    private boolean disponibilidadeDoFilme;
 
     MovieTime horaDoFilme = new MovieTime();
 
@@ -45,6 +47,14 @@ public class Room {
         this.horaDoFilme = horaDoFilme;
     }
 
+    public boolean isDisponibilidadeDoFilme() {
+        return disponibilidadeDoFilme;
+    }
+
+    public void setDisponibilidadeDoFilme(boolean disponibilidadeDoFilme) {
+        this.disponibilidadeDoFilme = disponibilidadeDoFilme;
+    }
+
     public void sessions(){
         Buy buy = new Buy();
         Scanner s = new Scanner(System.in);
@@ -68,23 +78,32 @@ public class Room {
 
         System.out.println("\nQual o numero do filme deseja comprar o ingresso(de 1 a 7) \n(Para voltar ao menu digite: 0)");
         int chose = s.nextInt();
+
+        try {
+
         if(chose == 0){
             buy.menuGeral();
         }
         if(chose < 0 || chose > 7){
-            System.out.println("invalido");
-            sessions();
+            System.out.println("Escolha não permitida, tente novamente");
         }else{
+            //Se o filme não estiver disponivel, settar o boolean para false
+            setDisponibilidadeDoFilme(true);
+            if (disponibilidadeDoFilme == false) {
+                throw new VendasException(movie[chose - 1]);
+            }
+
             System.out.println("Filme: " + movie[chose - 1].getName());
 
             System.out.println("Quantidade de ingressos: ");
             int quant = s.nextInt();
             selectMovie.details(chose, quant);
-
-            s.close();
         }
 
+    } catch (VendasException e) {
+        System.out.println(e.getErroTres());
     }
+}
 
     public void amostraDeFilmes() {
         movie[0] = new Movie("08:00 - 10:00","Steven Universe", 20);

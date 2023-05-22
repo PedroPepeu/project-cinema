@@ -2,6 +2,7 @@ package projCin.Salas;
 
 import java.util.Random;
 import java.util.Scanner;
+import projCin.Exception.VendasException;
 
 public class MovieTime {
 
@@ -9,7 +10,7 @@ public class MovieTime {
     private boolean isOcupied[][] = new boolean[10][15];
 
     public MovieTime() {
-        
+
     }
 
     public char[][] getChairs() {
@@ -29,7 +30,7 @@ public class MovieTime {
     }
 
     public void screen(String movieName, double tickets) {
-        
+
         Random random = new Random();
 
         int avaliableChairs = 0;
@@ -40,23 +41,23 @@ public class MovieTime {
             System.out.println();
             for (int j = 0; j < 15; j++) {
                 int aleat = random.nextInt(2);
-                if(aleat == 1){
-                    chairs[i][j] = 'X';                
+                if (aleat == 1) {
+                    chairs[i][j] = 'X';
                     isOcupied[i][j] = true;
                     System.out.print(ANSI_RED + " [" + chairs[i][j] + "] " + ANSI_RESET);
-                } else if(aleat == 0) {
+                } else if (aleat == 0) {
                     chairs[i][j] = ' ';
                     isOcupied[i][j] = false;
                     avaliableChairs++;
                     System.out.print(ANSI_GREEN + " [" + chairs[i][j] + "] " + ANSI_RESET);
                 }
-                //System.out.print(" [" + chairs[i][j] + "] ");
+                // System.out.print(" [" + chairs[i][j] + "] ");
             }
             System.out.println("\t");
         }
         System.out.println("\n||||||||||||||||||||||||||||||     SCREEN    ||||||||||||||||||||||||||||||");
 
-        if(avaliableChairs / tickets > 1) {
+        if (avaliableChairs / tickets > 1) {
             chairsOptions(tickets);
         } else {
             System.out.println("Lotado");
@@ -74,16 +75,17 @@ public class MovieTime {
         int avaliableChairs = 0;
 
         System.out.println("\n\n" + movieName);
-        System.out.println(ANSI_YELLOW + "|Exit|---------------------------------------------------------------|Exit| " + ANSI_RESET);
+        System.out.println(ANSI_YELLOW + "|Exit|---------------------------------------------------------------|Exit| "
+                + ANSI_RESET);
         for (int i = 0; i < 10; i++) {
             System.out.println();
             for (int j = 0; j < 15; j++) {
                 int aleat = random.nextInt(2);
-                if(aleat == 1){
-                    chairs[i][j] = 'X';                
+                if (aleat == 1) {
+                    chairs[i][j] = 'X';
                     isOcupied[i][j] = true;
                     System.out.print(ANSI_RED + " [" + chairs[i][j] + "] " + ANSI_RESET);
-                } else if(aleat == 0) {
+                } else if (aleat == 0) {
                     chairs[i][j] = ' ';
                     isOcupied[i][j] = false;
                     avaliableChairs++;
@@ -93,23 +95,24 @@ public class MovieTime {
             }
             System.out.println("\t");
         }
-        System.out.println(ANSI_YELLOW + "\n||||||||||||||||||||||||||||||     SCREEN    ||||||||||||||||||||||||||||||" + ANSI_RESET);
+        System.out.println(ANSI_YELLOW + "\n||||||||||||||||||||||||||||||     SCREEN    ||||||||||||||||||||||||||||||"
+                + ANSI_RESET);
 
         return avaliableChairs;
     }
-    
+
     public void chairsOptions(double tickets) {
         System.out.println("Escolha os assentos disponiveis: ");
         boolean avaliable = false;
         int counter = 0;
-        for(int j = 0; j < 10; j++) {
-            for(int i = 0; i < 15; i++) {
-                if(isOcupied[j][i]) {
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 15; i++) {
+                if (isOcupied[j][i]) {
                     counter = 0;
                     continue;
                 } else {
                     counter++;
-                    if(counter == tickets) {
+                    if (counter == tickets) {
                         System.out.printf("Coluna: %d Linha: %d\n", i + 2 - counter, j + 1);
                         counter = 0;
                         avaliable = true;
@@ -118,10 +121,10 @@ public class MovieTime {
             }
             counter = 0;
         }
-        if(avaliable) {
+        if (avaliable) {
             escolha();
         } else {
-            System.out.println("Nao disponivel para este numero de tickets");
+            System.out.println("Nao disponivel para este numero de tickets"); //fazer exception aqui?
         }
         // terminou de escolher a cadeira
 
@@ -131,14 +134,14 @@ public class MovieTime {
         System.out.println("Escolha os assentos disponiveis: ");
         boolean avaliable = false;
         int counter = 0;
-        for(int j = 0; j < 10; j++) {
-            for(int i = 0; i < 15; i++) {
-                if(isOcupied[j][i]) {
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 15; i++) {
+                if (isOcupied[j][i]) {
                     counter = 0;
                     continue;
                 } else {
                     counter++;
-                    if(counter == tickets) {
+                    if (counter == tickets) {
                         System.out.printf("Coluna: %d Linha: %d\n", i + 2 - counter, j + 1);
                         counter = 0;
                         avaliable = true;
@@ -152,25 +155,31 @@ public class MovieTime {
 
     public void escolha() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Coluna: ");
-        int column = sc.nextInt();
-        System.out.println("Linha: ");
-        int line = sc.nextInt();
-        if(isOcupied[line -1][column - 1]) {
-            escolha();
-        } else {
-            // salvar lugares
+        try {
+            System.out.println("Coluna: ");
+            int column = sc.nextInt();
+            System.out.println("Linha: ");
+            int line = sc.nextInt();
+
+            if (isOcupied[line - 1][column - 1]) {
+                throw new VendasException(line - 1, column - 1);
+
+            } else {
+                // salvar lugares
+            }
+        } catch (VendasException e) {
+            System.out.println(e.getErroDois());
         }
-        sc.close();
+
     }
-    
+
     public boolean free(int status) {
-        if(status == 0){
+        if (status == 0) {
             return false;
         }
         return true;
     }
 
-    //classe movietime praticamente feita, falta apenas detalhes
-    
+    // classe movietime praticamente feita, falta apenas detalhes
+
 }

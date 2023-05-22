@@ -1,15 +1,3 @@
-{
-	pedro pepeu
-	pedroemail@email.com
-	1234senha
-}
-{
-	marone contra terrorista
-	maroneemail@email.com
-	12345senha1
-}
-{
-	rian escritor
-	rianemail@email.com
-	123456senha12
-}
+0001234,pedro pepeu,pedrohamurab3@gmail.com,senha1234,
+0001235,marone contra terrorista,maronect@gmail.com,ahwergfoqu,
+0001236,rian delou,iujhvrifu@iauyhbefo.com,uyqwgerfiuh,

@@ -15,9 +15,10 @@ public class MovieCircularLinkedList {
         this.size = 0;
     }
 
-    public void addFirst(Integer value) {
+    public void addFirst(String name, String summary, int duration) {
+        MovieObj currentMovie = new MovieObj(name, summary, duration);
         MovieNode currentHead = this.sentinel.getNext();
-        MovieNode newHead = new MovieNode(null, this.sentinel, currentHead);
+        MovieNode newHead = new MovieNode(currentMovie, this.sentinel, currentHead);
         currentHead.setPrevious(newHead);
         this.sentinel.setNext(newHead);
         setSize(size() + 1);

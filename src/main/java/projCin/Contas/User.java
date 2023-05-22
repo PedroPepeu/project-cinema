@@ -7,7 +7,7 @@ public class User {
     
     private String user;
     private String cpf;
-    private int password;
+    private String password;
     private int age;
     private char gender;
     private String email;
@@ -16,12 +16,8 @@ public class User {
     private int creditCardVerify;
     private double multiplicadorCompraDebilhetes;
     //Buy spend = new Buy();
-
-    public User() {
-        
-    }
     
-    public User(String user, String cpf, int password, int age, char gender, String email, String creditCardName,
+    public User(String user, String cpf, String password, int age, char gender, String email, String creditCardName,
         String creditCardNum, int creditCardVerify) {   //fazendo uma sobrecarga de construtures para ter uma com os parametros e outra sem nenhum parametro
         this.user = user;
         this.cpf = cpf;
@@ -50,11 +46,11 @@ public class User {
         this.cpf = cpf;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 

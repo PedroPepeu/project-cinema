@@ -3,6 +3,7 @@ package projCin.ContasSudo;
 import java.util.Scanner;
 
 import projCin.CircularList.MoviesNodes.*;
+import projCin.DataBaseUsers.db;
 
 public class ADM extends Base implements Interface { //na minha visão, ele iria herdar a classe base, já que o prof pediu que a classe ADM tenha os metodos da classe base.
                                                     //yes
@@ -124,11 +125,15 @@ public class ADM extends Base implements Interface { //na minha visão, ele iria
 
     @Override
     public void adicionarUser() {
+        db dataB = new db();
+        dataB.insert();
         //metodo que vai ser aplicado depois, obrigatoriamnete
     }
 
     @Override
     public void alterarUser() {
+        db dataB  = new db();
+        dataB.updateFile();
         //metodo que vai ser aplicado depois, obrigatoriamnete
     }
 

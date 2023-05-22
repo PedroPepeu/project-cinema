@@ -5,35 +5,22 @@ import java.util.*;
 
 public class db {
 
-    public void insert() {
-
-        Scanner sc = new Scanner(System.in);
-
-        System.out.printf("ID..\n");
-        String ID = sc.nextLine();
-        
-        System.out.printf("name..\n");
-        String name = sc.nextLine();
-
-        System.out.printf("password..\n");
-        String pssw = sc.nextLine();
-
-        System.out.printf("email..\n");
-        String email = sc.nextLine();
+    public void insert(String user, String cpf, int password, int age, char gender, String email, String creditCardName,
+    String creditCardNum, int creditCardVerify) {
 
         try {
             File file = new File("./src/main/java/projCin/DataBaseUsers/Database.txt");
             PrintWriter pw = new PrintWriter(new FileOutputStream(file, true));
-            pw.append(ID+","+name+","+email+","+pssw+",\n");
+            String wrt = String.format("%s, %s, %s, %s, %s, %d, %s, %s, %d,\n", cpf, user, email, password, gender, age, creditCardName, creditCardNum, creditCardVerify);
+            pw.append(wrt);
             pw.close();
         } catch (Exception e) {}
 
-        sc.close();
     }
 
     public void updateFile() {
 
-        int numOfValues = 3;
+        int numOfValues = 8;
 
         Scanner sc = new Scanner(System.in);
 

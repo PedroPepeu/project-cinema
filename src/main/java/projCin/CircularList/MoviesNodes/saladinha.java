@@ -13,7 +13,9 @@ public class saladinha {
             String name = sc.nextLine();
             String sumary = sc.nextLine();
             int dur = sc.nextInt();
-            MCLL.addFirst(name, sumary, dur);
+            int id = sc.nextInt();
+            
+            MCLL.addFirst(name, sumary, dur, id);
             String jumpline = sc.nextLine();
             n--;
         }

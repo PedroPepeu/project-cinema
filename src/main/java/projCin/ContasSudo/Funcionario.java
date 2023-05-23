@@ -98,18 +98,18 @@ public class Funcionario extends Base implements Interface { //na minha visão, 
             File file = new File("Database.txt");
             PrintWriter pw = new PrintWriter(new FileOutputStream(file, true));
             pw.append("{\n");
-            pw.append("\t" + person.getUser() + "\n" + "\t" + person.getCpf() + "\n"
-            +"\t"+person.getPassword()+"\n" + "\t" + person.getAge() + "\n" +"\t" + person.getGender()
-            + "\n" +"\t" + person.getEmail() + "\n" +"\t" + person.getCreditCardName() 
-            + "\n" +"\t" + person.getCreditCardNum() + "\n" +"\t" + person.getCreditCardVerify());
-            pw.append("}\n");
+            pw.append( person.getUser() + "," +  person.getCpf() + ","
+            + person.getPassword()+"," +  person.getAge() + "," + person.getGender()
+            + "," + person.getEmail() + "," + person.getCreditCardName() 
+            + "," + person.getCreditCardNum() + "," + person.getCreditCardVerify());
+            pw.append("},");
             pw.close();
         } catch (Exception e) {}
     }
 
     @Override
     public void alterarUser(User userAserAlterado) {
-        //metodo que vai ser aplicado depois, obrigatoriamnete
+        //aterar seria p apagar um antigo e construir um novo em cima ne? So o adm tem esse poder
     }
 
 }

@@ -4,7 +4,7 @@ public class Student extends User{
     
     private boolean isStudent;
 
-    public Student(String user, String cpf, String password, int age, char gender, String email, String creditCardName,
+    public Student(String user, String cpf, int password, int age, char gender, String email, String creditCardName,
     String creditCardNum, int creditCardVerify, boolean isStudent){
         super(user, cpf, password, age, gender, email, creditCardName, creditCardNum, creditCardVerify);
         this.isStudent = isStudent;

@@ -168,7 +168,7 @@ public class MovieTime {
                 // salvar lugares
             }
         } catch (VendasException e) {
-            System.out.println(e.getErroDois());
+            System.out.println(e.getErroDois()); //erro de se a pessoa escolher uma cadeira que já foi escolhida
         }
 
     }

@@ -9,10 +9,6 @@ public class Critical extends User {
         super(user, cpf, password, age, gender, email, creditCardName, creditCardNum, creditCardVerify);
         this.origin = origin;
     }
-    
-    public Critical() {
-
-    }
 
     public String getOrigin() {
         return origin;

@@ -24,9 +24,5 @@ public class Student extends User{
         total = total * getMultiplicadorCompraDebilhetes();
         return total;
     }
-
-    
-
-
     
 }

@@ -110,7 +110,6 @@ public class Funcionario extends Base implements Interface { //na minha visão, 
     @Override
     public void adicionarUser() {
         Scanner sc = new Scanner(System.in);
-        Scanner sc = new Scanner(System.in);
         db dataB = new db();
 
         System.out.println("1 - Common User\n2 - Student\n3 - Critical");
@@ -256,156 +255,12 @@ public class Funcionario extends Base implements Interface { //na minha visão, 
         }
         sc.close();
 
-        System.out.println("1 - Common User\n2 - Student\n3 - Critical");
-        int choice = sc.nextInt();
-        sc.nextLine();
-        switch (choice) {
-            case 1:
-
-                System.out.println("CPF..");
-                String CPF = sc.nextLine();
-
-                System.out.println("user..");
-                String user = sc.nextLine();
-
-                System.out.println("email..");
-                String email = sc.nextLine();
-
-                System.out.println("password..");
-                String password = sc.nextLine();
-
-                System.out.println("gender..\n(M for male, F  for female)");
-                char gender = sc.nextLine().charAt(0);
-
-                System.out.println("age..");
-                int age = sc.nextInt();
-                sc.nextLine();
-
-                System.out.println("credit card name..");
-                String creditCardName = sc.nextLine();
-                creditCardName.toUpperCase();
-
-                System.out.println("credit card num..");
-                String creditCardNum = sc.nextLine();
-
-                System.out.println("card number verify..");
-                int cardNumberVerify = sc.nextInt();
-
-                dataB.insert(user, CPF, password, age, gender, email, creditCardName, creditCardNum, cardNumberVerify);
-                break;
-
-            case 2:
-                System.out.println("CPF..");
-                CPF = sc.nextLine();
-
-                System.out.println("user..");
-                user = sc.nextLine();
-
-                System.out.println("email..");
-                email = sc.nextLine();
-
-                System.out.println("password..");
-                password = sc.nextLine();
-
-                System.out.println("gender..\n(M for male, F  for female)");
-                gender = sc.nextLine().charAt(0);
-
-                System.out.println("age..");
-                age = sc.nextInt();
-                sc.nextLine();
-
-                System.out.println("credit card name..");
-                creditCardName = sc.nextLine();
-                creditCardName.toUpperCase();
-
-                System.out.println("credit card num..");
-                creditCardNum = sc.nextLine();
-
-                System.out.println("card number verify..");
-                cardNumberVerify = sc.nextInt();
-
-                dataB.insert(user, CPF, password, age, gender, email, creditCardName, creditCardNum, cardNumberVerify, true);
-                break;
-
-            case 3:
-                System.out.println("CPF..");
-                CPF = sc.nextLine();
-
-                System.out.println("user..");
-                user = sc.nextLine();
-
-                System.out.println("email..");
-                email = sc.nextLine();
-
-                System.out.println("password..");
-                password = sc.nextLine();
-
-                System.out.println("gender..\n(M for male, F  for female)");
-                gender = sc.nextLine().charAt(0);
-
-                System.out.println("age..");
-                age = sc.nextInt();
-                sc.nextLine();
-
-                System.out.println("credit card name..");
-                creditCardName = sc.nextLine();
-                creditCardName.toUpperCase();
-
-                System.out.println("credit card num..");
-                creditCardNum = sc.nextLine();
-
-                System.out.println("card number verify..");
-                cardNumberVerify = sc.nextInt();
-                sc.nextLine();
-
-                System.out.println("Origin..");
-                String origin = sc.nextLine();
-
-                dataB.insert(user, CPF, password, age, gender, email, creditCardName, creditCardNum, cardNumberVerify, origin);
-                break;
-
-            default:
-                System.out.println("Since you write something wrong, the common addition is common user");
-                System.out.println("CPF..");
-                CPF = sc.nextLine();
-
-                System.out.println("user..");
-                user = sc.nextLine();
-
-                System.out.println("email..");
-                email = sc.nextLine();
-
-                System.out.println("password..");
-                password = sc.nextLine();
-
-                System.out.println("gender..\n(M for male, F  for female)");
-                gender = sc.nextLine().charAt(0);
-
-                System.out.println("age..");
-                age = sc.nextInt();
-                sc.nextLine();
-
-                System.out.println("credit card name..");
-                creditCardName = sc.nextLine();
-
-                System.out.println("credit card num..");
-                creditCardNum = sc.nextLine();
-
-                System.out.println("card number verify..");
-                cardNumberVerify = sc.nextInt();
-
-                dataB.insert(user, CPF, password, age, gender, email, creditCardName, creditCardNum, cardNumberVerify);
-                break;
-        }
-        sc.close();
-        //metodo que vai ser aplicado depois, obrigatoriamnete
     }
 
     
 
     @Override
     public void alterarUser() {
-        Scanner sc = new Scanner(System.in);
         Scanner sc = new Scanner(System.in);
         db dataB  = new db();
         System.out.println("1 - Common user\n2 - Student\n3 - Critical");

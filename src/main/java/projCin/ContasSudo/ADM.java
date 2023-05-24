@@ -31,14 +31,7 @@ public class ADM extends Base implements Interface { //na minha visão, ele iria
         this.salario = salario;
     }
 
-    public void excluirUser() {
-        db DB = new db();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Write the CPF of the user you want to delete:");
-        String CPF = sc.nextLine();
-        DB.deleteUser(CPF);
-    }
-
+   
     @Override
     public MovieObj incluirFilme() {
         Scanner input = new Scanner(System.in);
@@ -134,7 +127,7 @@ public class ADM extends Base implements Interface { //na minha visão, ele iria
 
         System.out.println("1 - Common User\n2 - Student\n3 - Critical");
         int choice = sc.nextInt();
-        sc.nextLine();
+        String jumpline = sc.nextLine();
         switch (choice) {
             case 1:
 
@@ -155,7 +148,7 @@ public class ADM extends Base implements Interface { //na minha visão, ele iria
 
                 System.out.println("age..");
                 int age = sc.nextInt();
-                sc.nextLine();
+                jumpline = sc.nextLine();
 
                 System.out.println("credit card name..");
                 String creditCardName = sc.nextLine();
@@ -188,7 +181,7 @@ public class ADM extends Base implements Interface { //na minha visão, ele iria
 
                 System.out.println("age..");
                 age = sc.nextInt();
-                sc.nextLine();
+                jumpline = sc.nextLine();
 
                 System.out.println("credit card name..");
                 creditCardName = sc.nextLine();
@@ -221,7 +214,7 @@ public class ADM extends Base implements Interface { //na minha visão, ele iria
 
                 System.out.println("age..");
                 age = sc.nextInt();
-                sc.nextLine();
+                jumpline = sc.nextLine();
 
                 System.out.println("credit card name..");
                 creditCardName = sc.nextLine();
@@ -232,7 +225,7 @@ public class ADM extends Base implements Interface { //na minha visão, ele iria
 
                 System.out.println("card number verify..");
                 cardNumberVerify = sc.nextInt();
-                sc.nextLine();
+                jumpline = sc.nextLine();
 
                 System.out.println("Origin..");
                 String origin = sc.nextLine();
@@ -259,7 +252,7 @@ public class ADM extends Base implements Interface { //na minha visão, ele iria
 
                 System.out.println("age..");
                 age = sc.nextInt();
-                sc.nextLine();
+                jumpline = sc.nextLine();
 
                 System.out.println("credit card name..");
                 creditCardName = sc.nextLine();
@@ -274,9 +267,9 @@ public class ADM extends Base implements Interface { //na minha visão, ele iria
                 break;
         }
         sc.close();
-        //metodo que vai ser aplicado depois, obrigatoriamnete
+      
     }
-
+    
     @Override
     public void alterarUser() {
         Scanner sc = new Scanner(System.in);
@@ -287,21 +280,29 @@ public class ADM extends Base implements Interface { //na minha visão, ele iria
             case 1:
                 dataB.updateFileUser();
                 break;
-        
+
             case 2:
                 dataB.updateFileStudent();
                 break;
-        
+
             case 3:
                 dataB.updateFileCritical();
                 break;
-        
+
             default:
                 break;
         }
-        //metodo que vai ser aplicado depois, obrigatoriamnete
+
         sc.close();
     }
 
+    public void excluirUser() {
+        db DB = new db();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Write the CPF of the user you want to delete:");
+        String CPF = sc.nextLine();
+        DB.removeUserByCPF(CPF);
+        System.out.println("ta");
+    }
     
 }

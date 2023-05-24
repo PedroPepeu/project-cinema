@@ -2,7 +2,7 @@ package projCin.DataBaseUsers;
 
 import java.util.Scanner;
 
-public class main {
+public class mainTeste {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

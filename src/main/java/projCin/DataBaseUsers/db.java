@@ -5,47 +5,19 @@ import java.util.*;
 
 public class db {
 
-<<<<<<< HEAD
-    public void insert(String user, String cpf) {
-=======
     public void insert(String user, String cpf, String password, int age, char gender, String email, String creditCardName,
     String creditCardNum, int creditCardVerify) {
->>>>>>> 2e73c56097ffbcdf9427038104b1c72ceb2e0504
 
         try {
             File file = new File("./src/main/java/projCin/DataBaseUsers/Database.txt");
             PrintWriter pw = new PrintWriter(new FileOutputStream(file, true));
-<<<<<<< HEAD
-            String wrt = String.format("%s, %s\n", cpf, user);
-=======
             String wrt = String.format("%s, %s, %s, %s, %s, %d, %s, %s, %d, Common user,\n", cpf, user, email, password, gender, age, creditCardName, creditCardNum, creditCardVerify);
->>>>>>> 2e73c56097ffbcdf9427038104b1c72ceb2e0504
             pw.append(wrt);
             pw.close();
-            System.out.println("Inserção realizada com sucesso!");
-        } catch (Exception e) {
-            System.out.println("Erro ao inserir os dados");
-        }
+        } catch (Exception e) {}
 
     }
 
-<<<<<<< HEAD
-    public void testRead() {
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("./src/main/java/projCin/DataBaseUsers/Database.txt"));
-            String line;
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
-            }
-            br.close();
-        } catch (Exception e) {
-            System.out.println("Erro ao ler o arquivo.");
-        }
-    }
-    
-
-    public void updateFile() {
-=======
     public void insert(String user, String cpf, String password, int age, char gender, String email, String creditCardName,
     String creditCardNum, int creditCardVerify, boolean isStudent) {
 
@@ -72,8 +44,20 @@ public class db {
 
     }
 
+    public void testRead() {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("./src/main/java/projCin/DataBaseUsers/Database.txt"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            br.close();
+        } catch (Exception e) {
+            System.out.println("Erro ao ler o arquivo.");
+        }
+    }
+    
     public void updateFileUser() {
->>>>>>> 2e73c56097ffbcdf9427038104b1c72ceb2e0504
 
         int numOfValues = 8;
 
@@ -142,48 +126,8 @@ public class db {
         sc1.close();
         sc.close();
     }
+    
 
-<<<<<<< HEAD
-
-
-    public void removeUserByCPF(String cpf) {
-        String nomeArquivo = "./src/main/java/projCin/DataBaseUsers/Database.txt";
-    
-        // Ler os dados do arquivo para uma lista
-        List<String> linhas = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo))) {
-            String linha;
-            while ((linha = reader.readLine()) != null) {
-                linhas.add(linha);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return;
-        }
-    
-        // Remover a linha com o CPF fornecido
-        boolean cpfEncontrado = false;
-        Iterator<String> iterator = linhas.iterator();
-        while (iterator.hasNext()) {
-            String linha = iterator.next();
-            String[] dados = linha.split(",");
-            if (dados.length > 0 && dados[0].trim().equals(cpf)) {
-                iterator.remove();
-                cpfEncontrado = true;
-                break;
-            }
-        }
-    
-        if (!cpfEncontrado) {
-            System.out.println("CPF não encontrado.");
-            return;
-        }
-    
-        System.out.println("Usuário removido com sucesso.");
-    }
-
-    
-=======
     public void updateFileStudent() {
 
         int numOfValues = 8;
@@ -325,28 +269,51 @@ public class db {
         sc.close();
     }
 
-    public void deleteUser(String CPF) {
-
-        int numOfValues = 8;
-
-        try {
-            StringBuffer sb = new StringBuffer();
-            BufferedReader br = new BufferedReader(new FileReader("./src/main/java/projCin/DataBaseUsers/Database.txt"));
-            String s = "";
-            while((s = br.readLine()) != null) {
-                String data[] = new String[numOfValues + 1];
-                data = s.split(",");
-                if(CPF.equals(data[0])) {
-                    sb.append("");
-                }
+    public void removeUserByCPF(String cpf) {
+        String nomeArquivo = "./src/main/java/projCin/DataBaseUsers/Database.txt";
+    
+        // Ler os dados do arquivo para uma lista
+        List<String> linhas = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo))) {
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                linhas.add(linha);
             }
-
-            File file = new File("./src/main/java/projCin/DataBaseUsers/Database.txt");
-            PrintWriter pw = new PrintWriter(new FileOutputStream(file, false));
-            pw.print(sb.toString());
-            pw.close();
-        } catch (Exception e) {}
-        
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
+    
+        // Remover a linha com o CPF fornecido
+        boolean cpfEncontrado = false;
+        Iterator<String> iterator = linhas.iterator();
+        while (iterator.hasNext()) {
+            String linha = iterator.next();
+            String[] dados = linha.split(",");
+            if (dados.length > 0 && dados[0].trim().equals(cpf)) {
+                iterator.remove();
+                cpfEncontrado = true;
+                break;
+            }
+        }
+    
+        if (!cpfEncontrado) {
+            System.out.println("CPF não encontrado.");
+            return;
+        }
+    
+        // Reescrever as linhas atualizadas no arquivo
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
+            for (String linha : linhas) {
+                writer.write(linha);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    
+        System.out.println("Usuário removido com sucesso.");
     }
->>>>>>> 2e73c56097ffbcdf9427038104b1c72ceb2e0504
+
+    
 }

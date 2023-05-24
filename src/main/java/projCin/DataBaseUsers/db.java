@@ -192,7 +192,7 @@ public class db {
         Scanner sc = new Scanner(System.in);
 
         System.out.printf("Write the ID that you whant to change..\n");
-        int idToChange = sc.nextInt();
+        String idToChange = sc.nextLine();
 
         String changingArr[] = {"Name..", "email..", "password..", "gender..", "age..", "creditCardName..", "creditCardNum..", "creditCardVerify..", "origin.."};
 
@@ -226,7 +226,7 @@ public class db {
             while((s = br.readLine()) != null) {
                 String data[] = new String[numOfValues + 1];
                 data = s.split(",");
-                if(idToChange == Integer.parseInt(data[0])) {
+                if(idToChange.equals(data[0])) {
                     String row = data[0] + ",";
                     for(int i = 0; i < numOfValues; i++) {
                         if(willChange[i] == 1) {
@@ -257,13 +257,24 @@ public class db {
 
     public void deleteUser(String CPF) {
 
+        int numOfValues = 8;
+
         try {
             StringBuffer sb = new StringBuffer();
             BufferedReader br = new BufferedReader(new FileReader("./src/main/java/projCin/DataBaseUsers/Database.txt"));
             String s = "";
             while((s = br.readLine()) != null) {
+                String data[] = new String[numOfValues + 1];
+                data = s.split(",");
+                if(CPF.equals(data[0])) {
+                    sb.append("");
+                }
+            }
 
-            }  
+            File file = new File("./src/main/java/projCin/DataBaseUsers/Database.txt");
+            PrintWriter pw = new PrintWriter(new FileOutputStream(file, false));
+            pw.print(sb.toString());
+            pw.close();
         } catch (Exception e) {}
         
     }

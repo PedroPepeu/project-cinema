@@ -32,7 +32,11 @@ public class ADM extends Base implements Interface { //na minha visão, ele iria
     }
 
     public void excluirUser() {
-        
+        db DB = new db();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Write the CPF of the user you want to delete:");
+        String CPF = sc.nextLine();
+        DB.deleteUser(CPF);
     }
 
     @Override

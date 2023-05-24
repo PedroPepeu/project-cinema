@@ -6,6 +6,8 @@ public class saladonha {
         ADM adm = new ADM("00000844503", 30000);
         Funcionario funcionario = new Funcionario(3000);
 
-        adm.adicionarUser();
+        // adm.adicionarUser();
+
+        adm.excluirUser();
     }
 }

@@ -1,3 +1,0 @@
-12826152467, pedro, pedroemail@email.com, senha1234, M, 18, PEDRO CARTAO, 8762193847, 322, Common user,
-13546813512, Eduardo, eduardoemail@email.com, iaugrpqei, M, 21, iihuerghriipaef, 654615384315, 855, true, Student user,
-33247647832, Danilio, daniloemail@email, lfjawefhpewhi, M, 22, DANILOAF EFH, 234123512351, 457, , Critial user,

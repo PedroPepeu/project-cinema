@@ -43,7 +43,6 @@ public class db {
         } catch (Exception e) {}
 
     }
-
     public void testRead() {
         try {
             BufferedReader br = new BufferedReader(new FileReader("./src/main/java/projCin/DataBaseUsers/Database.txt"));
@@ -56,7 +55,7 @@ public class db {
             System.out.println("Erro ao ler o arquivo.");
         }
     }
-    
+
     public void updateFileUser() {
 
         int numOfValues = 8;

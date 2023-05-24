@@ -3,6 +3,7 @@ package projCin.ContasSudo;
 import java.util.Scanner;
 
 import projCin.CircularList.MoviesNodes.*;
+import projCin.DataBaseUsers.db;
 
 public class Funcionario extends Base implements Interface { //na minha visão, ele iria herdar a classe base, já que o prof pediu que a classe funcionario tenha os metodos da classe base
     private double salario;
@@ -108,11 +109,15 @@ public class Funcionario extends Base implements Interface { //na minha visão, 
 
     @Override
     public void adicionarUser() {
+        db dataB = new db();
+        dataB.insert();
         //metodo que vai ser aplicado depois, obrigatoriamnete
     }
 
     @Override
     public void alterarUser() {
+        db dataB  = new db();
+        dataB.updateFile();     
         //metodo que vai ser aplicado depois, obrigatoriamnete
     }
 

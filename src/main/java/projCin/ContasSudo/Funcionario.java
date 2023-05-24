@@ -1,8 +1,10 @@
 package projCin.ContasSudo;
 
 import java.util.Scanner;
+import java.io.*;
 
 import projCin.CircularList.MoviesNodes.*;
+import projCin.DataBaseUsers.db;
 
 public class Funcionario extends Base implements Interface { //na minha visão, ele iria herdar a classe base, já que o prof pediu que a classe funcionario tenha os metodos da classe base
     private double salario;
@@ -108,12 +110,115 @@ public class Funcionario extends Base implements Interface { //na minha visão, 
 
     @Override
     public void adicionarUser() {
+        db dataB = new db();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Por favor faça o cadastro:");
+
+        System.out.println("Nome: ");
+        String username = sc.nextLine();
+
+        System.out.println("CPF: ");
+        String cpf = sc.nextLine();
+
+        System.out.println("Senha(numeros): ");
+        int password = sc.nextInt();
+
+        System.out.println("Idade: ");
+        int age = sc.nextInt();
+
+        System.out.println("Genero:\nm para masculino\nf para feminino");
+        char gender = sc.next().charAt(0);
+
+        System.out.println("E-mail: ");
+        String email = sc.next();
+
+        System.out.println("Nome que consta no cartao de credito: ");
+        String creditCardName = sc.next();
+        creditCardName.toUpperCase();
+
+        System.out.println("Numero do cartao: ");
+        String creditCardNum = sc.next();
+
+        System.out.println("CCV do cartao: ");
+        int creditCardVerify = sc.nextInt();
+
+        dataB.insert(username, cpf, password, age,
+        gender, email, creditCardName, creditCardNum, creditCardVerify);
+
+        sc.close();
         //metodo que vai ser aplicado depois, obrigatoriamnete
     }
 
     @Override
     public void alterarUser() {
-        //metodo que vai ser aplicado depois, obrigatoriamnete
+
+        int numOfValues = 8;
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.printf("Write the ID that you whant to change..\n");
+        int idToChange = sc.nextInt();
+
+        String changingArr[] = {"Name..", "email..", "password.."};
+
+        int willChange[] = new int[numOfValues];
+        String willUpdate[] = new String[numOfValues];
+
+        System.out.printf("Select the column that you want to update:\n(0 to NO, 1 to YES)\n");
+        for(int i = 0; i < numOfValues; i++) {
+            System.out.printf("%s", changingArr[i]);
+            int option = sc.nextInt();
+            willChange[i] = option;
+        }
+
+        Scanner sc1 = new Scanner(System.in);
+
+        System.out.printf("\n\n\nAdd new values to the columns\n");
+        for(int i = 0; i < numOfValues; i++) {
+            System.out.printf("%s\n", changingArr[i]);
+            if(willChange[i] == 1) {
+                String strToUpdate = sc1.nextLine();
+                willUpdate[i] = strToUpdate;
+            } else {
+                System.out.printf("Not selected as changable\n");
+            }
+        }
+
+        StringBuffer sb = new StringBuffer();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("./src/main/java/projCin/DataBaseUsers/Database.txt"));
+            String s = "";
+            while((s = br.readLine()) != null) {
+                String data[] = new String[numOfValues + 1];
+                data = s.split(",");
+                if(idToChange == Integer.parseInt(data[0])) {
+                    String row = data[0] + ",";
+                    for(int i = 0; i < numOfValues; i++) {
+                        if(willChange[i] == 1) {
+                            row = row + willUpdate[i]+",";
+                        } else {
+                            row = row + data[i + 1]+",";
+                        }
+                    }
+                    sb.append(row);
+                    sb.append("\n");
+                } else {
+                    sb.append(s);
+                    sb.append("\n");
+                }
+            }
+            // System.out.printf("%s\n", sb.toString());
+
+            File file = new File("./src/main/java/projCin/DataBaseUsers/Database.txt");
+            PrintWriter pw = new PrintWriter(new FileOutputStream(file, false));
+            pw.print(sb.toString());
+            pw.close();
+        
+        } catch (Exception e) {}
+        
+        sc1.close();
+        sc.close();
     }
 
 }

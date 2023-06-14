@@ -51,7 +51,7 @@ public class MovieCLLTeste implements Observer {
         }
     }
 
-    public boolean isEmpty() {
+    public boolean isEmpty() {//n tem q checar?
         return this.primeiro == null && this.ultimo == null;
     }
 

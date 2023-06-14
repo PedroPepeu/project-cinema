@@ -92,7 +92,7 @@ public class Food {
                     System.out.println("Tamanho \n" + EnumProducts.PIPOCAP.getName() + " (" + EnumProducts.PIPOCAP.getPrice() + " R$) \n"
                                        + EnumProducts.PIPOCAM.getName() + " (" + EnumProducts.PIPOCAM.getPrice() + " R$) \n" 
                                        + EnumProducts.PIPOCAG.getName() + " (" + EnumProducts.PIPOCAG.getPrice() + " R$) ");
-                    System.out.println("\nGRANA PERDIDA ---> "+ this.total + " R$\n");     
+                    System.out.println("\nTotal ---> "+ this.total + " R$\n");     
                     System.out.println(" 'p' para pequena, 'm' para média e 'g' para grande: ");             
                     char size = s.next().charAt(0); 
 
@@ -124,7 +124,7 @@ public class Food {
                     System.out.println("Litros \n" + EnumProducts.COCACOLA250.getName() +" (" + EnumProducts.COCACOLA250.getPrice() + " R$) \n"
                                        + EnumProducts.COCACOLA500.getName() + " (" + EnumProducts.COCACOLA500.getPrice() + " R$) \n"
                                        + EnumProducts.COCACOLA1000.getName() + " (" +EnumProducts.COCACOLA1000.getPrice() + " R$)" );
-                    System.out.println("\nGRANA PERDIDA ---> "+ this.total + " R$\n");     
+                    System.out.println("\nTotal ---> "+ this.total + " R$\n");     
                     System.out.println("digite 250, 500 ou 1000: ");                                        
                     int litro = s.nextInt();
 
@@ -153,7 +153,7 @@ public class Food {
                 case 3:
                     System.out.println("1- " + EnumProducts.FRITASINDV.getName() + " (" + EnumProducts.FRITASINDV.getPrice() + " R$) \n"
                                        +"2- " + EnumProducts.FRITASDUPL.getName() + " (" + EnumProducts.FRITASDUPL.getPrice() + " R$)");
-                    System.out.println("\nGRANA PERDIDA ---> "+ this.total + " R$\n");     
+                    System.out.println("\nTotal ---> "+ this.total + " R$\n");     
                     System.out.println("Digite 1 para individual ou 2 para dupla: ");
                     int portion = s.nextInt();
 
@@ -176,7 +176,7 @@ public class Food {
 
                 case 4:
                     System.out.println(EnumProducts.FINI.getName() + " (" + EnumProducts.FINI.getPrice() + " R$)");
-                    System.out.println("\nGRANA PERDIDA ---> "+ this.total + " R$\n");    
+                    System.out.println("\nTotal ---> "+ this.total + " R$\n");    
                     System.out.println("Digite a quantidade de finis: ");
                     int quantFn = s.nextInt();
 
@@ -185,7 +185,7 @@ public class Food {
 
                 case 5:
                     System.out.println(EnumProducts.CHOCOLATE.getName() + " (" +EnumProducts.CHOCOLATE.getPrice() + " R$)");
-                    System.out.println("\nGRANA PERDIDA ---> "+ this.total + " R$\n");     
+                    System.out.println("\nTotal ---> "+ this.total + " R$\n");     
                     System.out.println("Digite a quantidade de chocolates: ");
                     int quantCh = s.nextInt();
 

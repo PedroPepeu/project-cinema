@@ -1,14 +1,15 @@
 package projCin.ContasSudo;
 
 import java.util.Scanner;
-
-import projCin.CircularList.MoviesNodes.*;
+import projCin.CircularList.MoviesNodesTestando.MovieObjTeste;
 import projCin.DataBaseUsers.db;
+
 
 public class Funcionario extends Base implements Interface { //na minha visão, ele iria herdar a classe base, já que o prof pediu que a classe funcionario tenha os metodos da classe base
     private double salario;
 
-    public Funcionario(double salario) {
+     public Funcionario(String nome, int idade, String email, double salario) {
+        super(nome, idade, email);
         this.salario = salario;
     }
 
@@ -19,92 +20,50 @@ public class Funcionario extends Base implements Interface { //na minha visão, 
     public void setSalario(double salario) {
         this.salario = salario;
     }
-    
+
     @Override
-    public MovieObj incluirFilme() {
+    public MovieObjTeste incluirFilme() {
         Scanner input = new Scanner(System.in);
-
+        System.out.println("Digite o nome do filme: ");
         String nomeFilme = input.nextLine();
+        System.out.println("Digite a sinopse do filme: ");
         String sinopse = input.nextLine();
+        System.out.println("Digite a duracao do filme: ");
         int duration = input.nextInt();
-        int ID = input.nextInt();
+        System.out.println("Digite o ID do filme");
+        String ID = input.next();
 
-        MovieObj filme = new MovieObj(nomeFilme, sinopse, duration, ID);
-        input.close();
+        MovieObjTeste filme = new MovieObjTeste(nomeFilme, sinopse, duration, ID);
+
         return filme; //vai retornar o filme e ele vai ser adicionado em uma lista criada na Main.
 
     }
 
     @Override
-    public MovieObj excluirFilme() {
+    public MovieObjTeste excluirFilme() {
         Scanner input = new Scanner(System.in);
-
-        String nomeFilme = input.nextLine();
-        String sinopse = input.nextLine();
-        int duration = input.nextInt();
-        int ID = input.nextInt();
-
-        MovieObj filme = new MovieObj(nomeFilme, sinopse, duration, ID);
-        input.close();
+        System.out.println("Digite o nome e ID do filme que vai ser removido");
+        String nome = input.next();
+        String ID = input.next();
+        
+        MovieObjTeste filme = new MovieObjTeste(nome, ID);
 
         return filme; //vai retornar o filme e ele vai ser removido da lista criada na Main.
 
     }
 
     @Override
-    public MovieObj alterarFilme() {
-        MovieCircularLinkedList MCLL = new MovieCircularLinkedList();
+    public MovieObjTeste alterarFilme() {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Write the ID of the movie that you want to change");
-        int code = input.nextInt();
+        System.out.println("Digite o nome e ID do filme que vai ser editado: ");
+        String nome = input.next();
+        String ID = input.next();
 
-        MovieNode movien = MCLL.search(code);
+        MovieObjTeste filmeParaEditar = new MovieObjTeste(nome, ID);
 
-        int willChange[] = new int[3];
-        String whatChange[] = {"nome..", "sinopse..", "duration.."};
-
-        for(int i = 0; i < 3; i++) {
-            System.out.printf("Select what you want to change.\n1 to YES 0 to NO\n");
-            System.out.println(whatChange[i]);
-            willChange[i] = input.nextInt();
-        }
-    
-        String jumpline = input.nextLine();
-
-        String nomeFilme = null;
-        String sinopse = null;
-        int duration = 0;
-
-        for(int i = 0; i < 3; i++) {
-            
-            if(willChange[i] == 1) {
-                if(i == 0) {
-                    nomeFilme = input.nextLine();
-                } else if(i == 1) {
-                    sinopse = input.nextLine();
-                } else if(i == 2) {
-                    duration = input.nextInt();
-                }
-            } else {
-                System.out.println("Not selected as changable");
-                if(i == 0) {
-                    nomeFilme = movien.getMovie().getName(); 
-                } else if(i == 1) {
-                    sinopse = movien.getMovie().getSummary();
-                } else if(i == 2) {
-                    duration = movien.getMovie().getDuration();
-                }
-            }
-        }
-
-        MovieObj changedMovie = new MovieObj(nomeFilme, sinopse, duration, movien.getMovie().getID());
-        MCLL.delete(movien);
-        MCLL.addFirst(nomeFilme, sinopse, duration, movien.getMovie().getID());
-
-        input.close();
-        
-        return changedMovie; //alterar o filme por completo, coisas do filme ou os dois?
+      
+        return filmeParaEditar; //vai retornar o filme e ele vai ser alterado da lista criada na Main
     }
 
     @Override
@@ -282,10 +241,7 @@ public class Funcionario extends Base implements Interface { //na minha visão, 
                 break;
         }
         //metodo que vai ser aplicado depois, obrigatoriamnete
-        sc.close();
+       
     }
-
-
- 
 
 }

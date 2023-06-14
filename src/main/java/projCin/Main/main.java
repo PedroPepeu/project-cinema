@@ -166,8 +166,9 @@ public class main {
                                 break;
                             case 3:
                                 // usuario critico
-                                String origin = sc.next();
+                            
                                 System.out.println("Digite em qual orgão você pertence: ");
+                                String origin = sc.next();
                                 Critical critical = new Critical(username, cpf, password, age, gender, email,
                                         creditCardName, creditCardNum, creditCardVerify, origin);
 

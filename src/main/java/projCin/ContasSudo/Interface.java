@@ -1,10 +1,10 @@
 package projCin.ContasSudo;
 
-import projCin.CircularList.MoviesNodes.*;
+import projCin.CircularList.MoviesNodesTestando.*;
 
 public interface Interface {
-    MovieObj incluirFilme();
-    MovieObj excluirFilme();
-    MovieObj alterarFilme();
+    MovieObjTeste incluirFilme();
+    MovieObjTeste excluirFilme();
+    MovieObjTeste alterarFilme();
     //n precisa colocar nem o public nem o abstract, seria redundante
 }

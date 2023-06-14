@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "TheTrueSaladao",
+            "request": "launch",
+            "mainClass": "projCin.Main.TheTrueSaladao",
+            "projectName": "projeto.cinema"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "saladinha",
+            "request": "launch",
+            "mainClass": "projCin.CircularList.MoviesNodes.saladinha",
+            "projectName": "projeto.cinema"
+        },
+        {
+            "type": "java",
+            "name": "saladonha",
+            "request": "launch",
+            "mainClass": "projCin.ContasSudo.saladonha",
+            "projectName": "projeto.cinema"
+        },
+        {
+            "type": "java",
+            "name": "mainTeste",
+            "request": "launch",
+            "mainClass": "projCin.DataBaseUsers.mainTeste",
+            "projectName": "projeto.cinema"
+        },
+        {
+            "type": "java",
+            "name": "main",
+            "request": "launch",
+            "mainClass": "projCin.Main.main",
+            "projectName": "projeto.cinema"
+        },
+        {
+            "type": "java",
+            "name": "main(1)",
+            "request": "launch",
+            "mainClass": "projCin.Salas.main",
+            "projectName": "projeto.cinema"
+        }
+    ]
+}

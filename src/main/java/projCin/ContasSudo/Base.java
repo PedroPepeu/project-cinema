@@ -5,6 +5,12 @@ public abstract class Base {
     private int idade;
     private String email;
 
+    public Base(String nome, int idade, String email) {
+        this.nome = nome;
+        this.idade = idade;
+        this.email = email;
+    }
+
     public String getNome() {
         return nome;
     }

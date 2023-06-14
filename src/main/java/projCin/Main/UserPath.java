@@ -11,30 +11,8 @@ import projCin.Salas.MovieTime;
 import projCin.Salas.Room;
 import projCin.Contas.Critical;
 
-public class main {
+public class UserPath {
 
-    // public static void main(String[] args) {
-    // Scanner input = new Scanner(System.in);
-
-    // double nota;
-
-    // Buy compra = new Buy();
-
-    // Movie movie = new Movie();
-
-    // compra.menuGeral();
-
-    // Review review = new Review();
-
-    // do {
-
-    // nota = input.nextDouble();
-
-    // review.atribuirNota(nota, movie);
-
-    // } while(true);
-
-    // }
 
     public static String options() {
         return "Digite: 1 se Normal\n" +
@@ -42,7 +20,7 @@ public class main {
                 "Digite: 3 se Critico\n";
     }
 
-    public static void main(String[] args) {
+    public static void userAcess() {
 
         Scanner sc = new Scanner(System.in);
         Buy menuCompras = new Buy();
@@ -93,7 +71,7 @@ public class main {
                 menuSalas.movieChoice();
                 decision2 = sc.nextInt();
                 if (decision2 == 0) {
-                    main(args);
+                    userAcess();
                 } else {
                     menuSalas.movieSelection(decision2);
                     menuSalas.ticketsQuantity();

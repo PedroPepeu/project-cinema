@@ -186,8 +186,12 @@ public class TheTrueSaladao {
         }  
 
         //IMPLEMENTAR O RESTANTE DO USER
-            System.out.println("\n\nCOISAS DO USER!");
-            
+        System.out.println("\n\nRodaria o que hoje é a main(e agr: UserPath)");
+
+        UserPath.userAcess();
+        
+        
+        
         
     }
 }

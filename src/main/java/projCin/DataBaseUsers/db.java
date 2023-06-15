@@ -62,7 +62,7 @@ public class db {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.printf("Write the ID that you whant to change..\n");
+        System.out.printf("Write the CPF that you whant to change..\n");
         int idToChange = sc.nextInt();
 
         String changingArr[] = {"Name..", "email..", "password..", "gender..", "age..", "creditCardName..", "creditCardNum..", "creditCardVerify.."};
@@ -117,7 +117,7 @@ public class db {
 
             File file = new File("./src/main/java/projCin/DataBaseUsers/Database.txt");
             PrintWriter pw = new PrintWriter(new FileOutputStream(file, false));
-            pw.print(sb.toString());
+            pw.append(sb.toString());
             pw.close();
         
         } catch (Exception e) {}
@@ -131,7 +131,7 @@ public class db {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.printf("Write the ID that you whant to change..\n");
+        System.out.printf("Write the CPF that you whant to change..\n");
         int idToChange = sc.nextInt();
 
         String changingArr[] = {"Name..", "email..", "password..", "gender..", "age..", "creditCardName..", "creditCardNum..", "creditCardVerify..", "isStudent.."};
@@ -186,7 +186,7 @@ public class db {
 
             File file = new File("./src/main/java/projCin/DataBaseUsers/Database.txt");
             PrintWriter pw = new PrintWriter(new FileOutputStream(file, false));
-            pw.print(sb.toString());
+            pw.append(sb.toString());
             pw.close();
         
         } catch (Exception e) {}
@@ -200,7 +200,7 @@ public class db {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.printf("Write the ID that you whant to change..\n");
+        System.out.printf("Write the CPF that you whant to change..\n");
         String idToChange = sc.nextLine();
 
         String changingArr[] = {"Name..", "email..", "password..", "gender..", "age..", "creditCardName..", "creditCardNum..", "creditCardVerify..", "origin.."};
@@ -227,6 +227,8 @@ public class db {
                 System.out.printf("Not selected as changable\n");
             }
         }
+
+        // till here it save the changes
 
         StringBuffer sb = new StringBuffer();
         try {
@@ -255,13 +257,11 @@ public class db {
 
             File file = new File("./src/main/java/projCin/DataBaseUsers/Database.txt");
             PrintWriter pw = new PrintWriter(new FileOutputStream(file, false));
-            pw.print(sb.toString());
+            pw.append(sb.toString());
             pw.close();
 
         } catch (Exception e) {}
         
-        sc1.close();
-        sc.close();
     }
 
     public void removeUserByCPF(String cpf) {

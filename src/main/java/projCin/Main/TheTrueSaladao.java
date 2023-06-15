@@ -231,12 +231,18 @@ public class TheTrueSaladao {
         int escolhaComida;
 
     
-
+            do {
                 switch (decisao) {
 
                     case 1: 
                     //decidiu comprar ingressos
                     menuSalas.sessions(filmes, menuComida, movie);
+
+                    if(menuSalas.getControleNaMain() == 1) {
+                        menuCompras.menuOptions();
+                        decisao = input.nextInt();
+
+                    }
                     
                        break;
                     case 2:
@@ -258,6 +264,7 @@ public class TheTrueSaladao {
                     default: System.out.println("Opção inválida!");
                     
                 }
+            } while (menuSalas.getControleNaMain() == 1);
 
             
     }

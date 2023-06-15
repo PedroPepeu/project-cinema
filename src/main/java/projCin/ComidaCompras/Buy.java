@@ -125,36 +125,6 @@ public class Buy {
         System.out.printf("\nBem vindo(a)!\nSelecione o que deseja:\n" + "1- Catalogo de filmes \n2- Lanche\n3- Voltar para o menu principal\n");
     }
 
-    public void menuChoice(int decision) {
-        if(decision == 1){
-            // '''tava duplicando o catalogo. por isso tirei''' buyingScreem.sessions(); //catalog.    mostrar os filmes e liberar o detalhamento de um deles a partir da escolha
-            System.out.println("Ingresso Comprado");
-        }else if(decision == 2){
-            snack.menu();
-        }else{
-            System.out.println("Opcao invalida. Retornando para o menu.\n");
-            menuGeral();
-        }
-    }
-
-//sep compra de produtos e bilhetes
-    public void menuGeral() {
-        System.out.println("Bem vindo! \nSelecione o que deseja:\n" + 
-        "1- Catalogo de filmes \n2- Lanche\n");
-        
-        int decision = s.nextInt();
-        if(decision == 1){
-            buyingScreem.sessions(); //catalog.    mostrar os filmes e liberar o detalhamento de um deles a partir da escolha
-            System.out.println("Ingresso Comprado");
-        }else if(decision == 2){
-            snack.menu();
-        }else{
-            System.out.println("Opcao invalida. Retornando para o menu.\n");
-            menuGeral();
-        }
-
-    }
-
     public void confirmation() {
 
     }

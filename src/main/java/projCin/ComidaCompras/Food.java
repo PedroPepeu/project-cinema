@@ -38,8 +38,6 @@ public class Food {
     }
 
     public double getTotal() {
-        System.out.println(this.total);
-        System.out.println(this.total == total);
         return total;
     }
 
@@ -72,11 +70,6 @@ public class Food {
 
     private boolean isFull() {
         return this.head == this.foodList.length - 1;
-    }
-
-    //sobrecarga
-    public void compra(int value, EnumPromotionalCoupon ticket){
-        this.soma += value * (1 - ticket.getDesconto());
     }
 
     public void compra(int select) {

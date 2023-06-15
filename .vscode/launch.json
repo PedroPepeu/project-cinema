@@ -8,6 +8,13 @@
             "type": "java",
             "name": "TheTrueSaladao",
             "request": "launch",
+            "mainClass": "TheTrueSaladao",
+            "projectName": "projCin_2d447432"
+        },
+        {
+            "type": "java",
+            "name": "TheTrueSaladao",
+            "request": "launch",
             "mainClass": "projCin.Main.TheTrueSaladao",
             "projectName": "projeto.cinema"
         },

@@ -1,8 +1,8 @@
 package projCin.Enum;
 
 public enum EnumPromotionalCoupon {
-    CUPOM_UM("cupom com 10% de desconto", 0.1 ),
-    CUPOM_DOIS("cupom com 30% de desconto", 0.3),
+    CUPOM_UM("cupom com 10% de desconto", 0.9 ),
+    CUPOM_DOIS("cupom com 30% de desconto", 0.7),
     CUPOM_TRES("cupom com 50% de desconto", 0.5);
 
     private final String nome;

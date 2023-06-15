@@ -6,6 +6,7 @@ import projCin.CircularList.MoviesNodesTestando.MovieCLLTeste;
 import projCin.CircularList.MoviesNodesTestando.MovieNodeTeste;
 import projCin.CircularList.MoviesNodesTestando.MovieObjTeste;
 import projCin.ComidaCompras.Buy;
+import projCin.ComidaCompras.Food;
 import projCin.Enum.EnumRooms;
 import java.time.LocalTime;
 
@@ -170,14 +171,10 @@ public class Movie {
         
     }
 
-    public void details(int movieNumber, double numOfPeople, MovieCLLTeste filmes){
+    public void details(int movieNumber, double numOfPeople, MovieCLLTeste filmes, Food menuCompras ){
         Scanner s = new Scanner(System.in);
 
-        Buy buy = new Buy();
-
         MovieObjTeste vet[] = new MovieObjTeste[7];
-        String nomeDoFilme;
-        String summary;
         int sala;
         int i = 0;
         MovieNodeTeste aux;
@@ -200,8 +197,8 @@ public class Movie {
                 sala = s.nextInt();
                 
 
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
-                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
+                System.out.println("Total: R$ " + (menuCompras.getTotal() * numOfPeople * decision(sala)));
+                menuCompras.setTotal(menuCompras.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(vet[0].getName(), numOfPeople);
                 break;
                 
@@ -216,8 +213,8 @@ public class Movie {
                 sala = s.nextInt();
                 
 
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
-                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
+                System.out.println("Total: R$ " + (menuCompras.getTotal() * numOfPeople * decision(sala)));
+                menuCompras.setTotal(menuCompras.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(vet[1].getName(), numOfPeople);
                 break;
 
@@ -230,8 +227,8 @@ public class Movie {
                 System.out.println("\nEscolha uma das salas disponíveis: \n 1- " + EnumRooms.SALA_COMUM + "\n 2- " + EnumRooms.SALA_3D + "\n 3- " + EnumRooms.SALA_XD + "\n 4- " + EnumRooms.SALA_XD3D + "\n");
                 sala = s.nextInt();
 
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
-                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
+                System.out.println("Total: R$ " + (menuCompras.getTotal() * numOfPeople * decision(sala)));
+                menuCompras.setTotal(menuCompras.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(vet[2].getName(), numOfPeople);
                 break;
                 
@@ -244,8 +241,8 @@ public class Movie {
                 sala = s.nextInt();
 
 
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
-                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
+                System.out.println("Total: R$ " + (menuCompras.getTotal() * numOfPeople * decision(sala)));
+                menuCompras.setTotal(menuCompras.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(vet[3].getName(), numOfPeople);
                 break;
                 
@@ -258,8 +255,8 @@ public class Movie {
                 System.out.println("\nEscolha uma das salas disponíveis: \n 1- " + EnumRooms.SALA_COMUM + "\n 2- " + EnumRooms.SALA_3D + "\n 3- " + EnumRooms.SALA_XD + "\n 4- " + EnumRooms.SALA_XD3D + "\n");
                 sala = s.nextInt();
 
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
-                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
+                System.out.println("Total: R$ " + (menuCompras.getTotal() * numOfPeople * decision(sala)));
+                menuCompras.setTotal(menuCompras.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(vet[4].getName(), numOfPeople);
                 break;
                 
@@ -272,8 +269,8 @@ public class Movie {
                 System.out.println("\nEscolha uma das salas disponíveis: \n 1- " + EnumRooms.SALA_COMUM + "\n 2- " + EnumRooms.SALA_3D + "\n 3- " + EnumRooms.SALA_XD + "\n 4- " + EnumRooms.SALA_XD3D + "\n");
                 sala = s.nextInt();
 
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
-                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
+                System.out.println("Total: R$ " + (menuCompras.getTotal() * numOfPeople * decision(sala)));
+                menuCompras.setTotal(menuCompras.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(vet[5].getName(), numOfPeople);
                 break;
                 
@@ -285,43 +282,13 @@ public class Movie {
                 System.out.println("\nEscolha uma das salas disponíveis: \n 1- " + EnumRooms.SALA_COMUM + "\n 2- " + EnumRooms.SALA_3D + "\n 3- " + EnumRooms.SALA_XD + "\n 4- " + EnumRooms.SALA_XD3D + "\n");
                 sala = s.nextInt();
 
-                System.out.println("Total: R$ " + (getPrice() * numOfPeople * decision(sala)));
-                buy.setTotal(buy.getTotal() + (getPrice() * numOfPeople * decision(sala)));
+                System.out.println("Total: R$ " + (menuCompras.getTotal() * numOfPeople * decision(sala)));
+                menuCompras.setTotal(menuCompras.getTotal() + (getPrice() * numOfPeople * decision(sala)));
                 mt.screen(vet[6].getName(), numOfPeople);
                 break;  
 
         }
        
-    }
-    
-    public String movieName(int decision) {
-        String name = null;
-        
-        switch(decision) {
-            case 1:
-                name = "Steven Universe";
-                break;
-            case 2:
-                name = "Os 300 de Esparta";
-                break;
-            case 3:
-                name = "Kimetsu no yaiba";
-                break;
-            case 4:
-                name = "Os Incriveis";
-                break;
-            case 5:
-                name = "Ta Dando Onda 2";
-                break;
-            case 6:
-                name = "A voz do silêncio";
-                break;
-            case 7:
-                name = "A era do Gelo";
-                break;
-        }
-
-        return name;
     }
 
 }

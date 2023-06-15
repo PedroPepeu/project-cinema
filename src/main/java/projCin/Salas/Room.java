@@ -11,7 +11,6 @@ import projCin.Contas.Student;
 import projCin.Contas.User;
 import projCin.Enum.EnumPromotionalCoupon;
 import projCin.Exception.VendasException;
-import projCin.Main.TheTrueSaladao;
 
 import java.time.LocalTime;
 
@@ -26,6 +25,8 @@ public class Room {
     // private Room [][] catalog;
     private Movie[] movie;
     private boolean disponibilidadeDoFilme;
+    private int controleNaMain = 0;
+
 
     MovieTime horaDoFilme = new MovieTime();
 
@@ -33,8 +34,18 @@ public class Room {
         this.movie = new Movie[7];
     }
 
+    
+
     public MovieTime[] getMovietime() {
         return movietime;
+    }
+
+    public int getControleNaMain() {
+        return controleNaMain;
+    }
+
+    public void setControleNaMain(int controleNaMain) {
+        this.controleNaMain = controleNaMain;
     }
 
     public void setMovietime(MovieTime[] movietime) {
@@ -66,12 +77,14 @@ public class Room {
     }
 
     public void sessions(MovieCLLTeste filmes, Food menuComida, Movie moviee) {
+        controleNaMain = 0;
         Scanner s = new Scanner(System.in);
         Buy buy = new Buy();
         Movie selectMovie = new Movie();
 
         if (filmes.isEmpty()) {
             System.out.println("SEM FILMES IMPLEMENTADOS");
+            controleNaMain = 1;
             return;
         }
 
@@ -116,8 +129,13 @@ public class Room {
             i++;
         }
         System.out.println(
-                "\nQual o numero do filme deseja comprar o ingresso(de 1 a 7)"); //************************* */
+                "\nQual o numero do filme deseja comprar o ingresso(de 1 a 7) Digite 0 para voltar"); //************************* */
         int chose = s.nextInt();
+         if (chose == 0 || chose < 0 || chose > 7) {
+                controleNaMain = 1;
+                return; //***************************** */
+         }
+    
 
         LocalTime horaAtual = LocalTime.now();
         LocalTime horarioDoFilmeMin = LocalTime.of(movie[chose - 1].getTempMin(), 00);
@@ -129,12 +147,7 @@ public class Room {
             }
 
             try {
-                if (chose == 0) {
-                    return; //***************************** */
-                }
-                if (chose < 0 || chose > 7) {
-                    System.out.println("Escolha não permitida, tente novamente");
-                } else {
+               
                     // Se o filme não estiver disponivel, settar o boolean para false
                     setDisponibilidadeDoFilme(true);
                     if (disponibilidadeDoFilme == false) {
@@ -148,9 +161,7 @@ public class Room {
                     int quant = s.nextInt();
                     descontos(menuComida, moviee, quant);
 
-                    selectMovie.details(chose, quant, filmes);
-                    
-                }
+                    selectMovie.details(chose, quant, filmes, menuComida);
 
             } catch (VendasException e) {
                 System.out.println(e.getErroTres()); // erro de se o filme não estiver disponivel
@@ -160,12 +171,14 @@ public class Room {
             System.out.println(e.getErroUm()); // erro de se o horario não estiver disponivel
         }
     }
+    
 
     public void descontos(Food menuCompras, Movie movie, int quant) {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Possui cupom promocional?\nnao (0)\nsim (1)");
         int cup = sc.nextInt();
+
 
         int cupomRaro = 12345;
         int cupomEpico = 1234567;
@@ -211,8 +224,8 @@ public class Room {
                 case 1:
                     // usuario normal
                     User user = new User();
-
                     total = (cupEfect) * (menuCompras.getTotal() + (movie.getPrice() * quant));
+
                     menuCompras.setTotal(user.totalParaPagar(total));
 
                     System.out.println("Total: R$ " + (menuCompras.getTotal()));
@@ -222,6 +235,7 @@ public class Room {
                     Student student = new Student();
 
                     total = (cupEfect) * (menuCompras.getTotal() + (movie.getPrice() * quant));
+
                     menuCompras.setTotal(student.totalParaPagar(total));
 
                     System.out.println("Total: R$ " + (menuCompras.getTotal()));

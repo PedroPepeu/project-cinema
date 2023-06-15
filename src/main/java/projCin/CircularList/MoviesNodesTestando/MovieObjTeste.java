@@ -6,6 +6,7 @@ public class MovieObjTeste implements Comparable <MovieObjTeste> {
     private String summary;
     private int duration; // minutes
     private String ID;
+   
 
     public MovieObjTeste(String name, String summary, int duration, String ID) {
         this.name = name;
@@ -51,8 +52,9 @@ public class MovieObjTeste implements Comparable <MovieObjTeste> {
         ID = iD;
     }
 
+    
     public String toString() {
-        return "|nome do filme: " + name + ", resumo do filme: " + summary + ", duração do filme: " + duration + ", ID do filme: " + ID + "|";
+        return "|NOME: " + name + ", RESUMO: " + summary + ", DURAÇÃO: " + duration + ", ID: " + ID + "|";
     }
 
     public int compareTo(MovieObjTeste movie) {

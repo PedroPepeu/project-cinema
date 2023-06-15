@@ -1,6 +1,8 @@
 package projCin.CircularList.MoviesNodesTestando;
 
 import projCin.PadraoDeProjeto.Observer;
+
+
 import java.util.Scanner;
 
 public class MovieCLLTeste implements Observer {
@@ -51,7 +53,7 @@ public class MovieCLLTeste implements Observer {
         }
     }
 
-    public boolean isEmpty() {//n tem q checar?
+    public boolean isEmpty() {
         return this.primeiro == null && this.ultimo == null;
     }
 
@@ -216,11 +218,13 @@ public class MovieCLLTeste implements Observer {
 
     public void exibir() {
         MovieNodeTeste aux;
-        
+       
+
         if (isEmpty()) {
             System.out.println("SEM FILMES NO CARTAZ");
         } else {
             aux = this.primeiro;
+           
             do {
 
                 System.out.println(aux.getInfo()); 

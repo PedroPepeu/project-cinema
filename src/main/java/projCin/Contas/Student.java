@@ -10,6 +10,9 @@ public class Student extends User{
         this.isStudent = isStudent;
     }
 
+    public Student() {
+    }
+
     public boolean getIsStudent() {
         return isStudent;
     }

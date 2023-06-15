@@ -121,9 +121,7 @@ public class db {
             pw.close();
         
         } catch (Exception e) {}
-        
-        sc1.close();
-        sc.close();
+    
     }
     
 
@@ -193,8 +191,6 @@ public class db {
         
         } catch (Exception e) {}
         
-        sc1.close();
-        sc.close();
     }
 
 

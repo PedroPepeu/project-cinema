@@ -10,6 +10,9 @@ public class Critical extends User {
         this.origin = origin;
     }
 
+    public Critical() {
+    }
+
     public String getOrigin() {
         return origin;
     }

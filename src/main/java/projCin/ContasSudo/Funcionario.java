@@ -212,7 +212,6 @@ public class Funcionario extends Base implements Interface { //na minha visão, 
                 dataB.insert(user, CPF, password, age, gender, email, creditCardName, creditCardNum, cardNumberVerify);
                 break;
         }
-        sc.close();
 
     }
 

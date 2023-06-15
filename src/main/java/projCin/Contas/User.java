@@ -30,6 +30,9 @@ public class User {
         this.creditCardVerify = creditCardVerify;
     }
 
+    public User() {
+    }
+
     public String getUser() {
         return user;
     }

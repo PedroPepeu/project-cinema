@@ -1,15 +1,25 @@
 package projCin.Main;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import projCin.CircularList.MoviesNodesTestando.MovieCLLTeste;
+import projCin.ComidaCompras.Buy;
+import projCin.ComidaCompras.Food;
 import projCin.ContasSudo.ADM;
 import projCin.ContasSudo.Funcionario;
+import projCin.Salas.Movie;
+import projCin.Salas.Room;
+
 
 public class TheTrueSaladao {
     public static void main(String[] args) {
         MovieCLLTeste filmes = new MovieCLLTeste();
-
+        
         areaInicial(filmes);
 
     }
@@ -106,15 +116,15 @@ public class TheTrueSaladao {
                             filmes.editar(admin.alterarFilme());
                             break;
 
-                    case 4: //IMPLEMENTAR ADICIONAR USER
+                    case 4: admin.adicionarUser();;
 
                             break;
 
-                    case 5: //IMPLEMENTAR ALTERAR USER
+                    case 5: admin.alterarUser(); //nao esta funcionando muito bem, ver depois
 
                             break;
 
-                    case 6: //IMPLEMENTAR EXCLUIR USER
+                    case 6: admin.excluirUser();
 
                             break;
 
@@ -162,10 +172,10 @@ public class TheTrueSaladao {
                     case 3: filmes.editar(funcionario.alterarFilme());
                             break;
 
-                    case 4: //IMPLEMENTAR ADICIONAR USER
+                    case 4: funcionario.adicionarUser();
                             break;
 
-                    case 5: //IMPLEMENTAR ALTERAR USER
+                    case 5: funcionario.alterarUser(); //nao esta funcionando muito bem, ver depois
                             break;
 
                     case 0: areaInicial(filmes);        
@@ -179,19 +189,102 @@ public class TheTrueSaladao {
     }
 
     public static void executeUser(MovieCLLTeste filmes) {
+        Scanner input = new Scanner(System.in);
 
-        if (filmes.getControleDasAtualizacoes() != 0) {
-            System.out.println("\n\nNovas notificações!-->");
+        Buy menuCompras = new Buy();
+        Room menuSalas = new Room();
+        Movie movie = new Movie();
+        Food menuComida = new Food();
+
+        String CPF;
+        int decisao;
+
+        System.out.println("Digite seu CPF: ");
+        CPF = input.next();
+
+        if (verificarUsuario(CPF)) {
+
+                if (filmes.getControleDasAtualizacoes() != 0) {
+            System.out.println("\nNovas notificações!-->");
             filmes.mostrarUpdatesParaUser();
         }  
+               
 
-        //IMPLEMENTAR O RESTANTE DO USER
-        System.out.println("\n\nRodaria o que hoje é a main(e agr: UserPath)");
+                menuCompras.menuOptions();
+                decisao = input.nextInt();
 
-        UserPath.userAcess();
+                comprar(decisao, filmes, menuCompras, movie, menuComida, menuSalas);
+                //UserPath.userAcess();
+                
+        } else {
+                System.out.println("cpf inválido, tente novamente");
+                areaInicial(filmes);
+        }
         
+    }
+
+    public static void comprar(int decisao, MovieCLLTeste filmes, Buy menuCompras, Movie movie, Food menuComida, Room menuSalas) {
+        Scanner input = new Scanner(System.in);
+
+        int decisaoDois;
         
+        int escolhaComida;
+
+    
+
+                switch (decisao) {
+
+                    case 1: 
+                    //decidiu comprar ingressos
+                    menuSalas.sessions(filmes, menuComida, movie);
+                    
+                       break;
+                    case 2:
+                    //decidiu comprar comida
+                    menuComida.menuPresentation();
+                    escolhaComida = input.nextInt();
+                    menuComida.compra(escolhaComida);
+ 
+                    menuCompras.menuOptions();
+                    decisaoDois = input.nextInt();
+                    comprar(decisaoDois, filmes, menuCompras, movie, menuComida, menuSalas);
+                    
+                    break;
+
+                    case 3: System.out.println("Voltando para o menu...");
+                            areaInicial(filmes);
+                            break;
         
-        
+                    default: System.out.println("Opção inválida!");
+                    
+                }
+
+            
+    }
+
+    public static boolean verificarUsuario(String cpf) {
+        String nomeArquivo = "./src/main/java/projCin/DataBaseUsers/Database.txt";
+
+        // Ler os dados do arquivo para uma lista
+        List<String> linhas = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo))) {
+            String linha; 
+            while ((linha = reader.readLine()) != null) {
+                linhas.add(linha);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        // Verificar se o CPF está presente nos dados
+        for (String linha : linhas) {
+            String[] dados = linha.split(",");
+            if (dados.length > 0 && dados[0].trim().equals(cpf)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

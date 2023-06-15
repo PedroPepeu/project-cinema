@@ -18,7 +18,7 @@ public class VendasException extends Exception {
     public VendasException(LocalTime horarioDoFilmeMin, LocalTime horarioDoFilmeMax) {
         this.horarioDoFilmeMin = horarioDoFilmeMin;
         this.horarioDoFilmeMax = horarioDoFilmeMax;
-        this.erroUm = "Esse filme começa de "+horarioDoFilmeMin+" e termina de "+horarioDoFilmeMax+" tente novamente mais tarde.";
+        this.erroUm = "Horário não disponivel para este filme! tente novamente mais tarde.";
         //throw new VendasException desse erro está sendo executado e funcionando na classe: Room | linha 118
     }
 

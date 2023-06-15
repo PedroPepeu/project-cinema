@@ -124,7 +124,7 @@ public class MovieTime {
         if (avaliable) {
             escolha();
         } else {
-            System.out.println("Nao disponivel para este numero de tickets"); //fazer exception aqui?
+            System.out.println("Nao disponivel para este numero de tickets"); 
         }
         // terminou de escolher a cadeira
 
@@ -165,12 +165,13 @@ public class MovieTime {
                 throw new VendasException(line - 1, column - 1);
 
             } else {
-                // salvar lugares
+                 System.out.println("Compra realizada!");
             }
         } catch (VendasException e) {
             System.out.println(e.getErroDois()); //erro de se a pessoa escolher uma cadeira que já foi escolhida
         }
 
+        
     }
 
     public boolean free(int status) {
